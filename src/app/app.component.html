@@ -23,6 +23,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Iniciar Sesión</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink = "/registrarse">Registro</a> <!-- href="#" -->
+            </li>
           </ul>
 
           <ul>
@@ -36,7 +39,9 @@
     </div>
   </div>
 
-  <div class="row">
+  <router-outlet></router-outlet>
+
+  <div *ngIf = "portada" class="row">
     <div class="col-md-8 well">
       <div class="seccion"><b>Sección principal</b></div>
       <div class="row">
@@ -65,9 +70,8 @@
       </footer>
     </div>
   </div>
+
+<!-- Termina el div class = "container fluid" -->
+
 </div>
 
-
-
-
-<router-outlet></router-outlet>
