@@ -3,7 +3,7 @@
 
 
 nav {
-    background-color: #4E53DB;
+    background-color: #212121;
 }
 
 /***************************  GENERAL UTILITIES  *****************************/ 
@@ -15,7 +15,7 @@ a, p, h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', 'Sans-serif';
     font-size: 1.5rem;
     font-weight: 700;
-    color: #BDB9FF;
+    color: #F6C40F;
     text-decoration: none;
     transition: all .1s;
 }   
@@ -26,10 +26,10 @@ a {
 /***************************  NAVBAR  *****************************/ 
 
 .navbtns a:nth-child(1) {
-    color: #4E53DB;
-    background-color: #BDB9FF;
+    color: #212121;
+    background-color: #F6C40F;
 }
 a:hover , .navbtns a:hover {
-    color: #4E53DB;
+    color: #212121;
     background-color: #fff;
 }
