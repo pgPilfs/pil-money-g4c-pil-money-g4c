@@ -1,0 +1,42 @@
+[33mcommit 7d1fe1c93e5df484fdc1267170e79e19574875a9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: c97011a a84ce7e
+Author: Maxi Cappelletti <kape2254@gmail.com>
+Date:   Sun Jun 27 08:38:49 2021 -0300
+
+    Merge branch 'main' of https://github.com/pgPilfs/pil-money-g4c-pil-money-g4c
+
+[33mcommit c97011aca576492ed1a116d83ed9c3320235a6aa[m
+Author: Maxi Cappelletti <kape2254@gmail.com>
+Date:   Sun Jun 27 08:36:55 2021 -0300
+
+    Header
+
+[33mcommit a84ce7effed934b2475552bc4252e63e4f9ae0f3[m[33m ([m[1;31morigin/Lauti[m[33m)[m
+Author: Lauti Carracedo <lauti.carracedo@hotmail.com>
+Date:   Tue Jun 8 17:29:24 2021 -0300
+
+    intento pagina web (tarea)
+
+[33mcommit a5527ccfdf3375a9aa48cbb34d4d9fc03e649e8d[m
+Author: Lauti Carracedo <lauti.carracedo@hotmail.com>
+Date:   Tue Jun 8 12:05:03 2021 -0300
+
+    cambio titulo del app.component.ts para probar
+
+[33mcommit e3ef0c74e0305ec9fbece30bac3d55087a38a0c1[m
+Author: Maxi Cappelletti <kape2254@gmail.com>
+Date:   Mon Jun 7 17:55:34 2021 -0300
+
+    c
+
+[33mcommit acfab642801c992227a29c56b92f0a40d797851b[m
+Author: CharlesXvr <thestuntman92@gmail.com>
+Date:   Mon Jun 7 13:35:40 2021 -0300
+
+    botstrap5 installed
+
+[33mcommit c713eec91030faf5cf2e3ccb854a0c4df67f85d2[m
+Author: lucasmartin007 <luesma102938475@hotmail.com>
+Date:   Thu Jun 3 20:24:22 2021 -0300
+
+    initial commit
