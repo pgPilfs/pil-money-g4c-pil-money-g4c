@@ -1,19 +1,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,900&display=swap');
 
-
+* {
+    --coloramarillo: #F6C40F;
+    --colornegro: #242323;  
+}
 nav {
-    background-color: #212121;
+    background-color: #242323;
+    height: 80px;
 }
 
 /***************************  GENERAL UTILITIES  *****************************/ 
 
 a, p, h1, h2, h3, h4, h5, h6 {
-    margin: .3rem;
+    margin: .2rem;
     padding: .4rem;
     text-transform: uppercase;
     font-family: 'Lato', 'Sans-serif';
-    font-size: 1.5rem;
+    font-size: 0.9em;
     font-weight: 700;
     color: #F6C40F;
     text-decoration: none;
@@ -23,13 +27,50 @@ a {
     border-radius: .5rem;
 }
 
+ul ,li , a {
+text-decoration: none;
+display: flex;
+
+}
+
 /***************************  NAVBAR  *****************************/ 
 
 .navbtns a:nth-child(1) {
-    color: #212121;
-    background-color: #F6C40F;
+    color: #f8e008;
+    background-color: #242323;
 }
 a:hover , .navbtns a:hover {
     color: #212121;
     background-color: #fff;
+}
+.btn-1 , .btn-2 {
+  margin-left: 15px;
+background-color: #F6C40F;
+color: #242323;
+}
+
+.button-form {
+    background-color: var(--coloramarillo);
+    color: var(--colornegro);  
+    border:1px solid #F6C40F;
+    font-weight: 600;
+}
+.form {
+margin-left: auto;
+}
+
+@media(max-width:900px) {
+.form{
+    display:none;
+}
+
+}
+
+.botons {
+    display: flex;
+    margin-top: -8px;
+}
+ ul.nav-nav {
+ margin-top: 8px;
+ 
 }
