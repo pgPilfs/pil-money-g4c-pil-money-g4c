@@ -1,7 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,900&display=swap');
-
-
 nav {
     background-color: #212121;
 }
@@ -12,10 +9,9 @@ a, p, h1, h2, h3, h4, h5, h6 {
     margin: .3rem;
     padding: .4rem;
     text-transform: uppercase;
-    font-family: 'Lato', 'Sans-serif';
     font-size: 1.5rem;
     font-weight: 700;
-    color: #F6C40F;
+    color: #ff8c00;
     text-decoration: none;
     transition: all .1s;
 }   
@@ -27,9 +23,9 @@ a {
 
 .navbtns a:nth-child(1) {
     color: #212121;
-    background-color: #F6C40F;
+    background-color: #ff8c00;
 }
 a:hover , .navbtns a:hover {
     color: #212121;
-    background-color: #fff;
+    background-color: #FB8F07;
 }
