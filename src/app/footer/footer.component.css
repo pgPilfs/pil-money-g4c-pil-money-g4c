@@ -1,0 +1,17 @@
+#footer {
+    background-color: #212121;
+}
+.logo p{
+    color: #ff8c00;
+    font-weight: bolder;
+}
+.button {
+    background-color: #ff8c00;
+    transition: all .2s ease;
+}
+.button:hover, .button:focus {
+    box-shadow: 0 0 1rem #ff8c00;
+}
+.navmenu p {
+    color: #fff;
+}
