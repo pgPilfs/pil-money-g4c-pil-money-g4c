@@ -1,7 +1,6 @@
-p, h1 {
-    color: #000;
-}
-
 .hero {
     background-color: #e9ecef;
+}
+.hero p, h1 {
+    color: #000;
 }
