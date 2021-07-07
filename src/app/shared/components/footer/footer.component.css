@@ -1,3 +1,8 @@
+
+a {
+    color: #fff;
+}
+
 #footer {
     background-color: #212121;
 }
@@ -13,12 +18,27 @@
 .button:hover, .button:focus {
     box-shadow: 0 0 1rem #ff8c00;
 }
+.navmenu div p:nth-child(1) {
+    font-weight: bolder;
+}
 .navmenu a {
     text-decoration: none;
 }
 .navmenu a:hover {
     color: #ff8c00;
 }
+
+.icons img {
+    padding: .2rem .4rem;
+    width: 5rem;
+    height: auto;
+    filter: grayscale(1);
+    transition: all .2s ease;
+}
+.icons img:hover {
+    filter: grayscale(0);
+}
+
 .disclaimer {
     text-align: center;
 }

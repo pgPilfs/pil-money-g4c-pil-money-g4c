@@ -1,13 +1,15 @@
 
 .container {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: #e6e6e6;
     border-radius: 2rem;
 }
-p {
+p, label {
+    color: #000;
     font-weight: bolder;
     text-align: center;
 }
