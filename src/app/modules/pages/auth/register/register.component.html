@@ -1,1 +1,90 @@
-<p>register works!</p>
+<form role="form">
+<div class="login container p-3">
+    <div class="row">
+        <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+            <p class="h2">REGISTRARTE</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-6 p-2 m-2">
+            <label for="email" class="form-label h4 px-4">Nombre</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-6 p-2 m-2">
+            <label for="email" class="form-label h4 px-4">Apellido</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-6 p-2 m-2">
+            <label for="email" class="form-label h4 px-4">DNI</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-6 p-2 m-2">
+            <label for="email" class="form-label h4 px-4">Foto de su DNI</label>
+            <form name="subida-imagenes" type="POST" enctype="multipart/formdata" >
+                <input type="file" name="imagen1" />
+                <input type="file" name="imagen2" />
+            </form>
+        </div>
+        
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-6 p-2 m-2">
+            <label for="email" class="form-label h4 px-4">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <div id="disclaimer" class="text-dark form-text">
+                <p class="d-inline-flex m-2 px-4 bd-highlight justify-content-center">Te asignaremos automáticamente un nombre de usuario con tu correo.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row p-2 justify-content-center">
+        <div class="col-6 mb-3 ">
+            <label for="exampleInputPassword1" class="form-label px-4 h3">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+    </div>
+
+    <div class="row p-2 justify-content-center">
+        <div class="col-6 mb-3 ">
+            <label for="exampleInputPassword1" class="form-label px-4 h3">Repita su contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+            <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">REGISTRARME</button>
+        </div>
+    </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¡Se realizó el registro con éxito!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="button" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+</form>
