@@ -8,13 +8,19 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+import { RegistroComponent } from './components/registro/registro.component';
+import { IniciosesionComponent } from './components/iniciosesion/iniciosesion.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegistroComponent,
+    IniciosesionComponent
   ],
   imports: [
     BrowserModule,
