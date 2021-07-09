@@ -2,5 +2,6 @@ h1, p {
     color: #000;
 }
 .not-found {
+    padding: 10rem 0;
     background-color: #e9ecef;
 }
