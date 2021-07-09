@@ -1,12 +1,14 @@
 .hero {
     background-color: #e9ecef;
 } 
+
 .hero .slide * {
     color: #fff;
 }
 .hero p, h1, h2, h3, label {
     color: #000;
 }
+
 
 #slider {
     display: flex;
@@ -59,6 +61,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+
  }
  #slides .slide-content {
     width: 100%;
@@ -94,6 +97,7 @@
    background-color: #FB8F07;
    margin:  0 0;
    text-align: center;
+
  }
  #bullets label {
     display: inline-block;
