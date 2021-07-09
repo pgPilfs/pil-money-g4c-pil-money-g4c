@@ -4,10 +4,12 @@ import { IniciosesionComponent } from './components/iniciosesion/iniciosesion.co
 
 //Componentes
 import { RegistroComponent } from './components/registro/registro.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path:"registrarse", component:RegistroComponent },
-  { path:"iniciarsesion", component:IniciosesionComponent },
+  { path:"iniciarsesion", component:LoginComponent },
 ];
 
 @NgModule({

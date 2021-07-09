@@ -1,10 +1,14 @@
 
+.login{
+    color:black;
+}
+
 .container {
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #e6e6e6;
+    /* background-color: #bdbdbd; */
     border-radius: 2rem;
 }
 p {
@@ -19,4 +23,8 @@ input {
 input:focus {
     border-color: #f89f33;
     box-shadow: 0 0rem .5rem #f89f33;
+}
+
+.l_negro{
+    color:black;
 }
