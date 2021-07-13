@@ -1,0 +1,14 @@
+.l_negro{
+    color:black;
+}
+
+.div_comp_servicio{
+    width:50%;
+    border:1px solid black;
+    border-radius:5px;
+
+    padding:3px;
+
+    margin:2px;
+}
+

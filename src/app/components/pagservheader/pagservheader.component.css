@@ -1,0 +1,40 @@
+
+nav {
+    background-color: #212121;
+}
+
+/***************************  GENERAL UTILITIES  *****************************/ 
+
+a, p, h1, h2, h3, h4, h5, h6 {
+    margin: .3rem;
+    padding: .4rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ff8c00;
+    text-decoration: none;
+    transition: all .1s;
+}   
+a {
+    border-radius: .5rem;
+}
+
+/***************************  NAVBAR  *****************************/ 
+
+.bot_seleccionado {
+    font-size: 1.2rem;
+    color: #212121;
+    background-color: #ff8c00;
+}
+a:hover , .navbtns a:hover {
+    color: #212121;
+    background-color: #FB8F07;
+}
+.navbtns .bot_seleccionado:hover {
+    color: #fff;
+    background-color: #ff8c00;
+}
+
+/* .logo h1 {
+    font-size: 2rem;
+} */

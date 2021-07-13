@@ -1,0 +1,23 @@
+.l_negro{
+    color:black;
+}
+
+.bot_pagar{
+    background-color:orange;
+    color:black;
+}
+
+.bot_pagar:hover{
+    background-color:rgb(107, 70, 0);
+    color:rgb(247, 247, 247);
+}
+
+.div_desc_servicio{
+    width:50%;
+    border:1px solid black;
+    border-radius:5px;
+
+    padding:3px;
+
+    margin:2px;
+}
