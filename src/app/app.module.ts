@@ -10,6 +10,10 @@ import { RegisterComponent } from './register/register.component';
 
 import { RegistroComponent } from './components/registro/registro.component';
 import { IniciosesionComponent } from './components/iniciosesion/iniciosesion.component';
+import { PagservicioComponent } from './components/pagservicio/pagservicio.component';
+import { PagservheaderComponent } from './components/pagservheader/pagservheader.component';
+import { DescpagservicioComponent } from './components/descpagservicio/descpagservicio.component';
+import { ComppagservicioComponent } from './components/comppagservicio/comppagservicio.component';
 
 
 @NgModule({
@@ -20,7 +24,11 @@ import { IniciosesionComponent } from './components/iniciosesion/iniciosesion.co
     LoginComponent,
     RegisterComponent,
     RegistroComponent,
-    IniciosesionComponent
+    IniciosesionComponent,
+    PagservicioComponent,
+    PagservheaderComponent,
+    DescpagservicioComponent,
+    ComppagservicioComponent
   ],
   imports: [
     BrowserModule,
