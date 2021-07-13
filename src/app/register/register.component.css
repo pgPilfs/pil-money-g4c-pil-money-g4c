@@ -1,0 +1,30 @@
+
+.login{
+    color:black;
+}
+
+.container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: #bdbdbd; */
+    border-radius: 2rem;
+}
+p {
+    font-weight: bolder;
+    text-align: center;
+}
+input {
+    border-color: #FB8F07;
+    border-radius: 4rem;
+    transition: all .3s ease;
+}
+input:focus {
+    border-color: #f89f33;
+    box-shadow: 0 0rem .5rem #f89f33;
+}
+
+.l_negro{
+    color:black;
+}

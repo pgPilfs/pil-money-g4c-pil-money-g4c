@@ -21,20 +21,32 @@ a {
 
 /***************************  NAVBAR  *****************************/ 
 
-.navbtns a:nth-child(1) {
+/* .navbtns a:nth-child(1) {
     font-size: 1.2rem;
     color: #212121;
     background-color: #ff8c00;
-}
+} */
 a:hover , .navbtns a:hover {
     color: #212121;
     background-color: #FB8F07;
 }
-.navbtns a:hover:nth-child(1) {
+/* .navbtns a:hover:nth-child(1) {
     color: #fff;
     background-color: #ff8c00;
-}
+} */
 
 .logo h1 {
     font-size: 2rem;
+}
+
+/**/
+
+.bot_seleccionado {
+    font-size: 1.2rem;
+    color: #212121;
+    background-color: #ff8c00;
+}
+.navbtns .bot_seleccionado:hover, .action-btns .bot_seleccionado:hover {
+    color: #fff;
+    background-color: #ff8c00;
 }

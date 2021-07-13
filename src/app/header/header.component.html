@@ -3,7 +3,7 @@
         <div class="container">
 
             <div class="navbtns">
-                <a class="" href="#">Home</a>
+                <a class="" routerLink = "/" routerLinkActive = "bot_seleccionado" [routerLinkActiveOptions] = "{exact:true}">Home</a>
                 <a href="#">About</a>
                 <a href="#">Contact</a>
             </div>
@@ -11,8 +11,8 @@
                 <h1>APPO!</h1>
             </div>
             <div class="action-btns">
-                <a routerLink = "/iniciarsesion">Log-in</a>
-                <a routerLink = "/registrarse">Sign-up</a>
+                <a routerLink = "/iniciarsesion" routerLinkActive = "bot_seleccionado">Log-in</a>
+                <a routerLink = "/registrarse" routerLinkActive = "bot_seleccionado">Sign-up</a>
             </div>
         </div>
     </nav>
