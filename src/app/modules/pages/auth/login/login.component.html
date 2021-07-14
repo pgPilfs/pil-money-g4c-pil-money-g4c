@@ -1,35 +1,65 @@
+<div>
+    <form name="formLogin" [formGroup]="formLogin" (submit)="send()">
+        <div class="login container p-3">
+            <div class="row">
+                <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                    <p class="h2">INGRESO</p>
+                </div>
+            </div>
 
-<div class="login container p-3">
-    <div class="row">
-        <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-            <p class="h2">INGRESO</p>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-6 p-2 m-2">
-            <label for="email" class="form-label h4 px-4">Nombre de usuario o correo electrónico</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-            <div id="disclaimer" class="text-dark form-text">
-                <p class="d-inline-flex m-2 px-4 bd-highlight justify-content-center">Nosotros nunca compartiremos tu información con alguien más.</p>
+            <!--Campo correo-->
+
+            <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="email" class="form-label h4 px-4">Correo electronico</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        formControlName="email">
+                        <div id="disclaimer" class="text-dark form-text">
+                            <span class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center"
+                            *ngIf="formLogin.controls.email.errors && formLogin.controls.email.errors.required">
+                            ¡Dato requerido!
+                        </span>
+                        </div>
+                </div>
+            </div>
+
+            <!--Campo password-->
+
+            <div class="row p-2 justify-content-center">
+                <div class="col-6 mb-3 ">
+                    <label for="exampleInputPassword1" class="form-label px-4 h3">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+                    <div id="disclaimer" class="text-dark form-text">
+                        <span class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center"
+                            *ngIf="formLogin.controls.password.errors && formLogin.controls.password.errors.required">
+                            ¡Dato requerido!
+                        </span>
+                    </div>
+                    <p></p>
+                    <a class="d-inline-flex p-2 bd-highlight justify-content-center px-4 text-center" href="#">¿Olvidó
+                        su
+                        contraseña?</a>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                    <a [routerLink]="['/wallet']">
+                        <button [disabled]="formLogin.invalid" type="submit" class="button">
+                            CONTINUAR
+                        </button>
+                    </a>
+
+
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row p-2 justify-content-center">
-        <div class="col-6 mb-3 ">
-            <label for="exampleInputPassword1" class="form-label px-4 h3">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-            <a class="d-inline-flex p-2 bd-highlight justify-content-center px-4 text-center" href="#">¿Olvidó su contraseña?</a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-            <button type="button" class="button">
-                <div class="action-btns">
-                    <a [routerLink]="['/wallet']">CONTINUAR</a>
-                </div>  
-            </button>
+    </form>
+</div>
 
-            
-        </div>
-    </div>
+<div>
+    Valido: {{ formLogin.valid | json }}
 </div>

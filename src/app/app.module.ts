@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { HeaderModule } from './shared/components/header/header.module';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { HeaderModule } from './shared/components/header/header.module';
     BrowserModule,
     FooterModule,
     AppRoutingModule,
-    HeaderModule
+    HeaderModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
