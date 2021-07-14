@@ -128,3 +128,25 @@
        margin: 0 auto;
     }
  }
+
+ #img1{
+    text-align: center;
+ }
+
+
+
+ p{
+    color: black;
+ }
+
+ h5{
+    color: black;
+ }
+
+ .row{
+    padding-bottom: 15px;
+ }
+
+ #sectionInfo{
+    height: 300px;
+ }
