@@ -7,8 +7,9 @@
                 <p class="h1">APPO!</p>
             </div>
             <div class="col">
-                <button type="button" class="button">CREÁ TU CUENTA</button>
-
+                <a [routerLink]="['/register']">
+                    <button type="button" class="button">CREÁ TU CUENTA</button> 
+                </a>
             </div>
         </div>
 
@@ -23,7 +24,7 @@
                     <a href="#">Preguntas Frecuentes</a>
                 </p>
                 <p>
-                    <a href="#">Contacto</a>
+                    <a [routerLink]="['/contact']">Contacto</a>
                 </p>
             </div>
             <div class="col-3">
