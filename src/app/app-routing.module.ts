@@ -9,6 +9,7 @@ const routes: Routes = [
  { path: 'login', loadChildren: () => import('./modules/pages/auth/login/login.module').then(m => m.LoginModule) },
  { path: 'wallet', loadChildren: () => import('./modules/pages/wallet/wallet.module').then(m => m.WalletModule) },
  { path: 'faq', loadChildren: () => import('./modules/pages/faq/faq.module').then(m => m.FaqModule) },
+ { path: 'transfer', loadChildren: () => import('./modules/pages/wallet/transfer/transfer.module').then(m => m.TransferModule) },
  { path: '**', loadChildren: () => import('./modules/pages/not-found/not-found.module').then(m => m.NotFoundModule) }];
 
 @NgModule({

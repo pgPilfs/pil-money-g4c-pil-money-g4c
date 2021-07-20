@@ -3,12 +3,12 @@
         <div class="container">
 
             <div class="navbtns">
-                <a>INICIO</a>
+                <a [routerLink]="['/wallet']">INICIO</a>
                 <!--serv_activo?'bot_seleccionado':''-->
                 <a>CUENTAS</a>
-                <a>TRANSFERENCIAS</a>
+                <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
                 <a>PAGAR SERVICIOS</a>
-                <a>salir</a>
+                <a [routerLink]="['/home']">SALIR</a>
             </div>
         </div>
     </nav>
