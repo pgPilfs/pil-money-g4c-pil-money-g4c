@@ -1,0 +1,70 @@
+<p>ingreso-money works!</p>
+
+<header>
+    <nav id="navmenu" class="navbar">
+        <div class="container">
+
+            <div class="navbtns">
+                <a [routerLink]="['/wallet']">INICIO</a>
+                <a>CUENTAS</a>
+                <a [routerLink]="['/ingresoMoneyer']">ingresoMoneyERENCIAS</a>
+                <a>PAGAR SERVICIOS</a>
+                <a [routerLink]="['/home']">SALIR</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<br/>
+
+<form role="form">
+    <div class="login container p-3">
+        <div class="row">
+            <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                <p class="h2">¿COMO QUERES INGRESAR DINERO?</p>
+            </div>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Transferencia bancaria
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">
+              Tarjeta de débito
+            </label>
+          </div>
+
+        <p>Copia tu CVU o alias para poder dinero desde otra cuenta.</p>
+
+        <div class="card">
+            <div class="card-body">
+              <p>CVU</p>
+              <p>00000654608460633684</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+                <p>Alias</p>
+                <p>hola.esto.es.un.alias</p>
+            </div>
+          </div>
+    
+        <div class="row justify-content-center">
+            <div class="col-6 p-2 m-2">
+                <label for="ingresoMoney" class="form-label h4 px-4">Elegí el monto a ingresar</label>
+                <input type="ingresoMoney" class="form-control" id="ingresoMoney" aria-describedby="ingresoMoneyHelp">
+            </div>
+        </div>
+    
+        <div class="row justify-content-center">
+            <div class="col-6 p-2 m-2">
+                <h4>DATOS DE LA TARJETA DE DÉBITO</h4>
+                <label for="ingresoMoney" class="form-label h4 px-4">Número de tarjeta</label>
+                <input type="ingresoMoney" class="form-control" id="ingresoMoney" aria-describedby="ingresoMoneyHelp">
+            </div>
+        </div>

@@ -10,6 +10,7 @@ const routes: Routes = [
  { path: 'wallet', loadChildren: () => import('./modules/pages/wallet/wallet.module').then(m => m.WalletModule) },
  { path: 'faq', loadChildren: () => import('./modules/pages/faq/faq.module').then(m => m.FaqModule) },
  { path: 'transfer', loadChildren: () => import('./modules/pages/wallet/transfer/transfer.module').then(m => m.TransferModule) },
+ { path: 'ingreso-money', loadChildren: () => import('./modules/pages/wallet/ingreso-money/ingreso-money.module').then(m => m.IngresoMoneyModule) },
  { path: '**', loadChildren: () => import('./modules/pages/not-found/not-found.module').then(m => m.NotFoundModule) }];
 
 @NgModule({
