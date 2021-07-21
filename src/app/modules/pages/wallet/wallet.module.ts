@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { WalletRoutingModule } from './wallet-routing.module';
 import { WalletComponent } from './wallet.component';
 import { TransferModule } from './transfer/transfer.module';
+import { IngresoMoneyModule } from './ingreso-money/ingreso-money.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { TransferModule } from './transfer/transfer.module';
   imports: [
     CommonModule,
     WalletRoutingModule,
-    TransferModule
+    TransferModule,
+    IngresoMoneyModule
   ]
 })
 

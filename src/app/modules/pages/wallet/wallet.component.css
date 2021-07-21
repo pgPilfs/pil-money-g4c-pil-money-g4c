@@ -55,4 +55,9 @@ body{
 .card{
     border-radius: 5px;
     border: solid 1px;
+    
+}
+
+.button{
+    margin-left: 10px;
 }
