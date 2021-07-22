@@ -1,5 +1,5 @@
 <div>
-    <form name="formLogin" [formGroup]="formLogin" (submit)="send()">
+    <form autocomplete="off" name="formLogin" [formGroup]="formLogin" (ngSubmit)="guardar()">
         <div class="login container p-3">
             <div class="row">
                 <div class="d-inline-flex p-2 bd-highlight justify-content-center">
@@ -12,36 +12,34 @@
             <div class="row justify-content-center">
                 <div class="col-6 p-2 m-2">
                     <label for="email" class="form-label h4 px-4">Correo electronico</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                        formControlName="email">
-                        <div id="disclaimer" class="text-dark form-text">
-                            <span class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center"
-                            *ngIf="formLogin.controls.email.errors && formLogin.controls.email.errors.required">
-                            ¡Dato requerido!
-                        </span>
-                        </div>
+                    <input type="email" class="form-control" id="email" placeholder="Correo electrónico"
+                        aria-describedby="emailHelp" formControlName="email" [class.is-invalid]="correoNoValido">
+                    <small *ngIf="correoNoValido" style="color: red"
+                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un correo
+                        electronico válido</small>
+
                 </div>
             </div>
 
             <!--Campo password-->
 
-            <div class="row p-2 justify-content-center">
-                <div class="col-6 mb-3 ">
+
+            <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
                     <label for="exampleInputPassword1" class="form-label px-4 h3">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
-                    <div id="disclaimer" class="text-dark form-text">
-                        <span class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center"
-                            *ngIf="formLogin.controls.password.errors && formLogin.controls.password.errors.required">
-                            ¡Dato requerido!
-                        </span>
-                    </div>
+                    <input type="password" class="form-control" placeholder="Contraseña" id="exampleInputPassword1"
+                        formControlName="password" [class.is-invalid]="passwordNoValido">
+                    <small *ngIf="passwordNoValido" style="color: red"
+                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese una
+                        contraseña válida
+                    </small>
+
                     <p></p>
                     <a class="d-inline-flex p-2 bd-highlight justify-content-center px-4 text-center" href="#">¿Olvidó
                         su
                         contraseña?</a>
                 </div>
             </div>
-
 
 
 
@@ -62,4 +60,32 @@
 
 <div>
     Valido: {{ formLogin.valid | json }}
+    Estado: {{ formLogin.status }}
+    Estado: {{ formLogin.value | json }}
 </div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
