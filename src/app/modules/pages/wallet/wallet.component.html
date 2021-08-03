@@ -7,7 +7,7 @@
                 <!--serv_activo?'bot_seleccionado':''-->
                 <a>CUENTAS</a>
                 <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
-                <a>PAGAR SERVICIOS</a>
+                <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
                 <a [routerLink]="['/home']">SALIR</a>
             </div>
         </div>
@@ -25,7 +25,9 @@
                 <h4 class="mb-0 mt-0">Hola, Lautaro!</h4> <span>Bienvenido a APPO!</span>
 
                 <div>
-                    <button type="button" class="button w-100 ml-2">Modificar datos de usuario</button>
+                    
+                        <button type="button" class="button w-100 ml-2">
+                            <a [routerLink]="['/not-found']">Modificar datos de usuario</a></button>
                 </div>
             </div>
         </div>
