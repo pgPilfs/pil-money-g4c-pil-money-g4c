@@ -1,0 +1,124 @@
+<header>
+    <nav id="navmenu" class="navbar">
+        <div class="container">
+
+            <div class="navbtns">
+                <a [routerLink]="['/wallet']">INICIO</a>
+                <a>CUENTAS</a>
+                <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
+                <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
+                <a [routerLink]="['/home']">SALIR</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<br/>
+
+<!-- Formulario Filtro de busqueda, se ve cuando la accion es Listado(busqueda/listado)-->
+<form name="FormBusqueda" [formGroup]='FormBusqueda'>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 col-md-2">
+          <label class="col-form-label">Nombre:</label>
+        </div>
+        <div class="col-sm-8 col-md-4">
+          <input type="text" name="Nombre" class="form-control" formControlName="nombreServicio" maxlength="55"/>
+        </div>
+      </div>
+  
+      <hr>
+  
+      <!-- Botones -->
+      <div class="row col-md-2  justify-content-center botones">
+        <button type="button" class="btn btn-primary" (click)="Buscar()">
+              <i class="fas fa-search"> </i> Buscar
+          </button>
+      </div>
+    </div>
+  </form>
+
+
+<!-- Tabla de resutados de busqueda y Paginador-->
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <table class="table table-hover table-sm table-bordered table-striped">
+          <thead>
+            <tr>
+              <th class="text-center">Nombre</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of Items">
+              <td>{{item.nombreServicio | uppercase }}</td>
+              <td class="text-center text-nowrap">
+                <button class="btn btn-sm btn-outline-primary" title="Pagar">
+                    PAGAR
+                      </button>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </div>
+
+<div class="container mt-5">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                Paga tus servicios
+            </div>
+            <div class="card-body">
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" placeholder="Buscar empresas" />
+
+                    <span class="input-group-text border-0">
+                        <i class="bi bi-search"></i>
+                    </span>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                      This is some text within a card body.
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      This is some text within a card body.
+                    </div>
+                  </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <p></p>
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                Historial de pagos
+            </div>
+            <div class="card-body">
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" placeholder="Buscar" />
+
+                    <span class="input-group-text border-0">
+                        <i class="bi bi-search"></i>
+                    </span>
+                </div>
+                <p class="card-text">Pagaste Aguas Cordobesas</p>
+                <p class="card-text">Pagaste Ecogas</p>
+                <p class="card-text">Transferiste dinero</p>
+                <p class="card-text">Transferiste dinero</p>
+                <p class="card-text">Pagaste EPEC</p>
+                <p class="card-text">Pagaste Aguas Cordobesas</p>
+            </div>
+        </div>
+    </div>
+</div>
