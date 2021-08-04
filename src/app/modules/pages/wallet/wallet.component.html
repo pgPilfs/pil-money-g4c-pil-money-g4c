@@ -4,8 +4,17 @@
 
             <div class="navbtns">
                 <a [routerLink]="['/wallet']">INICIO</a>
-                <!--serv_activo?'bot_seleccionado':''-->
-                <a>CUENTAS</a>
+
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    CUENTAS
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
+                    <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
+                    <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
+                </ul>
+
                 <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
                 <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
                 <a [routerLink]="['/home']">SALIR</a>
@@ -25,9 +34,9 @@
                 <h4 class="mb-0 mt-0">Hola, Lautaro!</h4> <span>Bienvenido a APPO!</span>
 
                 <div>
-                    
-                        <button type="button" class="button w-100 ml-2">
-                            <a [routerLink]="['/not-found']">Modificar datos de usuario</a></button>
+
+                    <button type="button" class="button w-100 ml-2">
+                        <a [routerLink]="['/not-found']">Modificar datos de usuario</a></button>
                 </div>
             </div>
         </div>
@@ -84,7 +93,7 @@
                     <p class="card-text">Transferiste dinero</p>
                     <p class="card-text">Transferiste dinero</p>
                     <p class="card-text">Pagaste EPEC</p>
-                    <p class="card-text">Pagaste Aguas Cordobesas</p>   
+                    <p class="card-text">Pagaste Aguas Cordobesas</p>
                 </div>
             </div>
         </div>
@@ -108,4 +117,3 @@
     </div>
 </div>
 <br />
-
