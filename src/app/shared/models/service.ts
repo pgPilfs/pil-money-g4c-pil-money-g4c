@@ -1,4 +1,4 @@
-export interface Service {
+export class Service {
     nombreServicio: string
 }
 
