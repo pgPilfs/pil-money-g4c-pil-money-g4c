@@ -10,9 +10,9 @@ import { ServiciosService } from '@app/shared/services/servicios.service';
   styleUrls: ['./pay-services.component.css']
 })
 export class PayServicesComponent implements OnInit {
-  Titulo = "Servicios";
-  RegistrosTotal: number;
-  Items: Service[] = [];
+
+  Items: Service[] = null;
+  Servicios: Service[] = [];
 
   FormBusqueda: FormGroup;
 
@@ -24,7 +24,7 @@ export class PayServicesComponent implements OnInit {
 
   ngOnInit() {
     this.FormBusqueda = this.formBuilder.group({
-      nombreServicio: ['']
+      Nombre: ['']
     })
 
     this.GetServicios();
@@ -42,7 +42,6 @@ export class PayServicesComponent implements OnInit {
       )
       .subscribe((res: any) => {
         this.Items = res.Items;
-        this.RegistrosTotal = res.RegistrosTotal;
       });
     }
  
