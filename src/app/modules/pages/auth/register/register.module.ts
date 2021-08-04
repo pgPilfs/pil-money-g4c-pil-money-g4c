@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
 import { RegisterRoutingModule } from './register-routing.module';
@@ -13,8 +12,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     RegisterRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
-    BrowserModule
+    FormsModule
   ]
 })
 export class RegisterModule { }
