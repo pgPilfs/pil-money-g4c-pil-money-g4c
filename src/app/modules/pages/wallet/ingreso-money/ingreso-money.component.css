@@ -83,3 +83,7 @@ h4{
     background-color: #ff8c00;
     transition: all .2s ease;
 }
+
+.botones button {
+    margin: 0em 0.5em 0.5em 0em;
+  }
