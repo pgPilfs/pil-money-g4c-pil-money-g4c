@@ -96,7 +96,7 @@
             <div class="row justify-content-center">
                 <div class="col-6 p-2 m-2">
                     <label for="exampleInputPassword1" class="form-label px-4 h3">Repita su contraseña</label>
-                    <input type="password" class="form-control" placeholder="Contraseña" id="exampleInputPassword1"
+                    <input type="password" class="form-control" placeholder="Repita su contraseña" id="exampleInputPassword1"
                         formControlName="password" [class.is-invalid]="passwordNoValido">
                     <small *ngIf="passwordNoValido" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese una
@@ -122,9 +122,10 @@
     </form>
 </div>
 
-<div>
+
+<!-- <div>
     Valido: {{ formRegister.valid | json }}
     Estado: {{ formRegister.status }}
     Estado: {{ formRegister.value | json }}
-</div>
+</div> -->
 
