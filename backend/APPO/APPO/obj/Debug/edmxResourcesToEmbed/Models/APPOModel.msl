@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="APPOModelStoreContainer" CdmEntityContainer="APPOEntities">
+    <EntitySetMapping Name="ComprasMonedas">
+      <EntityTypeMapping TypeName="APPOModel.ComprasMonedas">
+        <MappingFragment StoreEntitySet="ComprasMonedas">
+          <ScalarProperty Name="nro_comp_compra" ColumnName="nro_comp_compra" />
+          <ScalarProperty Name="nombre_cripto" ColumnName="nombre_cripto" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="CVU_compra" ColumnName="CVU_compra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cuentas">
+      <EntityTypeMapping TypeName="APPOModel.Cuentas">
+        <MappingFragment StoreEntitySet="Cuentas">
+          <ScalarProperty Name="CVU" ColumnName="CVU" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="id_tipo_cuenta" ColumnName="id_tipo_cuenta" />
+          <ScalarProperty Name="saldo_actual" ColumnName="saldo_actual" />
+          <ScalarProperty Name="dni_usuario" ColumnName="dni_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IngresosDinero">
+      <EntityTypeMapping TypeName="APPOModel.IngresosDinero">
+        <MappingFragment StoreEntitySet="IngresosDinero">
+          <ScalarProperty Name="id_deposito" ColumnName="id_deposito" />
+          <ScalarProperty Name="nombre_deposito" ColumnName="nombre_deposito" />
+          <ScalarProperty Name="CVU_deposito" ColumnName="CVU_deposito" />
+          <ScalarProperty Name="nro_tarjeta" ColumnName="nro_tarjeta" />
+          <ScalarProperty Name="fecha_venc" ColumnName="fecha_venc" />
+          <ScalarProperty Name="cod_seguridad" ColumnName="cod_seguridad" />
+          <ScalarProperty Name="nombre_titular" ColumnName="nombre_titular" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inversiones">
+      <EntityTypeMapping TypeName="APPOModel.Inversiones">
+        <MappingFragment StoreEntitySet="Inversiones">
+          <ScalarProperty Name="id_inversion" ColumnName="id_inversion" />
+          <ScalarProperty Name="monto_inversion" ColumnName="monto_inversion" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="CVU_inversion" ColumnName="CVU_inversion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PagosServicio">
+      <EntityTypeMapping TypeName="APPOModel.PagosServicio">
+        <MappingFragment StoreEntitySet="PagosServicio">
+          <ScalarProperty Name="nro_comprobante" ColumnName="nro_comprobante" />
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="CVU_pago" ColumnName="CVU_pago" />
+          <ScalarProperty Name="nro_factura" ColumnName="nro_factura" />
+          <ScalarProperty Name="nombre_factura" ColumnName="nombre_factura" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RetirosDinero">
+      <EntityTypeMapping TypeName="APPOModel.RetirosDinero">
+        <MappingFragment StoreEntitySet="RetirosDinero">
+          <ScalarProperty Name="id_retiro" ColumnName="id_retiro" />
+          <ScalarProperty Name="CVU_retiro" ColumnName="CVU_retiro" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicios">
+      <EntityTypeMapping TypeName="APPOModel.Servicios">
+        <MappingFragment StoreEntitySet="Servicios">
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="nombre_servicio" ColumnName="nombre_servicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="APPOModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposCuentas">
+      <EntityTypeMapping TypeName="APPOModel.TiposCuentas">
+        <MappingFragment StoreEntitySet="TiposCuentas">
+          <ScalarProperty Name="id_tipo_cuenta" ColumnName="id_tipo_cuenta" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transferencias">
+      <EntityTypeMapping TypeName="APPOModel.Transferencias">
+        <MappingFragment StoreEntitySet="Transferencias">
+          <ScalarProperty Name="nro_transferencia" ColumnName="nro_transferencia" />
+          <ScalarProperty Name="CVU_origen" ColumnName="CVU_origen" />
+          <ScalarProperty Name="CVU_destino" ColumnName="CVU_destino" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="referencia" ColumnName="referencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="APPOModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="foto_dni_frente" ColumnName="foto_dni_frente" />
+          <ScalarProperty Name="foto_dni_dorso" ColumnName="foto_dni_dorso" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VentasMonedas">
+      <EntityTypeMapping TypeName="APPOModel.VentasMonedas">
+        <MappingFragment StoreEntitySet="VentasMonedas">
+          <ScalarProperty Name="nro_comp_ventas" ColumnName="nro_comp_ventas" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="CVU_venta" ColumnName="CVU_venta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
