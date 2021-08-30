@@ -1,0 +1,52 @@
+﻿@model IEnumerable<APPO.Models.Cuentas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.alias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.saldo_actual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TiposCuentas.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuarios.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.alias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.saldo_actual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TiposCuentas.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuarios.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CVU }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CVU }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CVU })
+        </td>
+    </tr>
+}
+
+</table>

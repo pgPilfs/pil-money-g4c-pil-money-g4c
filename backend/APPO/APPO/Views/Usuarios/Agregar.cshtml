@@ -1,4 +1,4 @@
-﻿@model APPO.Models.Usuarios
+@model APPO.Models.Usuarios
 
 @{
     ViewBag.Title = "Agregar";
@@ -19,7 +19,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.dni, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.dni, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.dni, new { htmlAttributes = new { @class = "form-control " } })
                 @Html.ValidationMessageFor(model => model.dni, "", new { @class = "text-danger" })
             </div>
         </div>
