@@ -154,7 +154,6 @@
     <Compile Include="Models\ComprasMonedas.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Cuentas.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
@@ -176,14 +175,12 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TipoCuenta.cs" />
     <Compile Include="Models\TiposCuentas.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Transferencias.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Usuarios.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
