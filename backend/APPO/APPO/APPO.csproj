@@ -130,6 +130,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CuentasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ServiciosController.cs" />
+    <Compile Include="Controllers\TipoCuentasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,6 +154,7 @@
     <Compile Include="Models\ComprasMonedas.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Cuentas.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
@@ -173,6 +176,7 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TipoCuenta.cs" />
     <Compile Include="Models\TiposCuentas.cs">
       <DependentUpon>APPOModel.tt</DependentUpon>
     </Compile>
@@ -251,6 +255,16 @@
     <Content Include="Views\Cuentas\Modificar.cshtml" />
     <Content Include="Views\Cuentas\DetallesCuentas.cshtml" />
     <Content Include="Views\Cuentas\Eliminar.cshtml" />
+    <Content Include="Views\TipoCuentas\Index.cshtml" />
+    <Content Include="Views\TipoCuentas\Agregar.cshtml" />
+    <Content Include="Views\TipoCuentas\Modificar.cshtml" />
+    <Content Include="Views\TipoCuentas\DetallesTiposCuentas.cshtml" />
+    <Content Include="Views\TipoCuentas\Eliminar.cshtml" />
+    <Content Include="Views\Servicios\Index.cshtml" />
+    <Content Include="Views\Servicios\Agregar.cshtml" />
+    <Content Include="Views\Servicios\Modificar.cshtml" />
+    <Content Include="Views\Servicios\DetallesServicios.cshtml" />
+    <Content Include="Views\Servicios\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

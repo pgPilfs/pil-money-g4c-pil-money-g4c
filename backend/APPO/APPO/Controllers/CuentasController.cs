@@ -19,12 +19,14 @@ namespace APPO.Controllers
 
     public ActionResult Agregar()
     {
+      
       return View();
     }
 
     [HttpPost]
     public ActionResult Agregar(Cuentas oCuenta)
     {
+
       db.Cuentas.Add(oCuenta);
       db.SaveChanges();
       return View();
