@@ -15,15 +15,17 @@ export class ServiciosService {
   //get() {
   //  return of(Services);
   //}
-  resourceUrl: string;
+  resourceUrl: "https://localhost:44354/";
+  //apiUrl: 'api/servicio/';
   constructor(private httpClient: HttpClient) {
-    this.resourceUrl =  "https://localhost:44352/api/Servicios" + "/";
+    }
+
+    getListServicios(): Observable<any>{
+      return this.httpClient.get(this.resourceUrl);
+    //this.resourceUrl =  "https://localhost:44352/api/Servicios" + "/";
     //this.resourceUrl =  "https://localhost:44328/api/articulosfamilias" + "/";
   }
 
-  get():Observable<any> {
-    return this.httpClient.get(this.resourceUrl);
-  }
 
   //get(id_servicio: number): Observable<any> {
   //  return this.http.get(`${baseUrl}/${id_servicio}`);

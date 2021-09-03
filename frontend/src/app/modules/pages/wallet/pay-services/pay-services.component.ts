@@ -31,14 +31,14 @@ export class PayServicesComponent implements OnInit {
   }
 
   GetServicios() {
-    this.serviciosAPagarService.get().subscribe((res: Service[]) => {
+    this.serviciosAPagarService.getListServicios().subscribe((res: Service[]) => {
       this.Items = res;
     });
   }
 
   Buscar() {
     this.serviciosAPagarService
-      .get(
+      .getListServicios(
       )
       .subscribe((res: any) => {
         this.Items = res.Items;
