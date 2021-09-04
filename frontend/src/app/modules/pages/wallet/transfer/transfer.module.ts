@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TransferRoutingModule } from './transfer-routing.module';
 import { TransferComponent } from './transfer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +11,8 @@ import { TransferComponent } from './transfer.component';
   declarations: [TransferComponent],
   imports: [
     CommonModule,
-    TransferRoutingModule
+    TransferRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class TransferModule { }
