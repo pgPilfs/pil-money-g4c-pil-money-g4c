@@ -12,14 +12,13 @@ import { ServiciosService } from '@app/shared/services/servicios.service';
 export class PayServicesComponent implements OnInit {
 
   Items: Service[] = null;
-  Servicios: Service[] = [];
 
   FormBusqueda: FormGroup;
 
   constructor(
     public formBuilder: FormBuilder,
     private serviciosAPagarService: ServiciosService
-  ) //private articulosFamiliasService:  MockArticulosFamiliasService
+  ) 
   {}
 
   ngOnInit() {
@@ -31,14 +30,14 @@ export class PayServicesComponent implements OnInit {
   }
 
   GetServicios() {
-    this.serviciosAPagarService.getListServicios().subscribe((res: Service[]) => {
+    this.serviciosAPagarService.get().subscribe((res: Service[]) => {
       this.Items = res;
     });
   }
 
   Buscar() {
     this.serviciosAPagarService
-      .getListServicios(
+      .get(
       )
       .subscribe((res: any) => {
         this.Items = res.Items;

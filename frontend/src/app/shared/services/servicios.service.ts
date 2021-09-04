@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
 import { of } from "rxjs";
-import { Services } from "../models/service";
-import { HttpClient } from '@angular/common/http';
+import { Service } from "../models/service";
 import { Observable } from 'rxjs';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+  HttpParams
+} from '@angular/common/http';
 
-
-//const baseUrl = 'https://localhost:44339/Servicios';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServiciosService {
   //constructor() {}
   //get() {
   //  return of(Services);
   //}
-  resourceUrl: "https://localhost:44354/";
-  //apiUrl: 'api/servicio/';
+  resourceUrl: string;
   constructor(private httpClient: HttpClient) {
+    this.resourceUrl = 'https://localhost:44366/api/Servicio/';
     }
 
-    getListServicios(): Observable<any>{
+    get() {
       return this.httpClient.get(this.resourceUrl);
+    }
+    //getListServicios(): Observable<any>{
+    //  return this.httpClient.get(this.resourceUrl);
     //this.resourceUrl =  "https://localhost:44352/api/Servicios" + "/";
     //this.resourceUrl =  "https://localhost:44328/api/articulosfamilias" + "/";
   }
@@ -51,7 +58,6 @@ export class ServiciosService {
   //  return this.http.get(`${baseUrl}?title=${title}`);
   //}
 
-  
-}
+
 
 
