@@ -1,0 +1,15 @@
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\bin\Debug\net5.0\APPO!.Core.deps.json
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\bin\Debug\net5.0\APPO!.Core.dll
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\bin\Debug\net5.0\ref\APPO!.Core.dll
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\bin\Debug\net5.0\APPO!.Core.pdb
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\obj\Debug\net5.0\APPO!.Core.csproj.AssemblyReference.cache
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\obj\Debug\net5.0\APPO!.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\obj\Debug\net5.0\APPO!.Core.AssemblyInfoInputs.cache
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\obj\Debug\net5.0\APPO!.Core.AssemblyInfo.cs
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\obj\Debug\net5.0\APPO!.Core.csproj.CoreCompileInputs.cache
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\obj\Debug\net5.0\APPO!.Core.dll
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\obj\Debug\net5.0\ref\APPO!.Core.dll
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\obj\Debug\net5.0\APPO!.Core.pdb
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\bin\Debug\net5.0\APPO!.Core.runtimeconfig.json
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\bin\Debug\net5.0\APPO!.Core.runtimeconfig.dev.json
+C:\Users\Lauti\Desktop\APPO!\APPO!.Core\obj\Debug\net5.0\APPO!.Core.genruntimeconfig.cache
