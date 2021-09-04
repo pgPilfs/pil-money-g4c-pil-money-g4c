@@ -21,6 +21,7 @@ export class TransferComponent implements OnInit {
 
     ngOnInit() {
       }
+      
 
       get cvuNoValido(){
         return this.formTransfer.get('cvu_destino').invalid && this.formTransfer.get('cvu_destino').touched;
@@ -36,18 +37,21 @@ export class TransferComponent implements OnInit {
           monto: ['',[Validators.required, Validators]]
         });
   
-      //this.PostTransferencia();
+      this.PostTransferencia();
     }
 
     transferir():any{
       console.log(this.formTransfer.value);
     }
 
-    //item = this.formTransfer;
+    PostTransferencia() {
+      //const itemCopy = { ...this.formTransfer.value };
+      this.transferenciaService.post(this.formTransfer.value).subscribe((res: any) => {
+      alert('Transferencia realizada');
+    });
 
-    //PostTransferencia() {
-    //  this.transferenciaService.post(this.formBuilder).subscribe((res: any) => {
-    //  alert('Transferencia realizada');
-    //});
-  //}
+    
+
+    
+  }
 }
