@@ -43,6 +43,8 @@ namespace APPO_
             services.AddDbContext<APPOContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CadenaAPPO")));
 
             services.AddTransient<IServicioRepo, ServicioRepo>();
+            services.AddTransient<ITransferenciaRepo, TransferenciaRepo>();
+            services.AddTransient<IIngresoDineroRepo, IngresoDineroRepo>();
 
             services.AddSwaggerGen(c =>
             {
