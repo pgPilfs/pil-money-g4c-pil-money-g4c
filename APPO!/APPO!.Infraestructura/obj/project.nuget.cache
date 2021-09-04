@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jpQLfSw7+/iXz8k8kTR6egkFnCtSFO76m/huMuW4Fyk8xznz3jfBpkP3UHXMembyoQMeoeLuiF8FsKT6TKByyg==",
+  "dgSpecHash": "ZXdO6C8j1ZCxiX8eK7MmptfVKjGSptEaDfBZZEmv0zXDbMm5G6Wa4UCkVwmX9FqhzdY98ZttOmhxSVTsAKiiPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lauti\\Desktop\\APPO!\\APPO!.Infraestructura\\APPO!.Infraestructura.csproj",
+  "projectFilePath": "D:\\Lautaro\\PIL\\pil-money-g4c-pil-money-g4c\\APPO!\\APPO!.Infraestructura\\APPO!.Infraestructura.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lauti\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Lauti\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
