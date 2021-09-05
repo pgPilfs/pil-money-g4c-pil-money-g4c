@@ -138,3 +138,9 @@ D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\obj\Debug\net5.0\APPO!.Ap
 D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\obj\Debug\net5.0\ref\APPO!.Api.dll
 D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\obj\Debug\net5.0\APPO!.Api.pdb
 D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\obj\Debug\net5.0\APPO!.Api.genruntimeconfig.cache
+D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\bin\Debug\net5.0\Serilog.dll
+D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
+D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\bin\Debug\net5.0\Serilog.Settings.Configuration.dll
+D:\Lautaro\PIL\pil-money-g4c-pil-money-g4c\APPO!\APPO!\bin\Debug\net5.0\Serilog.Sinks.File.dll

@@ -14,7 +14,8 @@ namespace APPO_.Infraestructura.Mapeos
         public AutoMapperProfile()
         {
             CreateMap<Servicio, ServicioDTO>();
-            //CreateMap<ServicioDTO, Servicio>();
+
+            CreateMap<IngresosDineroDTO, IngresosDinero>();
 
         }
     }

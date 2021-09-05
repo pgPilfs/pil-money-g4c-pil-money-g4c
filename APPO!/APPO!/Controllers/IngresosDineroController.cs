@@ -1,5 +1,7 @@
-﻿using APPO_.Core.Entidades;
+﻿using APPO_.Core.DTO;
+using APPO_.Core.Entidades;
 using APPO_.Core.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,13 +15,17 @@ namespace APPO_.Controllers
     public class IngresosDineroController : Controller
     {
         private readonly IIngresoDineroRepo _ingresoRepo;
-        public IngresosDineroController(IIngresoDineroRepo ingresoRepo)
+        private readonly IMapper _mapper;
+        public IngresosDineroController(IIngresoDineroRepo ingresoRepo, IMapper mapper)
         {
             _ingresoRepo = ingresoRepo;
+            _mapper = mapper;
         }
         [HttpPost]
-        public async Task<IActionResult> PostIngreso(IngresosDinero ingreso)
+        public async Task<IActionResult> PostIngreso(IngresosDineroDTO ingresoDto)
         {
+            var ingreso = _mapper.Map<IngresosDinero>(ingresoDto);
+
             await _ingresoRepo.InsertDinero(ingreso);
             return Ok(ingreso);
         }
