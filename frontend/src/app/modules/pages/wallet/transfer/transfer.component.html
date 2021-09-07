@@ -59,7 +59,7 @@
     
         <div class="row">
             <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-                <button [disabled]="formTransfer.invalid" type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">CONTINUAR</button>
+                <button [disabled]="formTransfer.invalid" (click)="PostTransferencia()" type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">CONTINUAR</button>
             </div>
         </div>
     

@@ -10,7 +10,7 @@ import { TransferenciasService } from '@app/shared/services/transferencias.servi
 })
 export class TransferComponent implements OnInit {
 
-  public formTransfer: FormGroup;
+  formTransfer: FormGroup;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -34,7 +34,7 @@ export class TransferComponent implements OnInit {
       crearForm(){
         this.formTransfer = this.formBuilder.group({
           cvu_destino: ['',[Validators.required,Validators.maxLength(22),Validators.minLength(22)]],
-          monto: ['',[Validators.required, Validators]]
+          monto: ['',[Validators.required]]
         });
   
       this.PostTransferencia();
@@ -45,8 +45,8 @@ export class TransferComponent implements OnInit {
     }
 
     PostTransferencia() {
-      //const itemCopy = { ...this.formTransfer.value };
-      this.transferenciaService.post(this.formTransfer.value).subscribe((res: any) => {
+      const itemCopy: any = { ...this.formTransfer.value };
+      this.transferenciaService.post(itemCopy).subscribe((res: any) => {
       alert('Transferencia realizada');
     });
 
@@ -55,3 +55,4 @@ export class TransferComponent implements OnInit {
     
   }
 }
+
