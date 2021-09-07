@@ -17,6 +17,8 @@ namespace APPO_.Infraestructura.Mapeos
 
             CreateMap<IngresosDineroDTO, IngresosDinero>();
 
+            CreateMap<TransferenciaDTO, Transferencia>();
+
         }
     }
 }
