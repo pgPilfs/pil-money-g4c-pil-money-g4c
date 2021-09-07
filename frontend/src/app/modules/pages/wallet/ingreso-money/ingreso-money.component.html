@@ -82,7 +82,7 @@
     <div class="row justify-content-center">
       <div class="col-6 p-2 m-2">
         <label for="ingresoMoney" class="form-label h4 px-4">Elegí el monto a ingresar</label>
-        <input type="ingresoMoney" class="form-control" id="ingresoMoney" aria-describedby="ingresoMoneyHelp">
+        <input type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
       </div>
     </div>
 
@@ -90,24 +90,30 @@
       <div class="col-6 p-2 m-2">
         <h4>DATOS DE LA TARJETA DE DÉBITO</h4>
         <label for="ingresoMoney" class="form-label h4 px-4">Nombre y apellido del titular</label>
-        <input type="ingresoMoney" class="form-control" id="ingresoMoney" aria-describedby="ingresoMoneyHelp">
+        <input [(ngModel)]="ingreso.nombre_titular" name="nombre_titular" type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
       </div>
 
       <div class="col-6 p-2 m-2">
         <label for="ingresoMoney" class="form-label h4 px-4">Número de tarjeta</label>
-        <input type="ingresoMoney" class="form-control" id="ingresoMoney" aria-describedby="ingresoMoneyHelp">
+        <input [(ngModel)]="ingreso.nro_tarjeta" name="nro_tarjeta" type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
       </div>
 
       <div class="col-6 p-2 m-2">
         <label for="ingresoMoney" class="form-label h4 px-4">Vencimiento</label>
-        <input type="ingresoMoney" class="form-control" id="ingresoMoney" aria-describedby="ingresoMoneyHelp">
+        <input [(ngModel)]="ingreso.fecha_venc" name="fecha_venc" type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
       </div>
 
       <div class="col-6 p-2 m-2">
         <label for="ingresoMoney" class="form-label h4 px-4">Codigo de Seguridad</label>
-        <input type="ingresoMoney" class="form-control" id="ingresoMoney" aria-describedby="ingresoMoneyHelp">
+        <input [(ngModel)]="ingreso.cod_seguridad" name="cod_seguridad" type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
       </div>
     </div>
+
+    <div class="row">
+      <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+          <button (click)="saveIngreso()" type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">INGRESAR DINERO</button>
+      </div>
+  </div>
 
   </div>
 
