@@ -1,0 +1,122 @@
+<header>
+  <nav id="navmenu" class="navbar">
+    <div class="container">
+
+      <div class="navbtns">
+        <a [routerLink]="['/wallet']">INICIO</a>
+
+        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          CUENTAS
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
+          <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
+          <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
+        </ul>
+
+        <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
+        <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
+        <a [routerLink]="['/home']">SALIR</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<br />
+
+<form role="form">
+  <div class="login container p-3">
+    <div class="row">
+      <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+        <p class="h2">¿COMO QUERES INGRESAR DINERO?</p>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Botones -->
+    <div class="row justify-content-center botones">
+      <div class=" d-inline-flex p-2 bd-highlight justify-content-center">
+
+        <button type="button" class="button">
+          TRANSFERENCIA BANCARIA
+        </button>
+
+
+        <button type="button" class="button">
+          TARJETA DE DEBITO
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+    <div>
+      <p>Copia tu CVU o alias para poder dinero desde otra cuenta.</p>
+      <div class="card">
+
+        <div class="card-body">
+          <p>CVU</p>
+          <p>00000654608460633684</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <p>Alias</p>
+          <p>hola.esto.es.un.alias</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+      <div class="col-6 p-2 m-2">
+        <label for="ingresoMoney" class="form-label h4 px-4">Elegí el monto a ingresar</label>
+        <input type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-6 p-2 m-2">
+        <h4>DATOS DE LA TARJETA DE DÉBITO</h4>
+        <label for="ingresoMoney" class="form-label h4 px-4">Nombre y apellido del titular</label>
+        <input [(ngModel)]="ingreso.nombre_titular" name="nombre_titular" type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
+      </div>
+
+      <div class="col-6 p-2 m-2">
+        <label for="ingresoMoney" class="form-label h4 px-4">Número de tarjeta</label>
+        <input [(ngModel)]="ingreso.nro_tarjeta" name="nro_tarjeta" type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
+      </div>
+
+      <div class="col-6 p-2 m-2">
+        <label for="ingresoMoney" class="form-label h4 px-4">Vencimiento</label>
+        <input [(ngModel)]="ingreso.fecha_venc" name="fecha_venc" type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
+      </div>
+
+      <div class="col-6 p-2 m-2">
+        <label for="ingresoMoney" class="form-label h4 px-4">Codigo de Seguridad</label>
+        <input [(ngModel)]="ingreso.cod_seguridad" name="cod_seguridad" type="ingresoMoney" class="form-control" aria-describedby="ingresoMoneyHelp">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+          <button (click)="saveIngreso()" type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">INGRESAR DINERO</button>
+      </div>
+  </div>
+
+  </div>
+
+
+
+</form>

@@ -1,0 +1,131 @@
+
+
+<div>
+    <form autocomplete="off" name="formRegister" [formGroup]="formRegister" (ngSubmit)="guardar()">
+        <div class=" container p-3">
+            <div class="row">
+                <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                    <p class="h2">REGISTRARSE</p>
+                </div>
+            </div>
+
+            <!--Campo nombre-->
+
+            <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="nombre" class="form-label h4 px-4">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre"
+                        formControlName="nombre">
+
+                </div>
+            </div>
+
+             <!--Campo apellido-->
+
+             <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="apellido" class="form-label h4 px-4">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" placeholder="Apellido"
+                        formControlName="apellido">
+
+                </div>
+            </div>
+
+
+            <!--Campo DNI-->
+
+            <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="dni" class="form-label h4 px-4">DNI (sin puntos)</label>
+                    <input type="text" class="form-control" id="dni" placeholder="DNI"
+                        formControlName="dni" [class.is-invalid]="dniNoValido">
+                        <small *ngIf="dniNoValido" style="color: red"
+                            class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un DNI valido. Recuerde ingresar sin puntos
+                        </small>
+                </div>
+            </div>
+
+             <!--Campo fotos-->
+
+             <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="nombre" class="form-label h4 px-4">Foto de su DNI</label>
+                    <form name="subida-imagenes" type="POST" enctype="multipart/formdata" >
+                        <input type="file" name="imagen1" />
+                        <input type="file" name="imagen2" />
+                    </form>
+                </div>
+                
+            </div>
+
+            
+
+            <!--Campo correo-->
+
+            <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="email" class="form-label h4 px-4">Correo electronico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Correo electrónico"
+                        aria-describedby="emailHelp" formControlName="email" [class.is-invalid]="correoNoValido">
+                    <small *ngIf="correoNoValido" style="color: red"
+                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un correo
+                        electronico válido</small>
+
+                </div>
+            </div>
+
+            <!--Campo password password-->
+
+
+            <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="exampleInputPassword1" class="form-label px-4 h3">Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Contraseña" id="exampleInputPassword1"
+                        formControlName="password" [class.is-invalid]="passwordNoValido">
+                    <small *ngIf="passwordNoValido" style="color: red"
+                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese una
+                        contraseña válida
+                    </small>
+                </div>
+            </div>
+
+
+            <!--Campo repetir password-->
+
+
+            <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="exampleInputPassword1" class="form-label px-4 h3">Repita su contraseña</label>
+                    <input type="password" class="form-control" placeholder="Repita su contraseña" id="exampleInputPassword1"
+                        formControlName="password" [class.is-invalid]="passwordNoValido">
+                    <small *ngIf="passwordNoValido" style="color: red"
+                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese una
+                        contraseña válida
+                    </small>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                    <a [routerLink]="['/wallet']">
+                        <button [disabled]="formRegister.invalid" type="submit" class="button">
+                            REGISTRARME
+                        </button>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- <div>
+    Valido: {{ formRegister.valid | json }}
+    Estado: {{ formRegister.status }}
+    Estado: {{ formRegister.value | json }}
+</div> -->
+
