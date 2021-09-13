@@ -10,22 +10,15 @@ import { HttpClient } from "@angular/common/http";
 })
 
 export class AuthService {
-  private users:User[];
-  private users$: Subject<User[]>;
+  url: string = 'https://localhost:44331/api/Usuario/login';
 
-  constructor() {
-    this.users = [];
-    this.users$ = new Subject();
-   }
-
-   addUser(user: User){
-     this.users.push(user);
-     this.users$.next(this.users);
-
-   }
-
-   getUsers$():Observable<User[]>{
-     return this.users$.asObservable();
-   }
   
+
+  constructor(private http:HttpClient) {
+    
+   }
+
+   //login(email:string, password: string): Observable<>{
+   //  
+   //}
 }
