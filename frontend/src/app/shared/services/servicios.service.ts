@@ -10,6 +10,7 @@ import {
 } from '@angular/common/http';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +22,7 @@ export class ServiciosService {
   //}
   resourceUrl: string;
   constructor(private httpClient: HttpClient) {
-    this.resourceUrl = 'https://localhost:44366/api/Servicio/';
+    this.resourceUrl = 'https://localhost:44372/api/Servicio/';
     }
 
     get() {
