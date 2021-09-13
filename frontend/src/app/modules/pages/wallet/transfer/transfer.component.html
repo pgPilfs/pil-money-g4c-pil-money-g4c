@@ -23,7 +23,7 @@
 
 <br/>
 
-<form autocomplete="off" name="formTransfer" [formGroup]="formTransfer" (submit)="transferir()">
+<form autocomplete="off" name="formTransfer" [formGroup]="formTransfer" (ngSubmit)="PostTransferencia()">
     <div class="login container p-3">
         <div class="row">
             <div class="d-inline-flex p-2 bd-highlight justify-content-center">
@@ -59,7 +59,7 @@
     
         <div class="row">
             <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-                <button [disabled]="formTransfer.invalid" (click)="transferir()" type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">CONTINUAR</button>
+                <button [disabled]="formTransfer.invalid" (click)="PostTransferencia()" type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">CONTINUAR</button>
             </div>
         </div>
     
