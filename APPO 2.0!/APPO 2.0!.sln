@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APPO 2.0!", "APPO 2.0!\APPO 2.0!.csproj", "{5C6664DB-3102-4693-A6DD-5D8723794B69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C6664DB-3102-4693-A6DD-5D8723794B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C6664DB-3102-4693-A6DD-5D8723794B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C6664DB-3102-4693-A6DD-5D8723794B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C6664DB-3102-4693-A6DD-5D8723794B69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2BDA2EE-B397-4DC6-9CFE-735C50E34476}
+	EndGlobalSection
+EndGlobal
