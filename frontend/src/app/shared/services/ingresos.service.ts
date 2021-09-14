@@ -14,7 +14,7 @@ export class IngresosService {
   resourceUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.resourceUrl = 'https://localhost:44366/api/IngresosDinero/';
+    this.resourceUrl = 'https://localhost:44331/api/IngresosDinero/';
    }
    post(obj: any): Observable<any> {
     return this.httpClient.post(this.resourceUrl, obj);
