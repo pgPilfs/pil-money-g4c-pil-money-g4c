@@ -47,7 +47,7 @@ export class TransferComponent implements OnInit {
     }
 
     PostTransferencia() {
-      const itemCopy:any = {
+      const itemCopy:Transferencia = {
         nro_transferencia: this.formTransfer.get('nro_transferencia')?.value,
         cvu_origen: this.formTransfer.get('cvu_origen')?.value,
         cvu_destino: this.formTransfer.get('cvu_destino')?.value,
