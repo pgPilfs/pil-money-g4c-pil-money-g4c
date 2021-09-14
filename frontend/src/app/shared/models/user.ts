@@ -1,9 +1,4 @@
-export class User {
+export interface User {
     email: string;
-    password: string;
+    token: string;
 }
-
-export const Users: User[] = [
-    { email: "lauti.carracedo@hotmail.com", password: "123456" },
-    { email: "maildeprueba@hotmail.com", password: "clavedeprueba" },
-  ];
