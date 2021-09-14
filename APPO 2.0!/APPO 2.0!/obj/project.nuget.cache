@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iQNxRiQwZ7oHKxCSWdKBZsEU/RLquU5Sc5dMDekKWzulWNrCSVzMOTJp2jgtzMjioo3edWnT8gZZS/QFvPdixg==",
+  "dgSpecHash": "cgQZjtH1E7m2DZw3qwe9S2PyyL2CunFk8sg82ecAhdAqVozFOYJSC0sn/RGahU8km8oixQdgfR8/7WJ8R5+HCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lauti\\Desktop\\APPO 2.0!\\APPO 2.0!\\APPO 2.0!.csproj",
+  "projectFilePath": "D:\\Lautaro\\PIL\\pil-money-g4c-pil-money-g4c\\APPO 2.0!\\APPO 2.0!\\APPO 2.0!.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lauti\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lauti\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.9\\microsoft.aspnetcore.authentication.jwtbearer.5.0.9.nupkg.sha512",

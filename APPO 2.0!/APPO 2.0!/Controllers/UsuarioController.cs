@@ -1,4 +1,5 @@
-﻿using APPO_2._0_.Services;
+﻿using APPO_2._0_.Models.Response;
+using APPO_2._0_.Services;
 using APPO_2._0_.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,12 +25,17 @@ namespace APPO_2._0_.Controllers
         [HttpPost("login")]
         public IActionResult Autentificar([FromBody] UsuarioViewModel model)
         {
+            Response respuesta = new Response();
             var userresponse = _usuarioService.Auth(model);
             if (userresponse == null)
             {
-                return BadRequest();
+                respuesta.Exito = 0;
+                respuesta.Mensaje = "Usuario o contraseña incorrectos";
+                return BadRequest(respuesta);
             }
-            return Ok(model);   
+            respuesta.Exito = 1;
+            respuesta.Data = userresponse;
+            return Ok(respuesta);   
 
         }
     }

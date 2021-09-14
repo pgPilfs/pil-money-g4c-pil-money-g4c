@@ -1,4 +1,5 @@
 ﻿using APPO_2._0_.Models;
+using APPO_2._0_.Models.Response;
 using APPO_2._0_.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,17 +17,29 @@ namespace APPO_2._0_.Controllers
         [HttpPost]
         public IActionResult Add(TransferenciaViewModel oModel)
         {
-            using (APPO20Context db = new APPO20Context())
+            Response oRespuesta = new Response();
+            oRespuesta.Exito = 0;
+            try
             {
-                Transferencia oTransferencia = new Transferencia();
-                oTransferencia.CvuOrigen = oModel.CvuOrigen;
-                oTransferencia.CvuDestino = oModel.CvuDestino;
-                oTransferencia.Monto = oModel.Monto;
-                db.Transferencias.Add(oTransferencia);
-                db.SaveChanges();
-                return Ok(oTransferencia);
-            }
+                using (APPO20Context db = new APPO20Context())
+                {
+                    Transferencia oTransferencia = new Transferencia();
+                    oTransferencia.CvuOrigen = oModel.CvuOrigen;
+                    oTransferencia.CvuDestino = oModel.CvuDestino;
+                    oTransferencia.Monto = oModel.Monto;
+                    db.Transferencias.Add(oTransferencia);
+                    db.SaveChanges();
+                    oRespuesta.Exito = 1;
+                    
+                }
 
+            }
+            catch (Exception ex)
+            {
+                oRespuesta.Mensaje = ex.Message;
+            }
+            return Ok(oRespuesta);
         }
+
     }
 }
