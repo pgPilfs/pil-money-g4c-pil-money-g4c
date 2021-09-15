@@ -11,7 +11,8 @@ import { Response } from '../models/response';
 
 const httpOption = {
   headers: new HttpHeaders({
-    'Contend-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': 'my-auth-token'
   })
 }
 
@@ -22,10 +23,10 @@ export class TransferenciasService {
   resourceUrl: string;
 
   constructor(private httpClient: HttpClient) { 
-    this.resourceUrl = 'https://localhost:44331/api/Transferencia/';
+    this.resourceUrl = 'https://localhost:44336/api/Transferencia/';
   }
 
-  post(obj: any): Observable<Transferencia> {
-    return this.httpClient.post<Transferencia>(this.resourceUrl, obj, httpOption);
+  save(obj: Transferencia): Observable<any> {
+    return this.httpClient.post(this.resourceUrl, obj, httpOption);
   }
 }
