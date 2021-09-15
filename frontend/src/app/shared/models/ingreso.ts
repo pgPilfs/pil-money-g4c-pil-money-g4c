@@ -4,7 +4,7 @@ export class Ingreso {
     CVU_deposito: string;
     nro_tarjeta: string;
     fecha_venc: Date;
-    cod_seguridad: number;
-    nombre_titular: string
+    cod_seguridd: number;
+    naombre_titular: string
 }
 
