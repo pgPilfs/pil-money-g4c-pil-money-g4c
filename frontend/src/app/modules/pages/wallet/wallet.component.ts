@@ -9,9 +9,9 @@ import { CuentaService } from '@app/shared/services/cuenta.service';
   styleUrls: ['./wallet.component.css']
 })
 export class WalletComponent implements OnInit {
-  Datos: Cuenta;
+  Datos: Cuenta[] = [];
   cvu = "222222";
-  saldo_actual = 12.4;
+  saldoActual = 12.4;
 
   constructor(public formBuilder: FormBuilder,
     private cuentaService: CuentaService) { }
@@ -23,9 +23,13 @@ export class WalletComponent implements OnInit {
   
 
   GetDatos() {
-    this.cuentaService.get().subscribe((res: Cuenta) => {
+    this.cuentaService.get().subscribe((res: Cuenta[]) => {
       this.Datos = res;
-    });
+      console.log(this.Datos);
+    },
+     error => {
+      console.log(error); 
+     });
 
   }
 }
