@@ -53,10 +53,12 @@
                 <div class="card-header">
                     Tu cuenta en pesos
                 </div>
-                <div class="card-body">
+                <div class="card-body" *ngIf="Datos as datos">
                     <p class="card-text">Tu dinero</p>
+                    <p> $ {{ saldo_actual }}</p>
                     <hr />
                     <p class="card-text">Tu CVU</p>
+                    <p>{{   cvu }}</p>
                     <hr />
 
                     <div class="row">
