@@ -14,55 +14,33 @@ namespace APPO_2._0.Controllers
     public class CuentaController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get(Cuenta oCuenta)
+        public IActionResult Get()
         {
+           
             try
             {
                 using (APPO20Context db = new APPO20Context())
                 {
-                    CuentaViewModel oModel = new CuentaViewModel();
-                    oModel.Cvu = oCuenta.Cvu;
-                    oModel.SaldoActual = oCuenta.SaldoActual;
+                    
                     var lista = db.Cuentas.ToList();
-                    return Ok(lista);
+                    var listaView = lista.Select(x => new CuentaViewModel
+                    {
+                        Cvu = x.Cvu,
+                        SaldoActual = x.SaldoActual
+                    }).ToList();
+                    var listaFinal = listaView.Where(var => var.Cvu == "1934569876123459875687").ToList();
+                    return Ok(listaFinal);
                 }
+                
 
             }
             catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(ex.Message);
             }
             
 
         }
     }
 
-    [HttpPost]
-    public IActionResult Add(ServicioViewModel oModel)
-    {
-        Response oRespuesta = new Response();
-        oRespuesta.Exito = 0;
-        try
-        {
-            using (APPO20Context db = new APPO20Context())
-            {
-                Servicio oServicio = new Servicio();
-                oServicio.NombreServicio = oModel.NombreServicio;
-                db.Servicios.Add(oServicio);
-                db.SaveChanges();
-                oRespuesta.Exito = 1;
-
-            }
-
-        }
-        catch (Exception ex)
-        {
-            oRespuesta.Mensaje = ex.Message;
-        }
-
-        return Ok(oRespuesta);
-
-
-    }
 }
