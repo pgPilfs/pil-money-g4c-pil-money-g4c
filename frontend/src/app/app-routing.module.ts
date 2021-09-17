@@ -14,6 +14,7 @@ const routes: Routes = [
  { path: 'ingreso-money', loadChildren: () => import('./modules/pages/wallet/ingreso-money/ingreso-money.module').then(m => m.IngresoMoneyModule)},
  { path: 'pay-services', loadChildren: () => import('./modules/pages/wallet/pay-services/pay-services.module').then(m => m.PayServicesModule)},
  { path: 'inversion', loadChildren: () => import('./modules/pages/wallet/inversion/inversion.module').then(m => m.InversionModule)},
+ { path: 'pay-services-detail', loadChildren: () => import('./modules/pages/wallet/pay-services-detail/pay-services-detail.module').then(m => m.PayServicesDetailModule)},
  { path: '**', loadChildren: () => import('./modules/pages/not-found/not-found.module').then(m => m.NotFoundModule)}];
 
 @NgModule({
