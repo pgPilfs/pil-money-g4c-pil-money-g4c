@@ -112,7 +112,37 @@
                         Cotizaciones de moneda extranjera
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Cotizacion</p>
+                        <p class="card-text"></p>
+                         <!-- Tabla de resutados de busqueda y Paginador-->
+                        <div class="container-fluid">
+                            <div class="row">
+                      
+                              <div class="col-12">
+                                <table id='tablaDeServicios' class="table table-hover table-sm table-bordered table-striped">
+                                  <thead>
+                                    <tr>
+                                        <th class="text-center">Moneda</th>
+                                      <th class="text-center">Compra</th>
+                                      <th class="text-center">Venta</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let info of Info">
+                                      <td>Dólar</td>
+                                      <td>{{ info.compra }}</td>
+                                      <td>{{ info.venta }}</td>
+                                    </tr>
+                                    <tr *ngFor="let info of Info">
+                                      <td>Euro</td>
+                                      <td>{{ info.compra }}</td>
+                                      <td>{{ info.venta }}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                      
+                            </div>
+                          </div>
                     </div>
                 </div>
             </div>

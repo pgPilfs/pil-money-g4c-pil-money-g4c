@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Cotizacion } from '@app/shared/models/cotizacion';
 import { Cuenta } from '@app/shared/models/cuenta';
+import { CotizacionService } from '@app/shared/services/cotizacion.service';
 import { CuentaService } from '@app/shared/services/cuenta.service';
 
 @Component({
@@ -10,14 +12,15 @@ import { CuentaService } from '@app/shared/services/cuenta.service';
 })
 export class WalletComponent implements OnInit {
   Datos: Cuenta[] = [];
-  cvu = "222222";
-  saldoActual = 12.4;
+  Info: Cotizacion[] = [];
 
   constructor(public formBuilder: FormBuilder,
-    private cuentaService: CuentaService) { }
+    private cuentaService: CuentaService,
+    private cotizacionService: CotizacionService) { }
 
   ngOnInit(): void {
     this.GetDatos();
+    this.GetCotizacion();
   }
 
   
@@ -30,7 +33,15 @@ export class WalletComponent implements OnInit {
      error => {
       console.log(error); 
      });
+  }
 
+  GetCotizacion() {
+    this.cotizacionService.get().subscribe((res:any) => {
+      this.Info = res;
+      console.log(this.Info);
+    },
+     error => {
+      console.log(error); 
+     });
   }
 }
-
