@@ -1,5 +1,7 @@
-<div>
-    
+<form autocomplete="off" name="formDetallePago" [formGroup]="formDetallePago">
+    <div>
+
+
         <div class="login container p-3">
             <div class="row">
                 <div class="d-inline-flex p-2 bd-highlight justify-content-center">
@@ -13,10 +15,12 @@
                 <div class="col-6 p-2 m-2">
                     <label for="nroFac" class="form-label h4 px-4">Número de Factura</label>
                     <input type="nroFac" class="form-control" id="nroFac" placeholder="Numero de factura"
-                        aria-describedby="nroFacHelp">
-                    <!--<small *ngIf="correoNoValido" style="color: red"
-                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un correo
-                        electronico válido</small>-->
+                        aria-describedby="nroFacHelp" formControlName="nro_factura"
+                        [class.is-invalid]="facturaNoValida">
+                    <small *ngIf="facturaNoValida" style="color: red"
+                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un numero
+                        de factura valido
+                    </small>
 
                 </div>
             </div>
@@ -27,28 +31,38 @@
             <div class="row justify-content-center">
                 <div class="col-6 p-2 m-2">
                     <label for="exampleInputPassword1" class="form-label px-4 h3">Nombre de Factura</label>
-                    <input class="form-control" placeholder="Nombre de la factura o servicio">
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-6 p-2 m-2">
-                    <label for="exampleInputPassword1" class="form-label px-4 h3">Monto</label>
-                    <input class="form-control" placeholder="Monto">
-            </div>
-
-
-
-            <div class="row">
-                <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-                    <a [routerLink]="['/wallet']">
-                        <button type="submit" class="button">
-                            CONFIRMAR PAGO
-                        </button>
-                    </a>
-
-
+                    <input class="form-control" placeholder="Nombre de la factura o servicio"
+                        formControlName="nombre_factura" [class.is-invalid]="nombreNoValido">
+                    <small *ngIf="nombreNoValido" style="color: red"
+                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un nombre
+                        valido
+                    </small>
                 </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-6 p-2 m-2">
+                        <label for="exampleInputPassword1" class="form-label px-4 h3">Monto</label>
+                        <input class="form-control" placeholder="Monto" formControlName="monto"
+                            [class.is-invalid]="montoNoValido">
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                            <a [routerLink]="['/wallet']">
+                                <button type="submit" button [disabled]="formDetallePago.invalid" (click)="PostPago()"
+                                    value="Enviar" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    CONFIRMAR PAGO
+                                </button>
+                            </a>
+
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-</div>
+    </div>
+</form>
