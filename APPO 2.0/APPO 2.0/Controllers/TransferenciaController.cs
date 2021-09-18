@@ -3,6 +3,7 @@ using APPO_2._0.Models.Response;
 using APPO_2._0.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,19 @@ namespace APPO_2._0.Controllers
             }
             return Ok(oRespuesta);
         }*/
-
+        protected override void APPO20Context(ModelBuilder builder)
+        {
+            using (APPO20Context db = new APPO20Context())
+            {
+                base.ControllerContext(builder);
+            }
+                base.ControllerContext(builder);
+            var keysProperties = builder.Model.GetEntityTypes().Select(x => x.FindPrimaryKey()).SelectMany(x => x.Properties);
+            foreach (var property in keysProperties)
+            {
+                property.ValueGenerated = ValueGenerated.OnAdd;
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] TransferenciaViewModel oModel)
         {
@@ -55,13 +68,15 @@ namespace APPO_2._0.Controllers
             {
                 using (APPO20Context db = new APPO20Context())
                 {
-
+                    Cuenta oCuenta = new Cuenta();
                     Transferencia oTransferencia = new Transferencia();
                     oTransferencia.CvuOrigen = oModel.CvuOrigen;
                     oTransferencia.CvuDestino = oModel.CvuDestino;
                     oTransferencia.Fecha = DateTime.Now;
                     oTransferencia.Monto = oModel.Monto;
                     oTransferencia.Referencia = "transferencia";
+                    oTransferencia.CvuOrigenNavigation = oModel.Select(x => x.FindPrimaryKey()).SelectMany(x => x.Properties); ;
+                    oTransferencia.CvuDestinoNavigation = oCuenta;
                     db.Transferencias.Add(oTransferencia);
                     await db.SaveChangesAsync();
                     return Ok(oTransferencia);
