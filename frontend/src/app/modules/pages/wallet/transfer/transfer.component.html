@@ -23,7 +23,7 @@
 
 <br/>
 
-<form autocomplete="off" name="formTransfer" [formGroup]="formTransfer">
+<form name="formTransfer" [formGroup]="formTransfer" (ngSubmit)="PostTransferencia()">
     <div class="login container p-3">
         <div class="row">
             <div class="d-inline-flex p-2 bd-highlight justify-content-center">
@@ -34,7 +34,7 @@
         <div class="row justify-content-center">
             <div class="col-6 p-2 m-2">
                 <label for="cvu_destino" class="form-label h4 px-4">CVU de la cuenta a enviar dinero</label>
-                <input type="text" class="form-control" id="text" aria-describedby="transfHelp" formControlName = "cvu_destino" [class.is-invalid]="cvuNoValido">
+                <input type="text" class="form-control" formControlName = "cvu_destino" [class.is-invalid]="cvuNoValido" ngSubmit>
                 <small *ngIf="cvuNoValido" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un CVU correcto. 22 caracteres
                 </small>
@@ -44,7 +44,7 @@
         <div class="row justify-content-center">
             <div class="col-6 p-2 m-2">
                 <label for="monto" class="form-label h4 px-4">¿Cuanto dinero queres enviar?</label>
-                <input type="text" class="form-control" id="text" aria-describedby="transfHelp" formControlName = "monto" [class.is-invalid]="montoNoValido">
+                <input type="text" class="form-control" formControlName = "monto" [class.is-invalid]="montoNoValido" ngSubmit>
                 <small *ngIf="montoNoValido" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un monto
                 </small>
@@ -59,7 +59,7 @@
     
         <div class="row">
             <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-                <button [disabled]="formTransfer.invalid" (click)="PostTransferencia()" value="Enviar" type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">CONTINUAR</button>
+                <button [disabled]="formTransfer.invalid"type="submit" class="button">CONTINUAR</button>
             </div>
         </div>
     

@@ -18,7 +18,8 @@ export class TransferComponent implements OnInit {
     private transferenciaService: TransferenciasService) 
     { 
         this.formTransfer = this.formBuilder.group({
-        cvu_destino: ['',[Validators.required,Validators.maxLength(22),Validators.minLength(22)]],
+        cvu_origen: '236598752013654876',
+        cvu_destino: ['',[Validators.required,Validators.maxLength(18),Validators.minLength(18)]],
         monto: ['',[Validators.required]],
       })
     }
@@ -38,13 +39,14 @@ export class TransferComponent implements OnInit {
     PostTransferencia() {
       const itemCopy:Transferencia = {
 
-        cvu_origen: '6252847490231564926032',
-        cvu_destino: this.formTransfer.get('cvu_destino').value,
-        monto: this.formTransfer.get('monto').value,
+        CvuOrigen: this.formTransfer.get('cvu_origen').value,
+        CvuDestino: this.formTransfer.get('cvu_destino').value,
+        Monto: this.formTransfer.get('monto').value,
       }
 
       console.log(itemCopy);
       this.transferenciaService.save(itemCopy).subscribe(data => {
+        console.log(data);
         alert("Se realizo la transferencia");
       }, error => {
         console.log(error);
