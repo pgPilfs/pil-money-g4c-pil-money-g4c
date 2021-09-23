@@ -25,7 +25,7 @@
 
 <br/>
 
-<form autocomplete="off" name="formInversion" [formGroup]="formInversion">
+<form [formGroup]="formInversion" (ngSubmit)="PostInversion()" >
     <div class="login container p-3">
         <div class="row">
             <div class="d-inline-flex p-2 bd-highlight justify-content-center">
@@ -35,8 +35,8 @@
     
         <div class="row justify-content-center">
             <div class="col-6 p-2 m-2">
-                <label for="monto_inversion" class="form-label h4 px-4">Monto</label>
-                <input type="text" class="form-control" id="text" aria-describedby="montoHelp" formControlName = "monto_inversion" [class.is-invalid]="montoNoValido">
+                <label class="form-label h4 px-4">Monto</label>
+                <input formControlName = "monto_inversion" type="text" class="form-control" [class.is-invalid]="montoNoValido" ngSubmit>
                 <small *ngIf="montoNoValido" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un monto
                 </small>
@@ -46,8 +46,8 @@
     
         <div class="row justify-content-center">
             <div class="col-6 p-2 m-2">
-                <label for="fecha" class="form-label h4 px-4">Fecha de renovación</label>
-                <input type="text" class="form-control" id="text" formControlName = "fecha_fin" [class.is-invalid]="fechaNoValido">
+                <label class="form-label h4 px-4">Fecha de renovación</label>
+                <input formControlName = "fecha_fin" type="text" class="form-control"  [class.is-invalid]="fechaNoValido" ngSubmit>
                 <small *ngIf="fechaNoValido" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese una fecha
                 </small>
@@ -62,7 +62,7 @@
     
         <div class="row">
             <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-                <button [disabled]="formInversion.invalid" (click)="PostInversion()" value="Enviar" type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">INVERTIR</button>
+                <button [disabled]="formInversion.invalid" type="submit" class="button">INVERTIR</button>
             </div>
         </div>
     

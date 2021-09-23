@@ -18,8 +18,11 @@ export class InversionComponent implements OnInit {
       this.formInversion = this.formBuilder.group({
       monto_inversion: ['',[Validators.required]],
       fecha_fin: ['',[Validators.required]],
+      cvu_inversion: "236598752013654875"
       })
   }
+
+
 
   get montoNoValido(){
     return this.formInversion.get('monto_inversion').invalid && this.formInversion.get('monto_inversion').touched;
@@ -32,16 +35,19 @@ export class InversionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
 
   PostInversion() {
-    const itemCopy:Inversion = {
-      monto_inversion: this.formInversion.get('monto_inversion').value,
-      fecha_fin: this.formInversion.get('fecha_fin').value,
-    }
+    
 
+    const itemCopy:Inversion = {
+      MontoInversion: this.formInversion.get('monto_inversion')?.value,
+      FechaFin: this.formInversion.get('fecha_fin')?.value,
+      CvuInversion: this.formInversion.get('cvu_inversion')?.value
+    }
     console.log(itemCopy);
+
     this.inversionService.save(itemCopy).subscribe(data => {
+      console.log(data);
       alert("Se realizo la inversion");
     }, error => {
       console.log(error);
