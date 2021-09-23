@@ -13,8 +13,6 @@ namespace APPO_2._0_.Models
         public decimal MontoInversion { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
-
-        [Required]
         public long CvuInversion { get; set; }
 
         public virtual Cuenta CvuInversionNavigation { get; set; }

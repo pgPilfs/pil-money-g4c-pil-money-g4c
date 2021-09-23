@@ -7942,11 +7942,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lauti\\Desktop\\APPO 2.0!\\APPO 2.0!\\APPO 2.0!.csproj",
+      "projectUniqueName": "D:\\Lautaro\\pil-money-g4c-pil-money-g4c\\APPO 2.0!\\APPO 2.0!\\APPO 2.0!.csproj",
       "projectName": "APPO 2.0!",
-      "projectPath": "C:\\Users\\Lauti\\Desktop\\APPO 2.0!\\APPO 2.0!\\APPO 2.0!.csproj",
+      "projectPath": "D:\\Lautaro\\pil-money-g4c-pil-money-g4c\\APPO 2.0!\\APPO 2.0!\\APPO 2.0!.csproj",
       "packagesPath": "C:\\Users\\Lauti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lauti\\Desktop\\APPO 2.0!\\APPO 2.0!\\obj\\",
+      "outputPath": "D:\\Lautaro\\pil-money-g4c-pil-money-g4c\\APPO 2.0!\\APPO 2.0!\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

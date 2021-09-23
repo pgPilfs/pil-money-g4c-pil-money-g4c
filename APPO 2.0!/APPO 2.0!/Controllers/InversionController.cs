@@ -1,4 +1,5 @@
-﻿using APPO_2._0_.Models;
+﻿using APPO_2._0.ViewModels;
+using APPO_2._0_.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -36,27 +37,38 @@ namespace APPO_2._0_.Controllers
 
         // POST api/<InversionController>
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] Inversione inversion)
-        {
+        public async Task<IActionResult> Add([FromBody] InversionViewModel oModelInversion)
+            {
             try
             {
+                Inversione inv = new Inversione();
                 Cuenta cuenta = new Cuenta();
 
-                var inv = _context.Inversiones
-                                       .Where(i => i.CvuInversion == 236598752013654875).FirstOrDefault();
-                await _context.Cuentas.FindAsync(inv);
+                //var cuentaInv = _context.Inversiones.Where(i => i.CvuInversion == oModelInversion.CvuInversion).FirstOrDefault();
+                //cuenta.Cvu = cuentaInv.CvuInversion;
+                cuenta.Cvu = oModelInversion.CvuInversion;
+                inv.CvuInversion = oModelInversion.CvuInversion;
+                inv.FechaFin = oModelInversion.FechaFin;
+                inv.FechaInicio = DateTime.Now;
+                inv.MontoInversion = oModelInversion.MontoInversion;
+
+
+
+                /*await _context.Cuentas.FindAsync(inv);
                 if (inv == null)
                 {
                     return BadRequest("No posees esta cuenta");
-                }
+                }*/
 
-                cuenta.SaldoActual -= inversion.MontoInversion;
-                _context.Cuentas.Update(cuenta);
+                //cuenta.SaldoActual -= inv.MontoInversion;
+                //_context.Cuentas.Update(cuenta);
 
-                _context.Inversiones.Add(inversion);
+                //_context.Cuentas.Add(cuenta);
+                _context.Inversiones.Add(inv);
+              
 
                 await _context.SaveChangesAsync();
-                return Ok(inversion);
+                return Ok(inv);
             }
             catch (Exception ex)
             {

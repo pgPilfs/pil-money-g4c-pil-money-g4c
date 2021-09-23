@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xsLxQd7SMhayXpR2ua2Jx7+0EHCFL8QXXoBBGzr+XXgR6MkpLIYNubpe7sZL+5G/ljEc268imtrsZDOHhKBzCA==",
+  "dgSpecHash": "uhOHH78IsfXhQoqe/0p8JHjBKIXOg9Lm8yvQE75RqHwwnbDPwqRJiuydW1O6KUE3ysnHS2wAQqUBG6SUcfz7TQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lauti\\Desktop\\APPO 2.0!\\APPO 2.0!\\APPO 2.0!.csproj",
+  "projectFilePath": "D:\\Lautaro\\pil-money-g4c-pil-money-g4c\\APPO 2.0!\\APPO 2.0!\\APPO 2.0!.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lauti\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lauti\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",

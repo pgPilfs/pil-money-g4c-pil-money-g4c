@@ -63,21 +63,32 @@ namespace APPO_2._0_.Controllers
             try
             {
 
-                Cuenta oCuenta = new Cuenta();
-                Transferencia oTransferencia = new Transferencia();
+                Transferencia transf = new Transferencia();
+                Cuenta cuenta = new Cuenta();
+
+                
+                transf.CvuOrigen = Convert.ToInt64(oModel.CvuOrigen);
+                transf.CvuDestino = Convert.ToInt64(oModel.CvuDestino);
+                transf.Fecha = DateTime.Now;
+                transf.Monto = oModel.Monto;
+                transf.Referencia = "sin referencia";
 
 
-                oTransferencia.CvuOrigen = Convert.ToInt64(oModel.CvuOrigen);
-                oTransferencia.CvuDestino = Convert.ToInt64(oModel.CvuDestino);
-                oTransferencia.Fecha = DateTime.Now;
-                oTransferencia.Monto = oModel.Monto;
-                oTransferencia.Referencia = "transferencia";
-                oTransferencia.CvuOrigenNavigation = oCuenta;
-                oTransferencia.CvuDestinoNavigation = oCuenta;
-                _context.Transferencias.Add(oTransferencia);
+                /*await _context.Cuentas.FindAsync(inv);
+                if (inv == null)
+                {
+                    return BadRequest("No posees esta cuenta");
+                }*/
+
+                //cuenta.SaldoActual -= inv.MontoInversion;
+                //_context.Cuentas.Update(cuenta);
+
+                //_context.Cuentas.Add(cuenta);
+                _context.Transferencias.Add(transf);
+
+
                 await _context.SaveChangesAsync();
-                return Ok(oTransferencia);
-
+                return Ok(transf);
             }
             catch (Exception ex)
             {
