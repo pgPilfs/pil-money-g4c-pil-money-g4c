@@ -20,6 +20,7 @@ export class PayServicesDetailComponent implements OnInit {
       nro_factura: ['',[Validators.required]],
       nombre_factura: ['',[Validators.required]],
       monto: ['',[Validators.required]],
+      cvu_pago: "236598752013654875"
       })
    }
 
@@ -43,6 +44,7 @@ export class PayServicesDetailComponent implements OnInit {
       NroFactura: this.formDetallePago.get('nro_factura').value,
       NombreFactura: this.formDetallePago.get('nombre_factura').value,
       Monto: this.formDetallePago.get('monto').value,
+      CvuPago: this.formDetallePago.get('cvu_pago').value
     }
 
     console.log(itemCopy);
