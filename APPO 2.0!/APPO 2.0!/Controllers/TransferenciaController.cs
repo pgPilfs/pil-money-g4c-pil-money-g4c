@@ -79,8 +79,33 @@ namespace APPO_2._0_.Controllers
 
                 decimal total = oModel.Monto;
 
-               
+                if (cuenta_origen == null)
+                {
+                    if (cuenta_destino == null)
+                    {
+                        return BadRequest("Lo sentimos...Las cuentas no existen...");
+                    }
+                    else
+                    {
+                        return BadRequest("Lo sentimos...Las cuenta origen no existe...");
+                    }
+                }
+                else
+                {
+                    if (cuenta_destino == null)
+                    {
+                        if (cuenta_origen == null)
+                        {
+                            return BadRequest("Lo sentimos...Las cuentas no existen...");
+                        }
+                        else
+                        {
+                            return BadRequest("Lo sentimos...Las cuenta destino no existe...");
+                        }
+                    }
+                }
 
+                
 
                 if (cuenta_origen.IdTipoCuenta != cuenta_destino.IdTipoCuenta)
                 {
