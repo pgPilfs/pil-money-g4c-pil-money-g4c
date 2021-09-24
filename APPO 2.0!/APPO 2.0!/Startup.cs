@@ -1,4 +1,6 @@
 using APPO_2._0_.Models;
+using APPO_2._0_.Models.Common;
+using APPO_2._0_.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,6 +49,30 @@ namespace APPO_2._0_
                 options.SuppressXFrameOptionsHeader = false;
             });
 
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            //jwt
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var llave = Encoding.ASCII.GetBytes(appSettings.Secreto);
+
+            services.AddAuthentication(d =>
+            {
+                d.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                d.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(d => 
+            {
+                d.RequireHttpsMetadata = false;
+                d.SaveToken = true;
+                d.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(llave),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
             //Autenticacion
             /*services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                  .AddJwtBearer(options =>
@@ -62,6 +88,11 @@ namespace APPO_2._0_
                      Encoding.UTF8.GetBytes(Configuration["Llave_super_secreta"])),
                       ClockSkew = TimeSpan.Zero
                   });*/
+
+
+            services.AddScoped<IUserService, UserService>();
+
+            
 
             services.AddCors(options => {
                 options.AddPolicy(name: MiCors,
@@ -103,7 +134,8 @@ namespace APPO_2._0_
             app.UseRouting();
             app.UseCors(MiCors);
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
