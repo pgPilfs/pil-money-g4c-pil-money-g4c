@@ -26,10 +26,15 @@ namespace APPO_2._0.Controllers
             
             try
             {
-               
-                    PagosServicio oPagos = new PagosServicio();
 
-                    if (oModel.NombreFactura == "CABLEVISION")
+                PagosServicio oPagos = new PagosServicio();
+                //Cuenta cuenta = new Cuenta();
+
+                var cvu_origen = Convert.ToInt64(oModel.CvuPago);
+                var cuenta = _context.Cuentas.Where(c => c.Cvu == cvu_origen).FirstOrDefault();
+
+
+                if (oModel.NombreFactura == "CABLEVISION")
                     {
                         oPagos.IdServicio = 1;
 
@@ -65,16 +70,25 @@ namespace APPO_2._0.Controllers
 
                     }
 
-                    oPagos.CvuPago = 236598752013654875;
+                    oPagos.CvuPago = oModel.CvuPago;
                     oPagos.NroFactura = oModel.NroFactura;
                     oPagos.NombreFactura = oModel.NombreFactura;
                     oPagos.Monto = oModel.Monto;
                     oPagos.Fecha = DateTime.Now;
 
+
+                    decimal total = oModel.Monto;
+
+                    cuenta.SaldoActual -= total;
+                    _context.Cuentas.Update(cuenta);
+
                     _context.PagosServicios.Add(oPagos);
+
                     await _context.SaveChangesAsync();
                     return Ok(oPagos);
                     
+
+
 
 
                 

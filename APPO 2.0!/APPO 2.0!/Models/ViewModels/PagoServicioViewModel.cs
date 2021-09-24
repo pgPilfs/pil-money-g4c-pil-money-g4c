@@ -7,6 +7,7 @@ namespace APPO_2._0.ViewModels
 {
     public class PagoServicioViewModel
     {
+        public long CvuPago { get; set; }
         public int NroFactura { get; set; }
         public string NombreFactura { get; set; }
         public decimal Monto { get; set; }
