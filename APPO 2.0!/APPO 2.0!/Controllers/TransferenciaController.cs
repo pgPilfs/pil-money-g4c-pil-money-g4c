@@ -63,18 +63,25 @@ namespace APPO_2._0_.Controllers
             try
             {
 
+
                 Transferencia transf = new Transferencia();
-                Cuenta cuenta = new Cuenta();
+                //Cuenta cuenta = new Cuenta();
+
+                var cvu_origen = Convert.ToInt64(oModel.CvuOrigen);
+                var cuenta = _context.Cuentas.Where(c => c.Cvu == cvu_origen).FirstOrDefault();
 
                 
+
+
                 transf.CvuOrigen = Convert.ToInt64(oModel.CvuOrigen);
                 transf.CvuDestino = Convert.ToInt64(oModel.CvuDestino);
                 transf.Fecha = DateTime.Now;
                 transf.Monto = oModel.Monto;
                 transf.Referencia = "sin referencia";
 
-                cuenta.Cvu = transf.CvuOrigen;
-                cuenta.SaldoActual -= transf.Monto;
+                decimal total = oModel.Monto;
+
+                cuenta.SaldoActual -= total;
                 _context.Cuentas.Update(cuenta);
 
 
