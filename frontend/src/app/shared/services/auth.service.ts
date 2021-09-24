@@ -20,7 +20,7 @@ const httpOption = {
 })
 
 export class AuthService {
-  url: string = 'https://localhost:44331/api/Usuario/login';
+  url: string = 'https://localhost:44357/api/Usuario/';
 
   private userSubject: BehaviorSubject<User>;  
   public get usuarioData(): User{
@@ -28,21 +28,22 @@ export class AuthService {
   }
 
   constructor(private http:HttpClient) {
-    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('usuario')));
+    //this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('usuario')));
     
    }
 
-   login(login: Login): Observable<Response>{
-     return this.http.post<Response>(this.url, login, httpOption).pipe(
-       map(res => {
-         if(res.exito === 1){
-           const usuario: User = res.data;
-           localStorage.setItem('usuario',JSON.stringify(usuario));
-           this.userSubject.next(usuario);
-         }
-         return res;
-       })
-     )
+   login(obj : Login): Observable<Response>{
+     return this.http.post<Response>(this.url, obj, httpOption);
+     //.pipe(
+     //  map(res => {
+     //    if(res.exito === 1){
+     //      const usuario: User = res.data;
+     //      localStorage.setItem('usuario',JSON.stringify(usuario));
+     //      this.userSubject.next(usuario);
+     //    }
+     //    return res;
+     //  })
+     //)
    }
 
    logOut(){
