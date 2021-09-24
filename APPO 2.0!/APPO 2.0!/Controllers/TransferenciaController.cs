@@ -126,7 +126,9 @@ namespace APPO_2._0_.Controllers
                         else
                         {
                             cuenta_origen.SaldoActual -= total;
+                            cuenta_destino.SaldoActual += total;
                             _context.Cuentas.Update(cuenta_origen);
+                            _context.Cuentas.Update(cuenta_destino);
                         }
                     }
                 }
