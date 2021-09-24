@@ -31,6 +31,7 @@ namespace APPO_2._0_.Controllers
         {
             try
             {
+
                 var listUsers = await _context.Usuarios
                                             .Include(u => u.Cuenta).Where(u => u.Nombre == "Lautaro").                                         
                                             ToListAsync();
@@ -73,7 +74,6 @@ namespace APPO_2._0_.Controllers
         }*/
 
 
-        
         
         // POST api/<UserController>
         [HttpPost]

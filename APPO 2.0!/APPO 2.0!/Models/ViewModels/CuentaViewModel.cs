@@ -9,5 +9,7 @@ namespace APPO_2._0.ViewModels
     {
         public string Cvu { get; set; }
         public decimal SaldoActual { get; set; }
+
+        public string Alias { get; set; }
     }
 }

@@ -35,7 +35,8 @@ namespace APPO_2._0_.Controllers
                 var listaView = lista.Select(x => new CuentaViewModel
                 {
                     Cvu = Convert.ToString(x.Cvu),
-                    SaldoActual = x.SaldoActual
+                    SaldoActual = x.SaldoActual,
+                    Alias = x.Alias
                  }).ToList();
                 var listaFinal = listaView.Where(var => var.Cvu == "236598752013654875").ToList();
                 return Ok(listaFinal);
