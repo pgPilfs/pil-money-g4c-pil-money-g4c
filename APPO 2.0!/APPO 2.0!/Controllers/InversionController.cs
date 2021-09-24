@@ -42,28 +42,24 @@ namespace APPO_2._0_.Controllers
             try
             {
                 Inversione inv = new Inversione();
-                Cuenta cuenta = new Cuenta();
+                //Cuenta cuenta = new Cuenta();
 
+                var cvu_origen = Convert.ToInt64(oModelInversion.CvuInversion);
+                var cuenta = _context.Cuentas.Where(c => c.Cvu == cvu_origen).FirstOrDefault();
                 //var cuentaInv = _context.Inversiones.Where(i => i.CvuInversion == oModelInversion.CvuInversion).FirstOrDefault();
                 //cuenta.Cvu = cuentaInv.CvuInversion;
-                cuenta.Cvu = oModelInversion.CvuInversion;
+                //cuenta.Cvu = oModelInversion.CvuInversion;
                 inv.CvuInversion = oModelInversion.CvuInversion;
                 inv.FechaFin = oModelInversion.FechaFin;
                 inv.FechaInicio = DateTime.Now;
                 inv.MontoInversion = oModelInversion.MontoInversion;
 
 
+                decimal total = oModelInversion.MontoInversion;
 
-                /*await _context.Cuentas.FindAsync(inv);
-                if (inv == null)
-                {
-                    return BadRequest("No posees esta cuenta");
-                }*/
+                cuenta.SaldoActual -= total;
+                _context.Cuentas.Update(cuenta);
 
-                //cuenta.SaldoActual -= inv.MontoInversion;
-                //_context.Cuentas.Update(cuenta);
-
-                //_context.Cuentas.Add(cuenta);
                 _context.Inversiones.Add(inv);
               
 
