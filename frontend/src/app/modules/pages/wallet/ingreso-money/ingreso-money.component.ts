@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cuenta } from '@app/shared/models/cuenta';
+import { CuentaService } from '@app/shared/services/cuenta.service';
 import { IngresosService } from '@app/shared/services/ingresos.service';
 
 @Component({
@@ -8,6 +10,11 @@ import { IngresosService } from '@app/shared/services/ingresos.service';
 })
 export class IngresoMoneyComponent implements OnInit {
 
+  Datos: Cuenta[] = [];
+
+  mostrarDatosCuenta: boolean = false;
+  mostrarDatosTarjeta: boolean = false;
+  //lo que quiero que se muestre
   ingreso = {
     id_deposito: 5,
     nombre_deposito: 'deposito',
@@ -17,16 +24,39 @@ export class IngresoMoneyComponent implements OnInit {
     cod_seguridad: ' ',
     nombre_titular: ' '
   };
+  mensaje_enlace: string = 'mostrar';
 
   
 
   constructor(
-    private ingresosService: IngresosService
-  ) { 
+    private ingresosService: IngresosService,
+    private cuentaService: CuentaService
+  ) {
+    this.GetDatos(); 
     
   }
 
   ngOnInit(): void {
+  }
+
+  touchButtonTransferencia(){
+    this.mostrarDatosCuenta =! this.mostrarDatosCuenta;
+  }
+
+  touchButtonTarjeta(){
+    this.mostrarDatosTarjeta =! this.mostrarDatosTarjeta;
+  }
+
+  
+
+  GetDatos() {
+    this.cuentaService.get().subscribe((res: Cuenta[]) => {
+      this.Datos = res;
+      console.log(this.Datos);
+    },
+     error => {
+      console.log(error); 
+     });
   }
 
   saveIngreso(): void {
@@ -50,13 +80,5 @@ export class IngresoMoneyComponent implements OnInit {
       );
       }
 
-      //GetServicios() {
-      //  this.serviciosAPagarService.get().subscribe((res: Service[]) => {
-      //    this.Items = res;
-      //  });
-
-  //PostTransferencia() {
-  //  //const itemCopy = { ...this.formTransfer.value };
-  //  this.transferenciaService.post(this.formTransfer.value).subscribe((res: any) => {
-  //  alert('Ingreso de dinero realizado. En unos minutos lo verás reflejado en tu cuenta'); 
+   
 }
