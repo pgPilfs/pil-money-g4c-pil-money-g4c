@@ -15,7 +15,7 @@ namespace APPO_2._0_.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
     public class CuentaController : ControllerBase
     {
         private readonly APPO20Context _context;

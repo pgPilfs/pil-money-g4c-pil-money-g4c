@@ -73,6 +73,10 @@ namespace APPO_2._0_.Controllers
                 transf.Monto = oModel.Monto;
                 transf.Referencia = "sin referencia";
 
+                cuenta.Cvu = transf.CvuOrigen;
+                cuenta.SaldoActual -= transf.Monto;
+                _context.Cuentas.Update(cuenta);
+
 
                 /*await _context.Cuentas.FindAsync(inv);
                 if (inv == null)
