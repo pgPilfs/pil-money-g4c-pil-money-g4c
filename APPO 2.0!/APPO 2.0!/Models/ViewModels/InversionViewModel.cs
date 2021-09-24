@@ -11,6 +11,6 @@ namespace APPO_2._0.ViewModels
         
         public decimal MontoInversion { get; set; }
         public DateTime FechaFin { get; set; }
-        public long CvuInversion { get; set; }
+        public string CvuInversion { get; set; }
     }
 }

@@ -49,7 +49,7 @@ namespace APPO_2._0_.Controllers
                 //var cuentaInv = _context.Inversiones.Where(i => i.CvuInversion == oModelInversion.CvuInversion).FirstOrDefault();
                 //cuenta.Cvu = cuentaInv.CvuInversion;
                 //cuenta.Cvu = oModelInversion.CvuInversion;
-                inv.CvuInversion = oModelInversion.CvuInversion;
+                inv.CvuInversion = Convert.ToInt64(oModelInversion.CvuInversion);
                 inv.FechaFin = oModelInversion.FechaFin;
                 inv.FechaInicio = DateTime.Now;
                 inv.MontoInversion = oModelInversion.MontoInversion;
@@ -57,12 +57,23 @@ namespace APPO_2._0_.Controllers
 
                 decimal total = oModelInversion.MontoInversion;
 
-                cuenta.SaldoActual -= total;
-                _context.Cuentas.Update(cuenta);
-
+                if (cuenta == null)
+                {
+                    return BadRequest("Lo sentimos...Las cuenta de la que intentas realizar la inversion no existe...");
+                }
+                
+                if (cuenta.SaldoActual < total)
+                {
+                    return BadRequest("Lo sentimos... Tu cuenta no tiene el el dinero suficiente para realizar una inversion");
+                }
+                else
+                {
+                    cuenta.SaldoActual -= total;
+                    _context.Cuentas.Update(cuenta);
+                }
+                    
                 _context.Inversiones.Add(inv);
               
-
                 await _context.SaveChangesAsync();
                 return Ok(inv);
             }
