@@ -67,7 +67,9 @@ namespace APPO_2._0_.Controllers
                 //Cuenta cuenta = new Cuenta();
 
                 var cvu_origen = Convert.ToInt64(oModel.CvuOrigen);
-                var cuenta = _context.Cuentas.Where(c => c.Cvu == cvu_origen).FirstOrDefault();
+                var cvu_destino = Convert.ToInt64(oModel.CvuDestino);
+                var cuenta_origen = _context.Cuentas.Where(c => c.Cvu == cvu_origen).FirstOrDefault();
+                var cuenta_destino = _context.Cuentas.Where(c => c.Cvu == cvu_destino).FirstOrDefault();
 
                 transf.CvuOrigen = Convert.ToInt64(oModel.CvuOrigen);
                 transf.CvuDestino = Convert.ToInt64(oModel.CvuDestino);
@@ -77,9 +79,34 @@ namespace APPO_2._0_.Controllers
 
                 decimal total = oModel.Monto;
 
-                cuenta.SaldoActual -= total;
-                _context.Cuentas.Update(cuenta);
+               
 
+
+                if (cuenta_origen.IdTipoCuenta != cuenta_destino.IdTipoCuenta)
+                {
+                    return BadRequest("No podes enviar dinero de cuentas con monedas diferentes");
+                }
+                else
+                {
+                    if (cuenta_origen.Cvu == transf.CvuDestino)
+                    {
+                        return BadRequest("Error... Estás intentando enviar dinero a tu propia cuenta. Operación no disponible");
+                    }
+                    else
+                    {
+                        if (cuenta_origen.SaldoActual < total)
+                        {
+                            return BadRequest("Lo sentimos... Tu cuenta no tiene el el dinero suficiente para realizar esta transferencia");
+                        }
+                        else
+                        {
+                            cuenta_origen.SaldoActual -= total;
+                            _context.Cuentas.Update(cuenta_origen);
+                        }
+                    }
+                }
+                    
+               
 
                 /*await _context.Cuentas.FindAsync(inv);
                 if (inv == null)
