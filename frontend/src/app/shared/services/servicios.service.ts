@@ -22,7 +22,7 @@ export class ServiciosService {
   //}
   resourceUrl: string;
   constructor(private httpClient: HttpClient) {
-    this.resourceUrl = 'https://localhost:44336/api/Servicio/';
+    this.resourceUrl = 'https://localhost:44357/api/Servicios/';
     }
 
     get() {

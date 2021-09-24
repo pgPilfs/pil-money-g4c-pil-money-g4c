@@ -40,9 +40,9 @@ export class PayServicesDetailComponent implements OnInit {
 
   PostPago() {
     const itemCopy:PagoServicioDetail = {
-      nro_factura: this.formDetallePago.get('nro_factura').value,
-      nombre_factura: this.formDetallePago.get('nombre_factura').value,
-      monto: this.formDetallePago.get('monto').value,
+      NroFactura: this.formDetallePago.get('nro_factura').value,
+      NombreFactura: this.formDetallePago.get('nombre_factura').value,
+      Monto: this.formDetallePago.get('monto').value,
     }
 
     console.log(itemCopy);

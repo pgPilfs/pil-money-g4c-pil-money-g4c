@@ -1,4 +1,4 @@
-<form autocomplete="off" name="formDetallePago" [formGroup]="formDetallePago">
+<form name="formDetallePago" [formGroup]="formDetallePago" (ngSubmit)="PostPago()">
     <div>
 
 
@@ -13,10 +13,9 @@
 
             <div class="row justify-content-center">
                 <div class="col-6 p-2 m-2">
-                    <label for="nroFac" class="form-label h4 px-4">Número de Factura</label>
-                    <input type="nroFac" class="form-control" id="nroFac" placeholder="Numero de factura"
-                        aria-describedby="nroFacHelp" formControlName="nro_factura"
-                        [class.is-invalid]="facturaNoValida">
+                    <label class="form-label h4 px-4">Número de Factura</label>
+                    <input type="text" class="form-control" placeholder="Numero de factura"
+                    formControlName="nro_factura" [class.is-invalid]="facturaNoValida" ngSubmit>
                     <small *ngIf="facturaNoValida" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un numero
                         de factura valido
@@ -25,14 +24,14 @@
                 </div>
             </div>
 
-            <!--Campo password-->
+   
 
 
             <div class="row justify-content-center">
                 <div class="col-6 p-2 m-2">
-                    <label for="exampleInputPassword1" class="form-label px-4 h3">Nombre de Factura</label>
+                    <label class="form-label px-4 h3">Nombre de Factura</label>
                     <input class="form-control" placeholder="Nombre de la factura o servicio"
-                        formControlName="nombre_factura" [class.is-invalid]="nombreNoValido">
+                        formControlName="nombre_factura" [class.is-invalid]="nombreNoValido" ngSubmit>
                     <small *ngIf="nombreNoValido" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un nombre
                         valido
@@ -41,21 +40,20 @@
 
                 <div class="row justify-content-center">
                     <div class="col-6 p-2 m-2">
-                        <label for="exampleInputPassword1" class="form-label px-4 h3">Monto</label>
+                        <label class="form-label px-4 h3">Monto</label>
                         <input class="form-control" placeholder="Monto" formControlName="monto"
-                            [class.is-invalid]="montoNoValido">
+                            [class.is-invalid]="montoNoValido" ngSubmit>
                     </div>
 
 
 
                     <div class="row">
                         <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-                            <a [routerLink]="['/wallet']">
-                                <button type="submit" button [disabled]="formDetallePago.invalid" (click)="PostPago()"
-                                    value="Enviar" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="submit" [disabled]="formDetallePago.invalid"
+                                    class="button" >
                                     CONFIRMAR PAGO
                                 </button>
-                            </a>
+
 
 
                         </div>
