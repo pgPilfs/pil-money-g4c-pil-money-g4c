@@ -9,6 +9,8 @@ namespace APPO_2._0_.Models
     {
         public int IdDeposito { get; set; }
         public string NombreDeposito { get; set; }
+        
+        
         public long CvuDeposito { get; set; }
         public string NroTarjeta { get; set; }
         public DateTime FechaVenc { get; set; }
