@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cuenta } from '@app/shared/models/cuenta';
+import { IngresoMoney } from '@app/shared/models/ingreso-money';
 import { CuentaService } from '@app/shared/services/cuenta.service';
-import { IngresosService } from '@app/shared/services/ingresos.service';
+import { IngresoMoneyService } from '@app/shared/services/ingreso-money.service';
 
 @Component({
   selector: 'app-ingreso-money',
@@ -9,32 +11,52 @@ import { IngresosService } from '@app/shared/services/ingresos.service';
   styleUrls: ['./ingreso-money.component.css']
 })
 export class IngresoMoneyComponent implements OnInit {
+  formIngresoMoney: FormGroup;
 
   Datos: Cuenta[] = [];
 
   mostrarDatosCuenta: boolean = false;
   mostrarDatosTarjeta: boolean = false;
-  //lo que quiero que se muestre
-  ingreso = {
-    id_deposito: 5,
-    nombre_deposito: 'deposito',
-    CVU_deposito: '2262954820126236189574',
-    nro_tarjeta: ' ',
-    fecha_venc: ' ',
-    cod_seguridad: ' ',
-    nombre_titular: ' '
-  };
-  mensaje_enlace: string = 'mostrar';
-
-  
 
   constructor(
-    private ingresosService: IngresosService,
+    private formBuilder: FormBuilder,
+    private ingresoMoneyService: IngresoMoneyService,
     private cuentaService: CuentaService
   ) {
+    this.formIngresoMoney = this.formBuilder.group({
+      cvu_deposito: "236598752013654875",
+      nro_tarjeta: ['',[Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
+      fecha_venc: ['',[Validators.required]],
+      cod_seguridad: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
+      nombre_titular: ['',[Validators.required]],
+      monto: ['',[Validators.required]]
+      })
+
+
     this.GetDatos(); 
     
   }
+
+  get nroTarjetaNoValido(){
+    return this.formIngresoMoney.get('nro_tarjeta').invalid && this.formIngresoMoney.get('nro_tarjeta').touched;
+  }
+
+   get fechaVencNoValida(){
+    return this.formIngresoMoney.get('fecha_venc').invalid && this.formIngresoMoney.get('fecha_venc').touched;
+  }
+
+  get codSeguridadNoValido(){
+    return this.formIngresoMoney.get('cod_seguridad').invalid && this.formIngresoMoney.get('cod_seguridad').touched;
+  }
+
+  get nombreNoValido(){
+    return this.formIngresoMoney.get('nombre_titular').invalid && this.formIngresoMoney.get('nombre_titular').touched;
+  }
+
+  get montoNoValido(){
+    return this.formIngresoMoney.get('monto').invalid && this.formIngresoMoney.get('monto').touched;
+  }
+
 
   ngOnInit(): void {
   }
@@ -59,26 +81,25 @@ export class IngresoMoneyComponent implements OnInit {
      });
   }
 
-  saveIngreso(): void {
-    const data: any = {
-      id_deposito: this.ingreso.id_deposito,
-      nombre_deposito: this.ingreso.nombre_deposito,
-      CVU_deposito: this.ingreso.CVU_deposito,
-      nro_tarjeta: this.ingreso.nro_tarjeta,
-      fecha_venc: this.ingreso.fecha_venc,
-      cod_seguridad: this.ingreso.cod_seguridad,
-      nombre_titular: this.ingreso.nombre_titular,
 
-    };
+  PostIngreso() {
+    const itemCopy:IngresoMoney = {      
+      CvuDeposito: this.formIngresoMoney.get('cvu_deposito')?.value,
+      NroTarjeta: this.formIngresoMoney.get('nro_tarjeta')?.value,
+      FechaVenc: this.formIngresoMoney.get('fecha_venc')?.value,
+      CodSeguridad: this.formIngresoMoney.get('cod_seguridad')?.value,
+      NombreTitular: this.formIngresoMoney.get('nombre_titular')?.value,
+      Monto: this.formIngresoMoney.get('monto')?.value,
+    }
 
-    this.ingresosService.post(data)
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => console.log(error)
-      );
-      }
+    console.log(itemCopy);
+    this.ingresoMoneyService.ingresar(itemCopy).subscribe(data => {
+      alert("Se realizo la operación. En unos minutos verás reflejado el saldo en tu cuenta...");
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
 
-   
+  
+  }
 }
