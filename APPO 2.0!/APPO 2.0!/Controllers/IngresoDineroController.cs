@@ -31,7 +31,7 @@ namespace APPO_2._0_.Controllers
                 var cvu_inversion = Convert.ToInt64(oModelIngreso.CvuDeposito);
                 var cuenta = _context.Cuentas.Where(c => c.Cvu == cvu_inversion).FirstOrDefault();
 
-                ing.NombreDeposito = "Sin nombre";
+                ing.NombreDeposito = "Sin nombre";  
                 ing.CvuDeposito = Convert.ToInt64(oModelIngreso.CvuDeposito);
                 ing.NroTarjeta = oModelIngreso.NroTarjeta;
                 ing.FechaVenc = oModelIngreso.FechaVenc;

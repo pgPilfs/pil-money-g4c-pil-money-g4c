@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Authguard } from './security/authguard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},

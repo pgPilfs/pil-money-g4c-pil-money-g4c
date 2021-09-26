@@ -1,5 +1,5 @@
 <div>
-    <form name="formLogin" [formGroup]="formLogin" (ngSubmit)="login()">
+    <form name="formLogin" [formGroup]="formLogin" (ngSubmit)="guardar()">
         <div class="login container p-3">
             <div class="row">
                 <div class="d-inline-flex p-2 bd-highlight justify-content-center">
@@ -12,7 +12,7 @@
             <div class="row justify-content-center">
                 <div class="col-6 p-2 m-2">
                     <label class="form-label h4 px-4">Correo electronico</label>
-                    <input type="email" class="form-control" placeholder="Correo electrónico" formControlName="email" >
+                    <input type="text" class="form-control" placeholder="Correo electrónico" formControlName="email" >
                     <small *ngIf="correoNoValido" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un correo
                         electronico válido</small>
@@ -57,9 +57,9 @@
     </form>
 </div>
 
-<!--<div>
+<div>
     Valido: {{ formLogin.valid | json }}
     Estado: {{ formLogin.status }}
     Estado: {{ formLogin.value | json }}
-</div>-->
+</div>
 

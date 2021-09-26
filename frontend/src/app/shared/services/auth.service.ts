@@ -9,31 +9,32 @@ import { map } from 'rxjs/operators';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Login } from '../models/login';
 
-const httpOption = {
+/*const httpOption = {
   headers: new HttpHeaders({
     'Contend-Type': 'application/json'
   })
-}
+}*/
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  url: string = 'https://localhost:44357/api/Usuario/';
+  resourceUrl: string;
 
-  private userSubject: BehaviorSubject<User>;  
+  /*private userSubject: BehaviorSubject<User>;  
   public get usuarioData(): User{
     return this.userSubject.value;
-  }
+  }*/
 
-  constructor(private http:HttpClient) {
+  constructor(private httpClient:HttpClient) {
     //this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('usuario')));
+    this.resourceUrl = 'https://localhost:44357/api/Usuario/';
     
    }
 
    login(obj : Login): Observable<Response>{
-     return this.http.post<Response>(this.url, obj, httpOption);
+     return this.httpClient.post<Response>(this.resourceUrl, obj);
      //.pipe(
      //  map(res => {
      //    if(res.exito === 1){
@@ -46,8 +47,8 @@ export class AuthService {
      //)
    }
 
-   logOut(){
+   /*logOut(){
      localStorage.removeItem('usuario');
      this.userSubject.next(null);
-   }
+   }*/
 }
