@@ -121,22 +121,21 @@
                                 <table id='tablaDeServicios' class="table table-hover table-sm table-bordered table-striped">
                                   <thead>
                                     <tr>
-                                        <th class="text-center">Moneda</th>
-                                      <th class="text-center">Compra</th>
-                                      <th class="text-center">Venta</th>
+                                      <th class="text-center">DOLAR</th>
+                                      <th class="text-center">OPERACION</th>
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr *ngFor="let info of Info">
-                                      <td>Dólar</td>
-                                      <td>{{ info.compra }}</td>
-                                      <td>{{ info.venta }}</td>
+                                    <tr *ngFor="let info of Info | keyvalue">
+                                      
+                                      <td class="text-center"> {{ info.value }}</td>
+                                      <td class="text-center">{{ info.key }}</td>
                                     </tr>
-                                    <tr *ngFor="let info of Info">
+                                    <!--<tr *ngFor="let info of Info">
                                       <td>Euro</td>
                                       <td>{{ info.compra }}</td>
                                       <td>{{ info.venta }}</td>
-                                    </tr>
+                                    </tr>-->
                                   </tbody>
                                 </table>
                               </div>

@@ -14,7 +14,7 @@ import { UserService } from '@app/shared/services/user.service';
 })
 export class WalletComponent implements OnInit {
   Datos: Cuenta[] = [];
-  Info: Cotizacion[] = [];
+  Info: any = [];
   DatoUserLog: User[] = [];
 
   constructor(public formBuilder: FormBuilder,
@@ -41,7 +41,7 @@ export class WalletComponent implements OnInit {
   }
 
   GetCotizacion() {
-    this.cotizacionService.get().subscribe((res:any) => {
+    this.cotizacionService.get().subscribe((res ) => {
       this.Info = res;
       console.log(this.Info);
     },
