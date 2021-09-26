@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PagoServicioDetail } from '@app/shared/models/pago-servicio-detail';
 import { PagoServiciosDetailService } from '@app/shared/services/pago-servicios-detail.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { jsPDF } from 'jspdf';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-pay-services-detail',
@@ -34,10 +36,21 @@ export class PayServicesDetailComponent implements OnInit {
 
   get montoNoValido(){
     return this.formDetallePago.get('monto').invalid && this.formDetallePago.get('monto').touched;
+  
   }
+
 
   ngOnInit(): void {
   }
+
+  generarPDF(){
+    const doc = new jsPDF();
+    doc.text('Comprobante de pago de servicio', 10,10);
+    
+    doc.save('comprobantedepago.pdf');
+  }
+
+
 
   PostPago() {
     const itemCopy:PagoServicioDetail = {
@@ -47,9 +60,12 @@ export class PayServicesDetailComponent implements OnInit {
       CvuPago: this.formDetallePago.get('cvu_pago').value
     }
 
+    
+
     console.log(itemCopy);
     this.pagosService.save(itemCopy).subscribe(data => {
-      alert("Se realizo la el pago. Se te redirigirá a una pestaña para que visualices el comprobante...");
+      alert("Se realizo la el pago. Se te descargará tu comprobante...");
+      
       console.log(data);
     }, error => {
       console.log(error);
