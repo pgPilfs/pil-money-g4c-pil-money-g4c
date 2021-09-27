@@ -94,6 +94,7 @@
                     <p *ngFor="let transf of HistorialTransfer">Transferiste al CVU nro {{ transf.cvuDestino }}</p>
                     <p *ngFor="let inv of HistorialInversion">Invertiste un monto de $ {{ inv.montoInversion }}</p>
                     <p *ngFor="let hist of Historial">Pagaste tu factura de {{ hist.nombreFactura }} de  $ {{ hist.monto }}</p>
+                    <p *ngFor="let ing of IngresosDinero">Ingresaste $ {{ ing.monto }} a tu cuenta</p>
                 </div>
             </div>
         </div>

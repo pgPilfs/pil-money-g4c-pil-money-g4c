@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Cotizacion } from '@app/shared/models/cotizacion';
 import { Cuenta } from '@app/shared/models/cuenta';
+import { IngresoMoney } from '@app/shared/models/ingreso-money';
 import { Inversion } from '@app/shared/models/inversion';
 import { PagoServicioDetail } from '@app/shared/models/pago-servicio-detail';
 import { Transferencia } from '@app/shared/models/transferencia';
@@ -9,6 +10,7 @@ import { User } from '@app/shared/models/user';
 import { ActividadUserService } from '@app/shared/services/actividad-user.service';
 import { CotizacionService } from '@app/shared/services/cotizacion.service';
 import { CuentaService } from '@app/shared/services/cuenta.service';
+import { IngresoMoneyService } from '@app/shared/services/ingreso-money.service';
 import { InversionService } from '@app/shared/services/inversion.service';
 import { PagoServiciosDetailService } from '@app/shared/services/pago-servicios-detail.service';
 import { TransferenciasService } from '@app/shared/services/transferencias.service';
@@ -26,6 +28,7 @@ export class WalletComponent implements OnInit {
   HistorialInversion: Inversion[] = null;
   HistorialTransfer: Transferencia[] = null;
   Historial: PagoServicioDetail[] = null;
+  IngresosDinero: IngresoMoney[] = null;
 
   constructor(public formBuilder: FormBuilder,
     private cuentaService: CuentaService,
@@ -33,7 +36,8 @@ export class WalletComponent implements OnInit {
     private userService: UserService,
     private transferenciaService: TransferenciasService,
     private inversionService: InversionService,
-    private historialServiciosPagos: PagoServiciosDetailService) { }
+    private historialServiciosPagos: PagoServiciosDetailService,
+    private ingresoMoneyService: IngresoMoneyService) { }
 
   ngOnInit(): void {
     this.GetDatos();
@@ -43,6 +47,7 @@ export class WalletComponent implements OnInit {
     this.GetHistorialInv();
     this.GetHistorialPagos();
     this.GetHistorialTransfer();
+    this.GetHistorialIngresos();
     
   }
 
@@ -93,6 +98,17 @@ export class WalletComponent implements OnInit {
     this.inversionService.get().subscribe((res: Inversion[]) => {
       this.HistorialInversion = res;
       console.log(this.HistorialInversion);
+    },
+     error => {
+      console.log(error); 
+     });
+  }
+
+
+  GetHistorialIngresos() {
+    this.ingresoMoneyService.get().subscribe((res: IngresoMoney[]) => {
+      this.IngresosDinero = res;
+      console.log(this.IngresosDinero);
     },
      error => {
       console.log(error); 

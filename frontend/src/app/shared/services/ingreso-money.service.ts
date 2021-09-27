@@ -15,5 +15,9 @@ export class IngresoMoneyService {
   ingresar(obj: IngresoMoney) {
     return this.httpClient.post(this.resourceUrl, obj);
   }
+
+  get() {
+    return this.httpClient.get(this.resourceUrl);
+  }
 }
 

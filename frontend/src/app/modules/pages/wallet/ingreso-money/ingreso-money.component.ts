@@ -14,6 +14,7 @@ export class IngresoMoneyComponent implements OnInit {
   formIngresoMoney: FormGroup;
 
   Datos: Cuenta[] = [];
+  IngresosDinero: IngresoMoney[] = null;
 
   mostrarDatosCuenta: boolean = false;
   mostrarDatosTarjeta: boolean = false;
@@ -59,6 +60,7 @@ export class IngresoMoneyComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.GetHistorialIngresos();
   }
 
   touchButtonTransferencia(){
@@ -67,6 +69,16 @@ export class IngresoMoneyComponent implements OnInit {
 
   touchButtonTarjeta(){
     this.mostrarDatosTarjeta =! this.mostrarDatosTarjeta;
+  }
+
+  GetHistorialIngresos() {
+    this.ingresoMoneyService.get().subscribe((res: IngresoMoney[]) => {
+      this.IngresosDinero = res;
+      console.log(this.IngresosDinero);
+    },
+     error => {
+      console.log(error); 
+     });
   }
 
   
