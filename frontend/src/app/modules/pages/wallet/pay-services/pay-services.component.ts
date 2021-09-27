@@ -31,7 +31,7 @@ export class PayServicesComponent implements OnInit {
     })
 
     this.GetServicios();
-    this.GetHistorial();
+    this.GetHistorialPagos();
   }
 
   GetServicios() {
@@ -40,7 +40,7 @@ export class PayServicesComponent implements OnInit {
     });
   }
 
-  GetHistorial() {
+  GetHistorialPagos() {
     this.historialServiciosPagos.get().subscribe((res: PagoServicioDetail[]) => {
       this.Historial = res;
       console.log(this.Historial);

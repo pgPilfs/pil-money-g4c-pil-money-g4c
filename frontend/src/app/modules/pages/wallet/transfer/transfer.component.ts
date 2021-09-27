@@ -35,11 +35,11 @@ export class TransferComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.GetHistorial();
+      this.GetHistorialTransfer();
       }
 
     
-    GetHistorial() {
+    GetHistorialTransfer() {
       this.transferenciaService.get().subscribe((res: Transferencia[]) => {
         this.HistorialTransfer = res;
         console.log(this.HistorialTransfer);

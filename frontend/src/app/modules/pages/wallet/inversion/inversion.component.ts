@@ -35,11 +35,11 @@ export class InversionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.GetHistorial();
+    this.GetHistorialInv();
   }
 
 
-  GetHistorial() {
+  GetHistorialInv() {
     this.inversionService.get().subscribe((res: Inversion[]) => {
       this.HistorialInversion = res;
       console.log(this.HistorialInversion);
