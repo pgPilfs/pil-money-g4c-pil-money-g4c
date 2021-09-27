@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PagoServicioDetail } from '@app/shared/models/pago-servicio-detail';
 import { Service } from '@app/shared/models/service';
+import { PagoServiciosDetailService } from '@app/shared/services/pago-servicios-detail.service';
 import { ServiciosService } from '@app/shared/services/servicios.service';
 
 
@@ -12,12 +14,14 @@ import { ServiciosService } from '@app/shared/services/servicios.service';
 export class PayServicesComponent implements OnInit {
 
   Items: Service[] = null;
+  Historial: PagoServicioDetail[] = null;
 
   FormBusqueda: FormGroup;
 
   constructor(
     public formBuilder: FormBuilder,
-    private serviciosAPagarService: ServiciosService
+    private serviciosAPagarService: ServiciosService,
+    private historialServiciosPagos: PagoServiciosDetailService
   ) 
   {}
 
@@ -27,12 +31,23 @@ export class PayServicesComponent implements OnInit {
     })
 
     this.GetServicios();
+    this.GetHistorial();
   }
 
   GetServicios() {
     this.serviciosAPagarService.get().subscribe((res: Service[]) => {
       this.Items = res;
     });
+  }
+
+  GetHistorial() {
+    this.historialServiciosPagos.get().subscribe((res: PagoServicioDetail[]) => {
+      this.Historial = res;
+      console.log(this.Historial);
+    },
+     error => {
+      console.log(error); 
+     });
   }
 
   Buscar() {

@@ -3,6 +3,7 @@ using APPO_2._0.ViewModels;
 using APPO_2._0_.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,31 @@ namespace APPO_2._0.Controllers
         public PagoServicioController(APPO20Context context)
         {
             _context = context;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                var lista = _context.PagosServicios.Include(c => c.CvuPagoNavigation).ToList();
+                var listaInt = lista.Where(var => var.CvuPago == 236598752013654875).ToList();
+                var listaView = listaInt.Select(x => new PagoServicioViewModel
+                {
+                    CvuPago = x.CvuPago,
+                    NroFactura = x.NroFactura,
+                    NombreFactura = x.NombreFactura,
+                    Monto = x.Monto
+                }).ToList();
+                //var listaFinal = listaView.Where(var => var.CvuPago == 236598752013654875).ToList();
+                return Ok(listaView);
+
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]

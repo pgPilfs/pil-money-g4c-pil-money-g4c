@@ -96,21 +96,16 @@
 
 
 
-<form role="form">
+
   <div class="login container p-3">
     <div class="row">
       <div class="d-inline-flex p-2 bd-highlight justify-content-center">
         <p class="h2">HISTORIAL DE PAGOS</p>
       </div>
-      <p class="card-text">Pagaste Aguas Cordobesas</p>
-      <p class="card-text">Pagaste Ecogas</p>
-      <p class="card-text">Transferiste dinero</p>
-      <p class="card-text">Transferiste dinero</p>
-      <p class="card-text">Pagaste EPEC</p>
-      <p class="card-text">Pagaste Aguas Cordobesas</p>
+        <p *ngFor="let hist of Historial">Pagaste tu factura de {{ hist.nombreFactura }} de  $ {{ hist.monto }}</p>
     </div>
   </div>
-</form>
+
 
 
 <p></p>
