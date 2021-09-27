@@ -22,8 +22,8 @@ namespace APPO_2._0_.Controllers
             _context = context;
         }
         // GET: api/<TransferenciaController>
-       
-        [HttpGet]
+
+        /*[HttpGet]
         public async Task<IActionResult> Get()
         {
             
@@ -44,9 +44,34 @@ namespace APPO_2._0_.Controllers
                 return BadRequest(ex);
                 throw;
             }
+        }*/
+
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                var lista = _context.Transferencias.Include(c => c.CvuOrigenNavigation).ToList();
+                var listaInt = lista.Where(var => var.CvuOrigen == 236598752013654875).ToList();
+                var listaView = listaInt.Select(x => new TransferenciaViewModel
+                {
+                    CvuOrigen = Convert.ToString(x.CvuOrigen),
+                    CvuDestino = Convert.ToString(x.CvuDestino),
+                    Monto = x.Monto
+                }).ToList();
+                //var listaFinal = listaView.Where(var => var.CvuPago == 236598752013654875).ToList();
+                return Ok(listaView);
+
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-       
+
 
         // GET api/<TransferenciaController>/5  
         [HttpGet("{id}")]
