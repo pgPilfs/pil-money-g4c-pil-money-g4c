@@ -70,4 +70,14 @@
         
       
     </div>
-    </form>
+</form>
+
+<div class="login container p-3">
+    <div class="row">
+      <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+        <p class="h2">HISTORIAL DE INVERSIONES</p>
+      </div>
+        <p *ngFor="let inv of HistorialInversion">Invertiste un monto de $ {{ inv.montoInversion }}</p>
+    </div>
+</div>
+

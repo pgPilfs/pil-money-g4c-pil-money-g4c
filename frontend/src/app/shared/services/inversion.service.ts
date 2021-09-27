@@ -24,4 +24,8 @@ export class InversionService {
   save(obj: Inversion)  {
     return this.httpClient.post(this.resourceUrl, obj);
   }
+
+  get() {
+    return this.httpClient.get(this.resourceUrl);
+  }
 }

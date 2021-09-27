@@ -9,6 +9,8 @@ import { InversionService } from '@app/shared/services/inversion.service';
   styleUrls: ['./inversion.component.css']
 })
 export class InversionComponent implements OnInit {
+
+  HistorialInversion: Inversion[] = null;
   formInversion: FormGroup;
 
   constructor(
@@ -33,6 +35,18 @@ export class InversionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.GetHistorial();
+  }
+
+
+  GetHistorial() {
+    this.inversionService.get().subscribe((res: Inversion[]) => {
+      this.HistorialInversion = res;
+      console.log(this.HistorialInversion);
+    },
+     error => {
+      console.log(error); 
+     });
   }
 
 
