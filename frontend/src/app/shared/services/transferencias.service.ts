@@ -29,4 +29,8 @@ export class TransferenciasService {
   save(obj: Transferencia){
     return this.httpClient.post(this.resourceUrl, obj);
   }
+
+  get() {
+    return this.httpClient.get(this.resourceUrl);
+  }
 }

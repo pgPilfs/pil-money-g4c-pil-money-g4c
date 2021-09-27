@@ -11,6 +11,8 @@ import { DecimalPipe, Time } from "@angular/common";
 })
 export class TransferComponent implements OnInit {
 
+  HistorialTransfer: Transferencia[] = null;
+
   formTransfer: FormGroup;
 
   constructor(
@@ -33,7 +35,19 @@ export class TransferComponent implements OnInit {
     }
 
     ngOnInit() {
+      this.GetHistorial();
       }
+
+    
+    GetHistorial() {
+      this.transferenciaService.get().subscribe((res: Transferencia[]) => {
+        this.HistorialTransfer = res;
+        console.log(this.HistorialTransfer);
+      },
+       error => {
+        console.log(error); 
+       });
+    }
     
 
     PostTransferencia() {

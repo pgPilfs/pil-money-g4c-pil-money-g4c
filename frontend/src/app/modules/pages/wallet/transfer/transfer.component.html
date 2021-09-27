@@ -67,4 +67,13 @@
         
       
     </div>
-    </form>
+</form>
+
+<div class="login container p-3">
+    <div class="row">
+      <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+        <p class="h2">HISTORIAL DE TRANSFERENCIAS</p>
+      </div>
+        <p *ngFor="let transf of HistorialTransfer">Transferiste al CVU nro {{ transf.cvuDestino }} un monto de $ {{ transf.monto }}</p>
+    </div>
+  </div>
