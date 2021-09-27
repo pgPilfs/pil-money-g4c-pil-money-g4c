@@ -83,7 +83,7 @@
                 <div class="card-header">
                     Tu actividad
                 </div>
-                <div class="card-body">
+                <div class="card-body" *ngFor="let actuser of ActUser | keyvalue">
                     <div class="input-group rounded">
                         <input type="search" class="form-control rounded" placeholder="Buscar" />
 
@@ -91,6 +91,8 @@
                             <i class="bi bi-search"></i>
                         </span>
                     </div>
+                    <p class="card-text">{{ actuser.value }}</p>
+                    <p class="card-text">{{ actuser.key }}</p>
                     <p class="card-text">Pagaste Aguas Cordobesas</p>
                     <p class="card-text">Pagaste Ecogas</p>
                     <p class="card-text">Transferiste dinero</p>
