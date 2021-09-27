@@ -2,6 +2,7 @@
 using APPO_2._0_.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,34 @@ namespace APPO_2._0_.Controllers
         public IngresoDineroController(APPO20Context context)
         {
             _context = context;
+        }
+
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                var lista = _context.IngresosDineros.Include(c => c.CvuDepositoNavigation).ToList();
+                var listaInt = lista.Where(var => var.CvuDeposito == 236598752013654875).ToList();
+                var listaView = listaInt.Select(x => new IngresoDineroViewModel
+                {
+                    CvuDeposito = Convert.ToString(x.CvuDeposito),
+                    NroTarjeta = x.NroTarjeta,
+                    FechaVenc = x.FechaVenc,
+                    CodSeguridad = x.CodSeguridad,
+                    NombreTitular = x.NombreTitular,
+                    Monto = x.Monto
+                }).ToList();
+                //var listaFinal = listaView.Where(var => var.CvuPago == 236598752013654875).ToList();
+                return Ok(listaView);
+
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
