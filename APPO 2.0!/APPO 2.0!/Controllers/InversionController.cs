@@ -21,13 +21,32 @@ namespace APPO_2._0_.Controllers
         {
             _context = context;
         }
+
+
         // GET: api/<InversionController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
-        }
+            try
+            {
+                var lista = _context.Inversiones.Include(c => c.CvuInversionNavigation).ToList();
+                var listaInt = lista.Where(var => var.CvuInversion == 236598752013654875).ToList();
+                var listaView = listaInt.Select(x => new InversionViewModel
+                {
+                    CvuInversion = Convert.ToString(x.CvuInversion),
+                    MontoInversion = x.MontoInversion,
+                    FechaFin = x.FechaFin
+                }).ToList();
+                //var listaFinal = listaView.Where(var => var.CvuPago == 236598752013654875).ToList();
+                return Ok(listaView);
 
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         // GET api/<InversionController>/5
         [HttpGet("{id}")]
         public string Get(int id)
