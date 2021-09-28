@@ -18,6 +18,8 @@ export class PayServicesComponent implements OnInit {
 
   FormBusqueda: FormGroup;
 
+  mostrarTodo: boolean = false;
+
   constructor(
     public formBuilder: FormBuilder,
     private serviciosAPagarService: ServiciosService,
@@ -32,6 +34,10 @@ export class PayServicesComponent implements OnInit {
 
     this.GetServicios();
     this.GetHistorialPagos();
+  }
+
+  touchButtonVerTodo(){
+    this.mostrarTodo =! this.mostrarTodo;
   }
 
   GetServicios() {

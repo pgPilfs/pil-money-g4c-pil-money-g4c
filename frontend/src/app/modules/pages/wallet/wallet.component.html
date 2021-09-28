@@ -124,7 +124,7 @@
                             <hr>
                         </div>
 
-                        <div *ngFor="let hist of Historial | slice:0:4">
+                        <div *ngFor="let hist of Historial | slice:0:4; let primero = first">
                             <p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-credit-card" viewBox="0 0 16 16">

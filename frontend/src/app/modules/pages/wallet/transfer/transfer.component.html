@@ -1,79 +1,85 @@
-<header>
-    <nav id="navmenu" class="navbar">
-        <div class="container">
+<div id="fondo">
+    <header>
+        <nav id="navmenu" class="navbar">
+            <div class="container">
 
-            <div class="navbtns">
-                <a [routerLink]="['/wallet']">INICIO</a>
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    CUENTAS
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
-                    <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
-                    <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
-                </ul>
-                <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
-                <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
-                <a [routerLink]="['/home']">SALIR</a>
+                <div class="navbtns">
+                    <a [routerLink]="['/wallet']">INICIO</a>
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        CUENTAS
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
+                        <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
+                        <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
+                    </ul>
+                    <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
+                    <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
+                    <a [routerLink]="['/home']">SALIR</a>
+                </div>
             </div>
+        </nav>
+    </header>
+
+    <br />
+
+    <form name="formTransfer" [formGroup]="formTransfer" (ngSubmit)="PostTransferencia()">
+        <div class="login container p-3">
+            <div class="row">
+                <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                    <p class="h2">TRANSFERENCIA</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="cvu_destino" class="form-label h4 px-4">CVU de la cuenta a enviar dinero</label>
+                    <input type="text" class="form-control" formControlName="cvu_destino"
+                        [class.is-invalid]="cvuNoValido" ngSubmit>
+                    <small *ngIf="cvuNoValido" style="color: red"
+                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un CVU
+                        correcto. 22 caracteres
+                    </small>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-6 p-2 m-2">
+                    <label for="monto" class="form-label h4 px-4">¿Cuanto dinero queres enviar?</label>
+                    <input type="text" class="form-control" formControlName="monto" [class.is-invalid]="montoNoValido"
+                        ngSubmit>
+                    <small *ngIf="montoNoValido" style="color: red"
+                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un monto
+                    </small>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="row">
+                <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                    <button [disabled]="formTransfer.invalid" type="submit" class="button">CONTINUAR</button>
+                </div>
+            </div>
+
+
+
+
         </div>
-    </nav>
-</header>
+    </form>
 
-<br/>
-
-<form name="formTransfer" [formGroup]="formTransfer" (ngSubmit)="PostTransferencia()">
     <div class="login container p-3">
         <div class="row">
             <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-                <p class="h2">TRANSFERENCIA</p>
+                <p class="h2">HISTORIAL DE TRANSFERENCIAS</p>
             </div>
+            <p *ngFor="let transf of HistorialTransfer">Transferiste al CVU nro {{ transf.cvuDestino }} un monto de $ {{
+                transf.monto }}</p>
         </div>
-    
-        <div class="row justify-content-center">
-            <div class="col-6 p-2 m-2">
-                <label for="cvu_destino" class="form-label h4 px-4">CVU de la cuenta a enviar dinero</label>
-                <input type="text" class="form-control" formControlName = "cvu_destino" [class.is-invalid]="cvuNoValido" ngSubmit>
-                <small *ngIf="cvuNoValido" style="color: red"
-                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un CVU correcto. 22 caracteres
-                </small>
-            </div>
-        </div>
-    
-        <div class="row justify-content-center">
-            <div class="col-6 p-2 m-2">
-                <label for="monto" class="form-label h4 px-4">¿Cuanto dinero queres enviar?</label>
-                <input type="text" class="form-control" formControlName = "monto" [class.is-invalid]="montoNoValido" ngSubmit>
-                <small *ngIf="montoNoValido" style="color: red"
-                        class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un monto
-                </small>
-            </div>
-        </div>
-    
-        
-    
-       
-    
-        
-    
-        <div class="row">
-            <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-                <button [disabled]="formTransfer.invalid" type="submit" class="button">CONTINUAR</button>
-            </div>
-        </div>
-    
-    
-        
-      
-    </div>
-</form>
-
-<div class="login container p-3">
-    <div class="row">
-      <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-        <p class="h2">HISTORIAL DE TRANSFERENCIAS</p>
-      </div>
-        <p *ngFor="let transf of HistorialTransfer">Transferiste al CVU nro {{ transf.cvuDestino }} un monto de $ {{ transf.monto }}</p>
     </div>
 </div>
