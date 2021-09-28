@@ -7,7 +7,6 @@ namespace APPO_2._0_.Models.ViewModels
 {
     public class UsuarioViewModel
     {
-        public string Nombre { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }
     }

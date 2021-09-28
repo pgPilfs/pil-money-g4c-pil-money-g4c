@@ -33,7 +33,7 @@ namespace APPO_2._0_.Controllers
             {
 
                 var listUsers = await _context.Usuarios
-                                            .Include(u => u.Cuenta).Where(u => u.Nombre == "Lautaro").                                         
+                                            .Include(u => u.Cuenta).Where(u => u.Nombre == "Lautaro").
                                             ToListAsync();
 
                 return Ok(listUsers);
