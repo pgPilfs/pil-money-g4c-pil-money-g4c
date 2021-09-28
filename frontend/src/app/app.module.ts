@@ -9,6 +9,7 @@ import { HeaderModule } from './shared/components/header/header.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorsService } from './shared/services/auth-interceptors.service';
 //import { JwtInterceptor } from './security/jwt.interceptors';
 
 
@@ -31,7 +32,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     FormsModule
   ],
   providers: [
-    //{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorsService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

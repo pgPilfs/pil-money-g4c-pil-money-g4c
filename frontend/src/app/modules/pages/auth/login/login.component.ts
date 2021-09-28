@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormControlDirective, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from '@app/shared/models/login';
+import { User } from '@app/shared/models/user';
 import { AuthService } from '@app/shared/services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,8 @@ import { AuthService } from '@app/shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   formLogin: FormGroup;
- 
+
+
 
   /*public formLogin = new FormGroup({
     email: new FormControl(''),
@@ -24,11 +27,16 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private authService : AuthService,
+    private router : Router
     ) {
     this.formLogin = this.formBuilder.group({
       email: ['',[Validators.required, Validators.email]],
       password: ['',[Validators.required, Validators.minLength(6)]]
     })
+
+    if (this.authService.usuarioData){
+      this.router.navigate(['/wallet']);
+    }
    }
 
    get correoNoValido(){
@@ -43,9 +51,12 @@ export class LoginComponent implements OnInit {
   }
 
   
-
+  
   guardar(){
-    console.log(this.formLogin);
+    /*console.log(this.mail, this.password);
+    this.authService.login(this.mail,this.password).subscribe(data => {
+      console.log(data);
+    });*/
     const itemCopy:Login = {
       Mail: this.formLogin.get('email')?.value,
       Password: this.formLogin.get('password')?.value,
@@ -53,10 +64,14 @@ export class LoginComponent implements OnInit {
 
     console.log(itemCopy);
     this.authService.login(itemCopy).subscribe(data => {
+      if(data.exito === 1){
+        this.router.navigate(['/wallet']);
+      }
       console.log(data);
       alert("Usuario correcto");
     }, error => {
       console.log(error);
+      alert("Usuario incorrecto");
     });
     //if(this.formLogin.invalid){
     //  return Object.values(this.formLogin.controls).forEach(control => {control.markAsTouched();

@@ -22,33 +22,36 @@ import { Login } from '../models/login';
 export class AuthService {
   resourceUrl: string;
 
-  /*private userSubject: BehaviorSubject<User>;  
+  private userSubject: BehaviorSubject<User>;  
+  public usuario: Observable<User>;
+
   public get usuarioData(): User{
     return this.userSubject.value;
-  }*/
+  }
 
   constructor(private httpClient:HttpClient) {
-    //this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('usuario')));
+    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('usuario')));
+    this.usuario  = this.userSubject.asObservable();
     this.resourceUrl = 'https://localhost:44357/api/Usuario/';
     
    }
 
    login(obj : Login): Observable<Response>{
-     return this.httpClient.post<Response>(this.resourceUrl, obj);
-     //.pipe(
-     //  map(res => {
-     //    if(res.exito === 1){
-     //      const usuario: User = res.data;
-     //      localStorage.setItem('usuario',JSON.stringify(usuario));
-     //      this.userSubject.next(usuario);
-     //    }
-     //    return res;
-     //  })
-     //)
+     return this.httpClient.post<Response>(this.resourceUrl, obj)
+     .pipe(
+      map(res => {
+        if(res.exito === 1){
+          const usuario: User = res.data;
+          localStorage.setItem('usuario',JSON.stringify(usuario));
+          this.userSubject.next(usuario);
+        }
+        return res;
+      })
+    )
    }
 
-   /*logOut(){
+   logOut(){
      localStorage.removeItem('usuario');
      this.userSubject.next(null);
-   }*/
+   }
 }

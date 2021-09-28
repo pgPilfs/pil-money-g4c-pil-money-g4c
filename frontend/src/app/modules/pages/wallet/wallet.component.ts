@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Cotizacion } from '@app/shared/models/cotizacion';
 import { Cuenta } from '@app/shared/models/cuenta';
 import { IngresoMoney } from '@app/shared/models/ingreso-money';
@@ -7,7 +8,7 @@ import { Inversion } from '@app/shared/models/inversion';
 import { PagoServicioDetail } from '@app/shared/models/pago-servicio-detail';
 import { Transferencia } from '@app/shared/models/transferencia';
 import { User } from '@app/shared/models/user';
-import { ActividadUserService } from '@app/shared/services/actividad-user.service';
+import { AuthService } from '@app/shared/services/auth.service';
 import { CotizacionService } from '@app/shared/services/cotizacion.service';
 import { CuentaService } from '@app/shared/services/cuenta.service';
 import { IngresoMoneyService } from '@app/shared/services/ingreso-money.service';
@@ -30,6 +31,8 @@ export class WalletComponent implements OnInit {
   Historial: PagoServicioDetail[] = null;
   IngresosDinero: IngresoMoney[] = null;
 
+  usuario: User;
+
 
   constructor(public formBuilder: FormBuilder,
     private cuentaService: CuentaService,
@@ -38,7 +41,14 @@ export class WalletComponent implements OnInit {
     private transferenciaService: TransferenciasService,
     private inversionService: InversionService,
     private historialServiciosPagos: PagoServiciosDetailService,
-    private ingresoMoneyService: IngresoMoneyService) { }
+    private ingresoMoneyService: IngresoMoneyService,
+    public authService: AuthService,
+    public router: Router) {
+      this.authService.usuario.subscribe(res => {
+        this.usuario = res;
+        console.log('Cambio el objeto: ' + res);
+      });
+     }
 
   ngOnInit(): void {
 
@@ -125,6 +135,12 @@ export class WalletComponent implements OnInit {
      error => {
       console.log(error); 
      });
+  }
+
+
+  logout() {
+    this.authService.logOut();
+    this.router.navigate(['/home']);
   }
 
 
