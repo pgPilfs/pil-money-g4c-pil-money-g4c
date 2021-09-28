@@ -29,7 +29,7 @@ namespace APPO_2._0_.Controllers
         {
             try
             {
-                var lista = _context.Inversiones.Include(c => c.CvuInversionNavigation).ToList();
+                var lista = _context.Inversiones.Include(c => c.CvuInversionNavigation).OrderByDescending(f => f.FechaInicio).ToList();
                 var listaInt = lista.Where(var => var.CvuInversion == 236598752013654875).ToList();
                 var listaView = listaInt.Select(x => new InversionViewModel
                 {

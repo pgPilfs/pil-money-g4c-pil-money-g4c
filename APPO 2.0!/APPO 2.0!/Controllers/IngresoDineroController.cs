@@ -26,7 +26,7 @@ namespace APPO_2._0_.Controllers
         {
             try
             {
-                var lista = _context.IngresosDineros.Include(c => c.CvuDepositoNavigation).ToList();
+                var lista = _context.IngresosDineros.Include(c => c.CvuDepositoNavigation).OrderByDescending(id => id.IdDeposito).ToList();
                 var listaInt = lista.Where(var => var.CvuDeposito == 236598752013654875).ToList();
                 var listaView = listaInt.Select(x => new IngresoDineroViewModel
                 {

@@ -26,7 +26,7 @@ namespace APPO_2._0.Controllers
         {
             try
             {
-                var lista = _context.PagosServicios.Include(c => c.CvuPagoNavigation).ToList();
+                var lista = _context.PagosServicios.Include(c => c.CvuPagoNavigation).OrderByDescending(f => f.Fecha).ToList();
                 var listaInt = lista.Where(var => var.CvuPago == 236598752013654875).ToList();
                 var listaView = listaInt.Select(x => new PagoServicioViewModel
                 {

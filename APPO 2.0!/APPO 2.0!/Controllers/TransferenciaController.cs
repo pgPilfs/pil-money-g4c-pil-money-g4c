@@ -52,7 +52,7 @@ namespace APPO_2._0_.Controllers
         {
             try
             {
-                var lista = _context.Transferencias.Include(c => c.CvuOrigenNavigation).ToList();
+                var lista = _context.Transferencias.Include(c => c.CvuOrigenNavigation).OrderByDescending(f => f.Fecha).ToList();
                 var listaInt = lista.Where(var => var.CvuOrigen == 236598752013654875).ToList();
                 var listaView = listaInt.Select(x => new TransferenciaViewModel
                 {
