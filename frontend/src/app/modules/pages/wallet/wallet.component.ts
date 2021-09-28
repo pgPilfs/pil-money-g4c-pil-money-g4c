@@ -30,6 +30,7 @@ export class WalletComponent implements OnInit {
   Historial: PagoServicioDetail[] = null;
   IngresosDinero: IngresoMoney[] = null;
 
+
   constructor(public formBuilder: FormBuilder,
     private cuentaService: CuentaService,
     private cotizacionService: CotizacionService,
@@ -40,6 +41,7 @@ export class WalletComponent implements OnInit {
     private ingresoMoneyService: IngresoMoneyService) { }
 
   ngOnInit(): void {
+
     this.GetDatos();
     this.GetCotizacion();
     this.GetUser();
@@ -124,4 +126,9 @@ export class WalletComponent implements OnInit {
       console.log(error); 
      });
   }
+
+
+
+
+  
 }

@@ -14,7 +14,7 @@ h4{
 
 
 nav {
-    background-color: #696969;
+    background-color: #555555;
 }
 
 /***************************  GENERAL UTILITIES  *****************************/ 
@@ -60,4 +60,9 @@ body{
 
 .button{
     margin-left: 10px;
+}
+
+
+#fondo{
+    background-color:rgb(241, 234, 223);
 }

@@ -1,100 +1,46 @@
-<header>
-    <nav id="navmenu" class="navbar">
-        <div class="container">
+<div id="fondo">
+    <header>
+        <nav id="navmenu" class="navbar">
+            <div class="container justify-content-center">
 
-            <div class="navbtns">
-                <a [routerLink]="['/wallet']">INICIO</a>
+                <div class="navbtns">
+                    <a [routerLink]="['/wallet']">INICIO</a>
 
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    CUENTAS
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
-                    <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
-                    <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
-                </ul>
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        CUENTAS
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
+                        <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
+                        <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
+                    </ul>
 
-                <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
-                <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
-                <a [routerLink]="['/inversion']">INVERSIONES</a>
-                <a [routerLink]="['/home']">SALIR</a>
-            </div>
-        </div>
-    </nav>
-</header>
-
-
-<div class="container mt-5 d-flex justify-content-right">
-    <div class="card p-3">
-        <div class="d-flex align-items-center">
-            <div class="image"> <img
-                    src="data:image/png;base64,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"
-                    class="rounded" width="155"> </div>
-            <div class="ml-3 w-100">
-                <h4 class="mb-0 mt-0" *ngFor="let datauser of DatoUserLog">Hola, {{ datauser.nombre }} !</h4> <span>Bienvenido a APPO!</span>
-
-                <div>
-
-                    <button type="button" class="button w-100 ml-2">
-                        <a [routerLink]="['/not-found']">Modificar datos de usuario</a></button>
+                    <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
+                    <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
+                    <a [routerLink]="['/inversion']">INVERSIONES</a>
+                    <a [routerLink]="['/home']">SALIR</a>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </nav>
+    </header>
 
-<br />
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            <div class="card">
-                <div class="card-header">
-                    Tu cuenta en pesos
-                </div>
-                <div class="card-body" *ngFor="let dato of Datos" >
-                    <p class="card-text">Tu dinero</p>
-                    <p> $ {{ dato.saldoActual }}</p>
-                    <hr />
-                    <p class="card-text">Tu CVU</p>
-                    <p>{{ dato.cvu }}</p>
-                    <hr />
+    <div class="container mt-5 d-flex justify-content-right">
+        <div class="card p-3">
+            <div class="d-flex align-items-center">
+                <div class="image"> <img
+                        src="data:image/png;base64,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"
+                        class="rounded" width="155"> </div>
+                <div class="ml-3 w-100">
+                    <h4 class="mb-0 mt-0" *ngFor="let datauser of DatoUserLog">Hola, {{ datauser.nombre }} !</h4>
+                    <span>Bienvenido a APPO!</span>
 
-                    <div class="row">
-                        <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-                            <a [routerLink]="['/ingreso-money']">
-                                <button type="button" class="button">
-                                    Ingresar dinero
-                                </button>
-                            </a>
-                            <a [routerLink]="['/ingreso-money']">
-                                <button type="button" class="button">
-                                    Retirar dinero
-                                </button>
-                            </a>
-                        </div>
+                    <div>
+
+                        <button type="button" class="button w-100 ml-2">
+                            <a [routerLink]="['/not-found']">Modificar datos de usuario</a></button>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-7">
-            <div class="card">
-                <div class="card-header">
-                    Tu actividad
-                </div>
-                <div class="card-body">
-                    <div class="input-group rounded">
-                        <input type="search" class="form-control rounded" placeholder="Buscar" />
-
-                        <span class="input-group-text border-0">
-                            <i class="bi bi-search"></i>
-                        </span>
-                    </div>
-                    <p *ngFor="let transf of HistorialTransfer">Transferiste al CVU nro {{ transf.cvuDestino }}</p>
-                    <p *ngFor="let inv of HistorialInversion">Invertiste un monto de $ {{ inv.montoInversion }}</p>
-                    <p *ngFor="let hist of Historial">Pagaste tu factura de {{ hist.nombreFactura }} de  $ {{ hist.monto }}</p>
-                    <p *ngFor="let ing of IngresosDinero">Ingresaste $ {{ ing.monto }} a tu cuenta</p>
                 </div>
             </div>
         </div>
@@ -102,50 +48,166 @@
 
     <br />
 
-    <div class="jumbotron container p-4">
+    <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-5">
                 <div class="card">
                     <div class="card-header">
-                        Cotizaciones de moneda extranjera
+                        Tu cuenta en pesos
+                    </div>
+                    <div class="card-body" *ngFor="let dato of Datos">
+                        <p class="card-text">Tu dinero</p>
+                        <p> $ {{ dato.saldoActual }}</p>
+                        <hr />
+                        <p class="card-text">Tu CVU</p>
+                        <p>{{ dato.cvu }}</p>
+                        <hr />
+
+                        <div class="row">
+                            <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                                <a [routerLink]="['/ingreso-money']">
+                                    <button type="button" class="button">
+                                        Ingresar dinero
+                                    </button>
+                                </a>
+                                <a [routerLink]="['/ingreso-money']">
+                                    <button type="button" class="button">
+                                        Retirar dinero
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header">
+                        Tus movimientos más recientes
                     </div>
                     <div class="card-body">
-                        <p class="card-text"></p>
-                         <!-- Tabla de resutados de busqueda y Paginador-->
-                        <div class="container-fluid">
-                            <div class="row">
-                      
-                              <div class="col-12">
-                                <table id='tablaDeServicios' class="table table-hover table-sm table-bordered table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th class="text-center">DOLAR</th>
-                                      <th class="text-center">OPERACION</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr *ngFor="let info of Info | keyvalue">
-                                      
-                                      <td class="text-center"> {{ info.value }}</td>
-                                      <td class="text-center">{{ info.key }}</td>
-                                    </tr>
-                                    <!--<tr *ngFor="let info of Info">
+                        <div class="input-group rounded">
+                            <input type="search" class="form-control rounded" placeholder="Buscar" />
+
+                            <span class="input-group-text border-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </span>
+                        </div>
+
+                        <hr>
+
+                        <div *ngFor="let transf of HistorialTransfer | slice:0:4">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+                                </svg>
+                                Transferiste al CVU nro {{ transf.cvuDestino }}
+                            </p>
+                            <hr>
+                        </div>
+
+                        <div *ngFor="let inv of HistorialInversion | slice:0:4">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-currency-dollar" viewBox="0 0 16 16">
+                                    <path
+                                        d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z" />
+                                </svg>
+                                Invertiste un monto de $ {{ inv.montoInversion }}
+                            </p>
+                            <hr>
+                        </div>
+
+                        <div *ngFor="let hist of Historial | slice:0:4">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-credit-card" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
+                                    <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
+
+                                </svg>
+                                Pagaste tu factura de {{ hist.nombreFactura }} de $ {{ hist.monto }}
+                            </p>
+
+                            <hr>
+                        </div>
+
+
+                        <div *ngFor="let ing of IngresosDinero | slice:0:4">
+
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                                </svg>
+                                Ingresaste $ {{ ing.monto }} a tu cuenta
+                            </p>
+
+                            <hr>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="jumbotron container p-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Cotizaciones de moneda extranjera
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"></p>
+                            <!-- Tabla de resutados de busqueda y Paginador-->
+                            <div class="container-fluid">
+                                <div class="row">
+
+                                    <div class="col-12">
+                                        <table id='tablaDeServicios'
+                                            class="table table-hover table-sm table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">DOLAR</th>
+                                                    <th class="text-center">OPERACION</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let info of Info | keyvalue">
+
+                                                    <td class="text-center"> {{ info.value }}</td>
+                                                    <td class="text-center">{{ info.key }}</td>
+                                                </tr>
+                                                <!--<tr *ngFor="let info of Info">
                                       <td>Euro</td>
                                       <td>{{ info.compra }}</td>
                                       <td>{{ info.venta }}</td>
                                     </tr>-->
-                                  </tbody>
-                                </table>
-                              </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                              
-                              
+
+
+                                </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br />
+
 </div>
-<br />
