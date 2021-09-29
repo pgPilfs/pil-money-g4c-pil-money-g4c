@@ -26,11 +26,13 @@ namespace APPO_2._0_.Controllers
         }
 
         // GET: api/<UserController>
+        
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             try
             {
+                UsuarioViewModel oModel = new UsuarioViewModel();
 
                 var listUsers = await _context.Usuarios
                                             .Include(u => u.Cuenta).Where(u => u.Nombre == "Lautaro").
@@ -44,37 +46,8 @@ namespace APPO_2._0_.Controllers
             }
         }
 
-        /*// GET api/<UserController>/5
-
-        [HttpGet("{idUser}")]
-        public async Task<IActionResult> Get(string idUser)
-        {
-            try
-            {
-                var userID = await _context.Users
-                                            .Include(u => u.Tarjetas)
-                                            .Include(u => u.Pagos)
-                                            .Include(u => u.Cuentas)
-                                            .Include(u => u.Cuentas)
-                                                .ThenInclude(c => c.TipoMoneda)
-                                            .Where(u => u.id_user == idUser)
-                                            .FirstOrDefaultAsync();
-
-                if (userID == null)
-                {
-                    return NotFound();
-                }
-
-                return Ok(userID);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }*/
 
 
-        
         // POST api/<UserController>
         [HttpPost]
         

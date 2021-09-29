@@ -1,9 +1,8 @@
-﻿using APPO_2._0.ViewModels;
-using APPO_2._0_.Models;
+﻿using APPO_2._0_.Models;
 using APPO_2._0_.Models.ViewModels;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+using APPO_2._0_.Response;
+using APPO_2._0_.Services;
+using APPO_2._0_.Tools;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,51 +15,34 @@ namespace APPO_2._0_.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
-    public class CuentaController : ControllerBase
+    public class RegistroController : ControllerBase
     {
         private readonly APPO20Context _context;
-        public CuentaController(APPO20Context context)
+        public RegistroController(APPO20Context context)
         {
             _context = context;
-
-        }
-
-        [HttpGet]
-        public IActionResult Get()
-        {
-
-            try
-            {
-                var lista = _context.Cuentas.ToList();
-                var listaView = lista.Select(x => new CuentaViewModel
-                {
-                    Cvu = Convert.ToString(x.Cvu),
-                    SaldoActual = x.SaldoActual,
-                    Alias = x.Alias
-                 }).ToList();
-                var listaFinal = listaView.Where(var => var.Cvu == "236598752013654875").ToList();
-                return Ok(listaFinal);
-
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
-
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CuentaViewModel oModel)
+        public async Task<IActionResult> Add([FromBody] RegistroViewModel oModelRegistro)
         {
             try
             {
                 Usuario usu = new Usuario();
                 Cuenta cuenta = new Cuenta();
 
+               
+
+                usu.Dni = oModelRegistro.Dni;
+                usu.Nombre = oModelRegistro.Nombre;
+                usu.Apellido = oModelRegistro.Apellido;
+                usu.FotoDniFrente = oModelRegistro.FotoDniFrente;
+                usu.FotoDniDorso = oModelRegistro.FotoDniDorso;
+                usu.Mail = oModelRegistro.Mail;
+                usu.Password = Encrypt.GetSHA256(oModelRegistro.Password);
+
+                
 
                 var nuevo_usuario = usu.Dni;
                 var existente_usuario = _context.Usuarios.Where(u => u.Dni == nuevo_usuario);
@@ -72,6 +54,17 @@ namespace APPO_2._0_.Controllers
                 else
                 {
                     _context.Usuarios.Add(usu);
+
+
+                    var id_usuario_nuevo = _context.Cuentas.Include(c => c.IdUsuarioNavigation).ToList();
+                    var fin = id_usuario_nuevo.Where(u => u.IdUsuario == usu.IdUsuario).ToList();
+                    cuenta.IdUsuario = fin.Select(i => i.IdUsuario = usu.IdUsuario).First();
+                    cuenta.SaldoActual = 0;
+                    cuenta.IdTipoCuenta = 1;
+                    cuenta.Alias = "alias.por.defecto";
+
+                    _context.Cuentas.Add(cuenta);
+
                     await _context.SaveChangesAsync();
                     return Ok(usu);
                 }
@@ -83,6 +76,9 @@ namespace APPO_2._0_.Controllers
 
         }
 
-        
+
+
+
+
     }
 }
