@@ -63,6 +63,7 @@ export class InversionComponent implements OnInit {
     this.inversionService.save(itemCopy).subscribe(data => {
       console.log(data);
       alert("Se realizo la inversion");
+      this.formInversion.reset();
     }, error => {
       console.log(error);
     });

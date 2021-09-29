@@ -65,8 +65,9 @@ export class PayServicesDetailComponent implements OnInit {
     console.log(itemCopy);
     this.pagosService.save(itemCopy).subscribe(data => {
       alert("Se realizo la el pago. Se te descargará tu comprobante...");
-      
+      this.formDetallePago.reset();
       console.log(data);
+      
     }, error => {
       console.log(error);
     });

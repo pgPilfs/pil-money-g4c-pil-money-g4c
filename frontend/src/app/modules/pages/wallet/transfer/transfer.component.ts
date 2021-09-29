@@ -20,7 +20,7 @@ export class TransferComponent implements OnInit {
     private transferenciaService: TransferenciasService) 
     { 
         this.formTransfer = this.formBuilder.group({
-        cvu_origen: '236598752013654876',
+        cvu_origen: '236598752013654875',
         cvu_destino: ['',[Validators.required,Validators.maxLength(18),Validators.minLength(18)]],
         monto: ['',[Validators.required]],
       })
@@ -62,6 +62,7 @@ export class TransferComponent implements OnInit {
       this.transferenciaService.save(itemCopy).subscribe(data => {
         console.log(data);
         alert("Se realizo la transferencia");
+        this.formTransfer.reset();
       }, error => {
         console.log(error);
       });

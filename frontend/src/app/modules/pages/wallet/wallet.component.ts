@@ -89,7 +89,7 @@ export class WalletComponent implements OnInit {
   GetUser() {
     this.userService.obtenerUser().subscribe((res: User[]) => {
       this.DatoUserLog = res;
-      console.log(this.Datos);
+      console.log(this.DatoUserLog);
     },
      error => {
       console.log(error); 

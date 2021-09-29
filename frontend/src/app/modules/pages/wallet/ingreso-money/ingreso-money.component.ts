@@ -107,6 +107,7 @@ export class IngresoMoneyComponent implements OnInit {
     console.log(itemCopy);
     this.ingresoMoneyService.ingresar(itemCopy).subscribe(data => {
       alert("Se realizo la operación. En unos minutos verás reflejado el saldo en tu cuenta...");
+      this.formIngresoMoney.reset();
       console.log(data);
     }, error => {
       console.log(error);

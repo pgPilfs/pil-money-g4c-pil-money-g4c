@@ -72,12 +72,9 @@ export class LoginComponent implements OnInit {
     }, error => {
       console.log(error);
       alert("Usuario incorrecto");
+      this.formLogin.reset();
     });
-    //if(this.formLogin.invalid){
-    //  return Object.values(this.formLogin.controls).forEach(control => {control.markAsTouched();
-    //    this.usersService.addUser(this.formLogin.value);
-    //  });
-    //}
+
  }
  
 

@@ -15,7 +15,15 @@ export class RegisterComponent implements OnInit {
   formRegister: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.crearForm();
+    this.formRegister = this.formBuilder.group({
+      nombre: ['',[Validators.required]],
+      apellido: ['',[Validators.required]],
+      dni: ['',[Validators.required, Validators.maxLength(8)]],
+      foto: ['',[Validators.required, Validators.requiredTrue]],
+      email: ['',[Validators.required, Validators.email]],
+      password: ['',[Validators.required, Validators.minLength(6)]]
+    });
+
    }
 
    ngOnInit(): void {
@@ -37,16 +45,7 @@ export class RegisterComponent implements OnInit {
     return this.formRegister.get('password').invalid && this.formRegister.get('password').touched;
   }
 
-  crearForm(){
-    this.formRegister = this.formBuilder.group({
-      nombre: ['',[Validators.required]],
-      apellido: ['',[Validators.required]],
-      dni: ['',[Validators.required, Validators.maxLength(8)]],
-      foto: ['',[Validators.required, Validators.requiredTrue]],
-      email: ['',[Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.minLength(6)]]
-    });
-  }
+
 
 
   guardar(){
