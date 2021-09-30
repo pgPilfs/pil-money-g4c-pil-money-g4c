@@ -67,32 +67,23 @@ namespace APPO_2._0_.Controllers
             rta.Data = userresponse;
             return Ok(rta);
         }
-        /*public async Task<IActionResult> Post([FromBody] Usuario user)
+        
+
+
+        [HttpPut]
+
+        public async Task<IActionResult> Edit([FromBody] Usuario user)
         {
             try
             {
-                _context.Usuarios.Add(user);
-                await _context.SaveChangesAsync();
-                return Ok(user);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }*/
+                Usuario usu_viejo = new Usuario();
 
-        /*// PUT api/<UserController>/5
-        [HttpPut("{idUser}")]
-        public async Task<IActionResult> Put(string idUser, [FromBody] Users user)
-        {
-            try
-            {
-                if (idUser != user.id_user)
-                {
-                    return BadRequest(new { message = "Error del id user" });
-                }
+                usu_viejo.FotoDniFrente = user.FotoDniFrente;
+                usu_viejo.FotoDniDorso = user.FotoDniDorso;
+                usu_viejo.Mail = user.Mail;
+                usu_viejo.Password = user.Password;
 
-                _context.Update(user);
+                _context.Update(usu_viejo);
                 await _context.SaveChangesAsync();
                 return Ok(new { message = "User actualizado con exito!" });
             }
@@ -101,49 +92,6 @@ namespace APPO_2._0_.Controllers
                 return BadRequest(ex.Message + ex.InnerException.Message);
             }
         }
-
-        // DELETE api/<UserController>/5
-        [HttpDelete("{idUser}")]
-        public async Task<IActionResult> Delete(string idUser)
-        {
-            try
-            {
-                var userID = await _context.Users.FindAsync(idUser);
-
-                if (userID == null)
-                {
-                    return NotFound();
-                }
-
-                //Para eliminar un usuario tenemos que eliminar todas sus relaciones con las clases
-                var cuentasList = await _context.Cuentas.Where(c => c.id_user == idUser).ToListAsync();
-
-
-                foreach (var c in cuentasList)
-                {
-                    _context.Depositos.RemoveRange(_context.Depositos.Where(d => d.cvu == c.cvu));
-                    _context.Envios.RemoveRange(_context.Envios.Where(e => e.cvu == c.cvu));
-
-                }
-
-                _context.Cuentas.RemoveRange(cuentasList);
-
-                var tar = _context.Tarjetas.Where(t => t.id_user == idUser);
-                _context.Tarjetas.RemoveRange(tar);
-
-                _context.Users.Attach(userID);
-                _context.Users.Remove(userID);
-
-                await _context.SaveChangesAsync();
-
-                return Ok(new { message = "Usuario eliminado con exito! " });
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message + ex.InnerException.Message);
-            }
-        }
-        */
 
     }
 }
