@@ -55,10 +55,33 @@ export class RegisterComponent implements OnInit {
       return Object.values(this.formRegister.controls).forEach(control => {control.markAsTouched();
       });
     }
+    else{
+      //const itemCopy: RegistroUsuario = {
+
+      }
+    }
   }
 
+  /*PostIngreso() {
+    const itemCopy:IngresoMoney = {      
+      Nombre: this.formIngresoMoney.get('cvu_deposito')?.value,
+      Apellido: this.formIngresoMoney.get('nro_tarjeta')?.value,
+      Dni: this.formIngresoMoney.get('fecha_venc')?.value,
+      FotoFrente: this.formIngresoMoney.get('cod_seguridad')?.value,
+      FotoDorso: this.formIngresoMoney.get('nombre_titular')?.value,
+      Mail: this.formIngresoMoney.get('monto')?.value,
+      Password: 
+    }
 
+    console.log(itemCopy);
+    this.ingresoMoneyService.ingresar(itemCopy).subscribe(data => {
+      alert("Se realizo la operación. En unos minutos verás reflejado el saldo en tu cuenta...");
+      this.formIngresoMoney.reset();
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
 
-
-
-}
+  
+  }
+*/

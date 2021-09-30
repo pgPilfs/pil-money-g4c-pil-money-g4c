@@ -23,6 +23,7 @@ const routes: Routes = [
  { path: 'inversion', component: InversionComponent, canActivate:[AuthGuard], loadChildren: () => import('./modules/pages/wallet/inversion/inversion.module').then(m => m.InversionModule)},
  { path: 'pay-services-detail', component: PayServicesDetailComponent, canActivate:[AuthGuard], loadChildren: () => import('./modules/pages/wallet/pay-services-detail/pay-services-detail.module').then(m => m.PayServicesDetailModule)},
  { path: 'modified-user', component: ModifiedUserComponent, canActivate:[AuthGuard], loadChildren: () => import('./modules/pages/wallet/modified-user/modified-user.module').then(m => m.ModifiedUserModule)},
+ { path: 'opinion', loadChildren: () => import('./modules/pages/opinion/opinion.module').then(m => m.OpinionModule)},
  { path: '**', loadChildren: () => import('./modules/pages/not-found/not-found.module').then(m => m.NotFoundModule)}];
 
 @NgModule({

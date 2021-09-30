@@ -3,11 +3,10 @@
     <input type="radio" name="slider" id="slide1" checked>
     <input type="radio" name="slider" id="slide2">
     <input type="radio" name="slider" id="slide3">
-    <input type="radio" name="slider" id="slide4">
     <div id="slides">
       <div id="overflow">
         <div class="inner ">
-          <div class="slide slide_1">
+          <div class="slide slide_1 carousel">
             <div class="slide-content container row">
               <div class="text-content col-8 d-flex flex-column justify-content-center">
                 <h2>APPO</h2>
@@ -19,40 +18,29 @@
               </div>
             </div>
           </div>
-          <div class="slide slide_2">
+          <div class="slide slide_2 carousel">
             <div class="slide-content container row">
               <div class="text-content col-8 d-flex flex-column justify-content-center">
                 <h2>CRIPTOMONEDAS</h2>
                 <p>Nueva funcionalidad orientada al manejo de monedas digitales, conocidas como criptomonedas. Creá tu cuenta y conocé como operar.</p>
               </div>
               <div class="image col-4">
-                <img src="assets/icons/facebook-svgrepo-com.svg (2)" alt="">
+                <img src="https://images.vexels.com/media/users/3/155675/isolated/preview/7269557713a1ba652185baed17fdcd03-insignia-de-billetera-bitcoin.png" alt="">
               </div>
             </div>
           </div>
-          <div class="slide slide_3">
+          <div class="slide slide_3 carousel">
             <div class="slide-content container row">
               <div class="text-content col-8 d-flex flex-column justify-content-center">
                 <h2>PLAZOS FIJOS</h2>
                 <p>Invertí tu dinero en una especie de plazo fijo, sin costos adicionales. Además podes usar tu plata mientras está rindiendo. Creá tu cuenta y conocé más.</p>
               </div>
               <div class="image col-4">
-                <img src="data:image/jpeg;base64,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" alt="">
+                <img src="https://www.bbva.com.ar/content/dam/public-web/argentina/photos/aguinaldo-imagen-submarquee.png.img.320.1576507779182.png" alt="">
               </div>
             </div>
           </div>
-          <div class="slide slide_4">
-            <div class="slide-content container row">
-              <div class="text-content col-8 d-flex flex-column justify-content-center">
-                <h2>APPO</h2>
-                <p>PilMoney, tu billetera virtual donde podés comprar, vender moneda extranjera, y pagar tus servicios
-                  de la menra mas fácil, práctica y segura posible.</p>
-              </div>
-              <div class="image col-4">
-                <img src="assets/icons/instagram-svgrepo-com.svg" alt="">
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -60,7 +48,6 @@
       <label for="slide1"></label>
       <label for="slide2"></label>
       <label for="slide3"></label>
-      <label for="slide4"></label>
     </div>
   </div>
 </section>

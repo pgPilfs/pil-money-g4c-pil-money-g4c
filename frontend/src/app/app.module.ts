@@ -19,7 +19,7 @@ import { AuthInterceptorsService } from './shared/services/auth-interceptors.ser
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
 
   ],
   imports: [
