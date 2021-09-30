@@ -129,10 +129,11 @@ namespace APPO_2._0_
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APPO_2._0_ v1"));
             }
 
-            app.UseHttpsRedirection();
+            
 
             app.UseRouting();
             app.UseCors(MiCors);
+            app.UseHttpsRedirection();
 
             app.UseAuthentication();
             app.UseAuthorization();
