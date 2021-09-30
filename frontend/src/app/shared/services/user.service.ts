@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NewUser } from '../models/new-user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,9 @@ export class UserService {
 
   obtenerUser() {
     return this.httpClient.get<any>(this.resourceUrl);
+  }
+
+  edit(obj: NewUser) {
+    return this.httpClient.put(this.resourceUrl, obj);
   }
 }

@@ -87,3 +87,73 @@ h4{
 .botones button {
     margin: 0em 0.5em 0.5em 0em;
   }
+
+
+  p{
+    color: black;
+}
+
+h4{
+    color: black;
+}
+
+.button {
+    background-color: #ff8c00;
+    transition: all .2s ease;
+}
+
+
+
+nav {
+    background-color: #555555;
+}
+
+/***************************  GENERAL UTILITIES  *****************************/ 
+
+a {
+    margin: .3rem;
+    padding: .4rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #c26e08;
+    text-decoration: none;
+    transition: all .1s;
+    border-radius: .5rem;
+}   
+
+/***************************  NAVBAR  *****************************/ 
+
+
+a:hover , .navbtns a:hover {
+    color: #212121;
+    background-color: #FB8F07;
+}
+.navbtns .bot_seleccionado:hover {
+    color: #fff;
+    background-color: #ff8c00;
+}
+
+body{
+    background-color: rgb(245, 243, 243);
+}
+
+.card-header{
+    background-color: black;
+    color: #ff8c00;
+}
+
+.card{
+    border-radius: 5px;
+    border: solid 1px;
+    
+}
+
+.button{
+    margin-left: 10px;
+}
+
+
+#fondo{
+    background-color:rgb(241, 234, 223);
+}
