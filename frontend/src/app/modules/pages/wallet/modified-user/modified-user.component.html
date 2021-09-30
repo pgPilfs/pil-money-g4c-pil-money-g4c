@@ -1,0 +1,67 @@
+<header>
+    <nav id="navmenu" class="navbar">
+      <div class="container">
+  
+        <div class="navbtns">
+          <a [routerLink]="['/wallet']">INICIO</a>
+  
+          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            CUENTAS
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
+            <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
+            <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
+          </ul>
+  
+          <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
+          <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
+          <a [routerLink]="['/home']">SALIR</a>
+        </div>
+      </div>
+    </nav>
+</header>
+  
+  <br />
+  
+  
+  
+  
+  
+
+    <div class="login container p-3">
+      
+  
+      <div class="row justify-content-center">
+        <div class="row">
+            <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                <p class="h2">MODIFICÁ TUS DATOS</p>
+            </div>
+            <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                <small>Sólo podes modificar tu correo electronico o tu contraseña</small>
+            </div>
+         
+        </div>
+  
+        <div class="col-6 p-2 m-2">
+          <label class="form-label h4 px-4">Tu nuevo correo electronico</label>
+          <input type="text" class="form-control">
+        </div>
+  
+        <div class="col-6 p-2 m-2">
+          <label class="form-label h4 px-4">Tu nueva contraseña</label>
+          <input type="text" class="form-control">
+        </div>
+
+
+        <div class="row">
+            <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+                <button type="submit" class="button">MODIFICAR DATOS</button>
+            </div>
+        </div>
+  
+       
+    </div>
+
+  

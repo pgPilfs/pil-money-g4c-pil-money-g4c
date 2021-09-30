@@ -8,6 +8,7 @@ import { IngresoMoneyModule } from './ingreso-money/ingreso-money.module';
 import { PayServicesComponent } from './pay-services/pay-services.component';
 import { PayServicesModule } from './pay-services/pay-services.module';
 import { PayServicesDetailComponent } from './pay-services-detail/pay-services-detail.component';
+import { ModifiedUserComponent } from './modified-user/modified-user.component';
 
 
 @NgModule({

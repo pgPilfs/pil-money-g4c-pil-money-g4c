@@ -63,6 +63,9 @@ export class WalletComponent implements OnInit {
     
   }
 
+
+  
+
   
 
   GetDatos() {
