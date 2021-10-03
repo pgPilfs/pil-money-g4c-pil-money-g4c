@@ -109,7 +109,7 @@
 
       <div class="col-6 p-2 m-2">
         <label class="form-label h4 px-4">Vencimiento</label>
-        <input type="text" class="form-control" formControlName = "fecha_venc" [class.is-invalid]="fechaVencNoValida" ngSubmit>
+        <input type="text" value="MM/AA" class="form-control" placeholder="MM/AA" formControlName = "fecha_venc" [class.is-invalid]="fechaVencNoValida" ngSubmit>
         <small *ngIf="fechaVencNoValida" style="color: red"
             class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese una fecha de vencimiento valida
         </small>

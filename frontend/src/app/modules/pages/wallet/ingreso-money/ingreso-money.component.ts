@@ -27,7 +27,7 @@ export class IngresoMoneyComponent implements OnInit {
     this.formIngresoMoney = this.formBuilder.group({
       cvu_deposito: "236598752013654875",
       nro_tarjeta: ['',[Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
-      fecha_venc: ['',[Validators.required]],
+      fecha_venc: ['',[Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
       cod_seguridad: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
       nombre_titular: ['',[Validators.required]],
       monto: ['',[Validators.required]]
