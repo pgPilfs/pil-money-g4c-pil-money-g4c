@@ -13,6 +13,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class PayServicesDetailComponent implements OnInit {
   formDetallePago: FormGroup;
+  mostrar: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,9 +45,9 @@ export class PayServicesDetailComponent implements OnInit {
   }
 
   generarPDF(){
-    const doc = new jsPDF();
-    doc.text('Comprobante de pago de servicio', 10,10);
-    
+    var doc = new jsPDF();
+    doc.text('Comprobante de pago de servicio nro 6510305', 10,10);
+    doc.html(document.getElementById("compago")); 
     doc.save('comprobantedepago.pdf');
   }
 
