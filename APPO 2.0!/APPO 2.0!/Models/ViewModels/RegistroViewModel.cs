@@ -12,8 +12,8 @@ namespace APPO_2._0_.Models.ViewModels
         public string Nombre { get; set; }
         public string Apellido { get; set; }
 
-        public byte[] FotoDniFrente { get; set; }
-        public byte[] FotoDniDorso { get; set; }
+        public string FotoDniFrente { get; set; }
+        public string FotoDniDorso { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }
     }

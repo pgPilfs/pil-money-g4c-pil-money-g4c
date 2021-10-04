@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace APPO_2._0_.Controllers
@@ -37,8 +38,8 @@ namespace APPO_2._0_.Controllers
                 usu.Dni = oModelRegistro.Dni;
                 usu.Nombre = oModelRegistro.Nombre;
                 usu.Apellido = oModelRegistro.Apellido;
-                usu.FotoDniFrente = oModelRegistro.FotoDniFrente;
-                usu.FotoDniDorso = oModelRegistro.FotoDniDorso;
+                usu.FotoDniFrente = Encoding.ASCII.GetBytes(oModelRegistro.FotoDniFrente);
+                usu.FotoDniDorso = Encoding.ASCII.GetBytes(oModelRegistro.FotoDniDorso);
                 usu.Mail = oModelRegistro.Mail;
                 usu.Password = Encrypt.GetSHA256(oModelRegistro.Password);
 
@@ -55,17 +56,25 @@ namespace APPO_2._0_.Controllers
                 {
                     _context.Usuarios.Add(usu);
 
-
-                    var id_usuario_nuevo = _context.Cuentas.Include(c => c.IdUsuarioNavigation).ToList();
-                    var fin = id_usuario_nuevo.Where(u => u.IdUsuario == usu.IdUsuario).ToList();
-                    cuenta.IdUsuario = fin.Select(i => i.IdUsuario = usu.IdUsuario).First();
-                    cuenta.SaldoActual = 0;
-                    cuenta.IdTipoCuenta = 1;
-                    cuenta.Alias = "alias.por.defecto";
-
-                    _context.Cuentas.Add(cuenta);
-
                     await _context.SaveChangesAsync();
+
+
+
+                    //cuenta.IdUsuarioNavigation = usu.IdUsuario;
+
+                    //var lista1 = _context.Cuentas.Include(i => i.IdUsuarioNavigation).ToList().Last();
+
+                    //var a = Convert.ToInt32(lista1);
+                    //cuenta.IdUsuario = a;
+
+
+                   // cuenta.SaldoActual = 100;
+                    //cuenta.IdTipoCuenta = 1;
+                    //cuenta.Alias = "alias.por.defecto";
+
+                   // _context.Cuentas.Add(cuenta);
+
+
                     return Ok(usu);
                 }
             }
