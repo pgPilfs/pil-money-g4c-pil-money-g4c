@@ -1,0 +1,43 @@
+<header>
+    <nav id="navmenu" class="navbar">
+      <div class="container">
+  
+        <div class="navbtns">
+          <a [routerLink]="['/wallet']">INICIO</a>
+  
+          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            CUENTAS
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
+            <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
+            <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
+          </ul>
+  
+          <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
+          <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
+          <a [routerLink]="['/home']">SALIR</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <br />
+
+
+  <div class="login container p-3">
+    <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+      <div class="row justify-content-center">
+        <p>Dirigite a un Pago Fácil o RapiPago o cualquier local adherido a APPO y con tu numero de DNI podes sacar dinero de tu cuenta </p>
+        <div class="card">
+  
+          <div class="card-body">
+            <p>DNI</p>
+            <p>41279708</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

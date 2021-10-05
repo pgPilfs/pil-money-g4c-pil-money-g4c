@@ -5,6 +5,7 @@ import { InversionComponent } from './modules/pages/wallet/inversion/inversion.c
 import { ModifiedUserComponent } from './modules/pages/wallet/modified-user/modified-user.component';
 import { PayServicesDetailComponent } from './modules/pages/wallet/pay-services-detail/pay-services-detail.component';
 import { PayServicesComponent } from './modules/pages/wallet/pay-services/pay-services.component';
+import { RetiroDineroComponent } from './modules/pages/wallet/retiro-dinero/retiro-dinero.component';
 import { TransferComponent } from './modules/pages/wallet/transfer/transfer.component';
 import { WalletComponent } from './modules/pages/wallet/wallet.component';
 import { AuthGuard } from './security/auth.guard';
@@ -24,6 +25,7 @@ const routes: Routes = [
  { path: 'pay-services-detail', component: PayServicesDetailComponent, canActivate:[AuthGuard], loadChildren: () => import('./modules/pages/wallet/pay-services-detail/pay-services-detail.module').then(m => m.PayServicesDetailModule)},
  { path: 'modified-user', component: ModifiedUserComponent, canActivate:[AuthGuard], loadChildren: () => import('./modules/pages/wallet/modified-user/modified-user.module').then(m => m.ModifiedUserModule)},
  { path: 'opinion', loadChildren: () => import('./modules/pages/opinion/opinion.module').then(m => m.OpinionModule)},
+ { path: 'retiro-dinero', component: RetiroDineroComponent, canActivate:[AuthGuard], loadChildren: () => import('./modules/pages/wallet/retiro-dinero/retiro-dinero.module').then(m => m.RetiroDineroModule)},
  { path: '**', loadChildren: () => import('./modules/pages/not-found/not-found.module').then(m => m.NotFoundModule)}];
 
 @NgModule({
