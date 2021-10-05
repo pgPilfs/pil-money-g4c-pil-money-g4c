@@ -98,9 +98,16 @@
                             </span>
                         </div>
 
-                        <hr>
+                        <br>
 
+                        <div>
+                            <p><b>TRANSFERENCIAS</b></p>
+                        </div>
+
+                        <hr>
+                        
                         <div *ngFor="let transf of HistorialTransfer | slice:0:4">
+                            
                             <p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
@@ -111,6 +118,14 @@
                             </p>
                             <hr>
                         </div>
+
+                        <br>
+
+                        <div>
+                            <p><b>INVERSIONES</b></p>
+                        </div>
+
+                        <hr>
 
                         <div *ngFor="let inv of HistorialInversion | slice:0:4">
                             <p>
@@ -123,6 +138,14 @@
                             </p>
                             <hr>
                         </div>
+
+                        <br>
+
+                        <div>
+                            <p><b>SERVICIOS PAGADOS</b></p>
+                        </div>
+
+                        <hr>
 
                         <div *ngFor="let hist of Historial | slice:0:4; let primero = first">
                             <p>
@@ -138,6 +161,14 @@
 
                             <hr>
                         </div>
+
+                        <br>
+
+                        <div>
+                            <p><b>INGRESOS DE DINERO</b></p>
+                        </div>
+
+                        <hr>
 
 
                         <div *ngFor="let ing of IngresosDinero | slice:0:4">
