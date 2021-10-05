@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -68,6 +69,8 @@ namespace APPO_2._0_.Controllers
                 ing.NombreTitular = oModelIngreso.NombreTitular;
                 ing.Monto = oModelIngreso.Monto;
 
+                
+
                 //reserva por si hay que verificar si la tarjeta tiene fondos
                 decimal total = oModelIngreso.Monto;
 
@@ -86,10 +89,11 @@ namespace APPO_2._0_.Controllers
                     _context.Cuentas.Update(cuenta);
                 }*/
 
-                if (ing.FechaVenc < DateTime.Now)
+                
+                /*if (ing.FechaVenc < DateTime.Now)
                 {
                     return BadRequest("Tarjeta vencida!");
-                }
+                }*/
 
                 cuenta.SaldoActual += total;
                 _context.Cuentas.Update(cuenta);

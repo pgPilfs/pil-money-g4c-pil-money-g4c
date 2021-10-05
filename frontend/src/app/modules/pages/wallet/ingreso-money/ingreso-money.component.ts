@@ -38,6 +38,8 @@ export class IngresoMoneyComponent implements OnInit {
     
   }
 
+  
+
   get nroTarjetaNoValido(){
     return this.formIngresoMoney.get('nro_tarjeta').invalid && this.formIngresoMoney.get('nro_tarjeta').touched;
   }
@@ -95,6 +97,8 @@ export class IngresoMoneyComponent implements OnInit {
 
 
   PostIngreso() {
+    const fecha_final: string = this.formIngresoMoney.get('fecha_venc')?.value[0][1]  + "30/";
+    console.log(fecha_final);
     const itemCopy:IngresoMoney = {      
       CvuDeposito: this.formIngresoMoney.get('cvu_deposito')?.value,
       NroTarjeta: this.formIngresoMoney.get('nro_tarjeta')?.value,
@@ -110,6 +114,7 @@ export class IngresoMoneyComponent implements OnInit {
       this.formIngresoMoney.reset();
       console.log(data);
     }, error => {
+      alert("La tarjeta está vencida o no tiene saldo suficiente. Revise los datos de la tarjeta");
       console.log(error);
     });
 

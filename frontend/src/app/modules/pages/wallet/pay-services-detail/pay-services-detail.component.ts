@@ -70,6 +70,7 @@ export class PayServicesDetailComponent implements OnInit {
       console.log(data);
       
     }, error => {
+      alert("Lo sentimos... Tu cuenta no tiene el el dinero suficiente para realizar el pago");
       console.log(error);
     });
   };  
