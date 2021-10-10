@@ -5,14 +5,14 @@
       <div class="navbtns">
         <a [routerLink]="['/wallet']">INICIO</a>
         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    CUENTAS
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
-                    <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
-                    <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
-                </ul>
+          aria-expanded="false">
+          CUENTAS
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a [routerLink]="['/wallet']" class="dropdown-item">CUENTA EN PESOS</a></li>
+          <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA EN DÓLARES</a></li>
+          <li><a [routerLink]="['/not-found']" class="dropdown-item">CUENTA DE CRIPTOMONEDA</a></li>
+        </ul>
         <a [routerLink]="['/transfer']">TRANSFERENCIAS</a>
         <a [routerLink]="['/pay-services']">PAGAR SERVICIOS</a>
         <a [routerLink]="['/home']">SALIR</a>
@@ -45,8 +45,10 @@
           <div class="row justify-content-center botones col-md-2">
             <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
               (click)="Buscar()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
               </svg> Buscar
             </button>
           </div>
@@ -73,8 +75,8 @@
               <tr *ngFor="let item of Items">
                 <td>{{ item.nombreServicio | uppercase }}</td>
                 <td class="text-center text-nowrap">
-                  <button [routerLink]="['/pay-services-detail']" type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    title="Pagar">
+                  <button [routerLink]="['/pay-services-detail']" type="button" class="button" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" title="Pagar">
                     PAGAR
                   </button>
               </tr>
@@ -92,47 +94,47 @@
 
 
 
-  <div class="login container p-3">
-    <div class="row">
-      <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-        <p class="h2">HISTORIAL DE PAGOS</p>
-      </div>
-        <p *ngFor="let hist of Historial | slice:0:4">Pagaste tu factura de {{ hist.nombreFactura }} de  $ {{ hist.monto }}</p>
+<div class="login container p-3">
+  <div class="row">
+    <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+      <p class="h2">HISTORIAL DE PAGOS</p>
+    </div>
+    <p *ngFor="let hist of Historial | slice:0:4">Pagaste tu factura de {{ hist.nombreFactura }} de $ {{ hist.monto }}
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+    <button type="button" class="button center" (click)="touchButtonVerTodo()">
+      VER TODOS MIS PAGOS
+    </button>
+  </div>
+</div>
+
+
+<div class="container-fluid" *ngIf="mostrarTodo">
+  <div class="row">
+    <div class="col-12">
+      <table id='tablaDeServicios' class="table table-hover table-sm table-bordered table-striped">
+        <thead>
+          <tr>
+            <th class="text-center">Factura</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Monto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hist of Historial">
+            <td class="text-center">{{ hist.nroFactura }}</td>
+            <td class="text-center">{{ hist.nombreFactura | uppercase }}</td>
+            <td class="text-center">$ {{ hist.monto }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-
-  <div class="row">
-  <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-  <button type="button" class="button center" (click)="touchButtonVerTodo()">
-    VER TODOS MIS PAGOS
-  </button>
-</div>
-</div>
-
-
-  <div class="container-fluid" *ngIf="mostrarTodo">
-    <div class="row">
-<div class="col-12">
-  <table id='tablaDeServicios' class="table table-hover table-sm table-bordered table-striped">
-    <thead>
-      <tr>
-        <th class="text-center">Factura</th>
-        <th class="text-center">Nombre</th>
-        <th class="text-center">Monto</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let hist of Historial">
-        <td class="text-center">{{ hist.nroFactura }}</td>
-        <td class="text-center">{{ hist.nombreFactura | uppercase }}</td>
-        <td class="text-center">$ {{ hist.monto }}</td>
-      </tr> 
-    </tbody>
-  </table>
-</div>
-</div>
 </div>
 
 
 <p></p>
-

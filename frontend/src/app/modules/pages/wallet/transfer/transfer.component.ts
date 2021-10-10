@@ -14,6 +14,7 @@ export class TransferComponent implements OnInit {
   HistorialTransfer: Transferencia[] = null;
 
   formTransfer: FormGroup;
+  mostrarTodo: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,7 +37,11 @@ export class TransferComponent implements OnInit {
 
     ngOnInit() {
       this.GetHistorialTransfer();
-      }
+    }
+
+    touchButtonVerTodo(){
+      this.mostrarTodo =! this.mostrarTodo;
+    }
 
     
     GetHistorialTransfer() {

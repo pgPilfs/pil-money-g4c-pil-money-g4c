@@ -78,8 +78,40 @@
             <div class="d-inline-flex p-2 bd-highlight justify-content-center">
                 <p class="h2">HISTORIAL DE TRANSFERENCIAS</p>
             </div>
-            <p *ngFor="let transf of HistorialTransfer">Transferiste al CVU nro {{ transf.cvuDestino }} un monto de $ {{
+            <p *ngFor="let transf of HistorialTransfer | slice:0:4">Transferiste al CVU nro {{ transf.cvuDestino }} un monto de $ {{
                 transf.monto }}</p>
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+      <button type="button" class="button center" (click)="touchButtonVerTodo()">
+        VER TODAS MIS TRANSFERENCIAS
+      </button>
+    </div>
+  </div>
+  
+  
+  <div class="container-fluid" *ngIf="mostrarTodo">
+    <div class="row">
+      <div class="col-12">
+        <table id='tablaDeTransferencias' class="table table-hover table-sm table-bordered table-striped">
+          <thead>
+            <tr>
+              <th class="text-center">CVU desde el que enviaste dinero</th>
+              <th class="text-center">CVU del destinatario</th>
+              <th class="text-center">Monto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transf of HistorialTransfer">
+              <td class="text-center">{{ transf.cvuOrigen }}</td>
+              <td class="text-center">{{ transf.cvuDestino }}</td>
+              <td class="text-center">$ {{ transf.monto }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
