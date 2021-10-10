@@ -138,6 +138,40 @@
     <div class="d-inline-flex p-2 bd-highlight justify-content-center">
       <p class="h2">HISTORIAL DE INGRESOS DE DINERO</p>
     </div>
-      <p *ngFor="let ing of IngresosDinero">Ingresaste $ {{ ing.monto }} a tu cuenta</p>
+      <p *ngFor="let ing of IngresosDinero | slice:0:4">Ingresaste $ {{ ing.monto }} a tu cuenta</p>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+    <button type="button" class="button center" (click)="touchButtonVerTodo()">
+      VER TODOS MIS INGRESOS
+    </button>
+  </div>
+</div>
+
+
+<div class="container-fluid" *ngIf="mostrarTodo">
+  <div class="row">
+    <div class="col-12">
+      <table id='tablaDeInversiones' class="table table-hover table-sm table-bordered table-striped">
+        <thead>
+          <tr>
+            <th class="text-center">Monto que ingresaste</th>
+            <th class="text-center">Número de tarjeta</th>
+            <th class="text-center">Nombre del titular de la tarjeta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ing of IngresosDinero">
+            <td class="text-center">$ {{ ing.monto }}</td>
+            <td class="text-center">{{ ing.nroTarjeta }}</td>
+            <td class="text-center">{{ ing.nombreTitular }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

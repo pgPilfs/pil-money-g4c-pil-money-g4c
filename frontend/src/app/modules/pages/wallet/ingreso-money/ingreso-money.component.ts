@@ -19,6 +19,8 @@ export class IngresoMoneyComponent implements OnInit {
   mostrarDatosCuenta: boolean = false;
   mostrarDatosTarjeta: boolean = false;
 
+  mostrarTodo: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private ingresoMoneyService: IngresoMoneyService,
@@ -63,6 +65,10 @@ export class IngresoMoneyComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetHistorialIngresos();
+  }
+
+  touchButtonVerTodo(){
+    this.mostrarTodo =! this.mostrarTodo;
   }
 
   touchButtonTransferencia(){
