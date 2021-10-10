@@ -74,7 +74,37 @@
       <div class="d-inline-flex p-2 bd-highlight justify-content-center">
         <p class="h2">HISTORIAL DE INVERSIONES</p>
       </div>
-        <p *ngFor="let inv of HistorialInversion">Invertiste un monto de $ {{ inv.montoInversion }}</p>
+        <p *ngFor="let inv of HistorialInversion | slice:0:4">Invertiste un monto de $ {{ inv.montoInversion }}</p>
     </div>
 </div>
 
+
+<div class="row">
+    <div class="d-inline-flex p-2 bd-highlight justify-content-center">
+      <button type="button" class="button center" (click)="touchButtonVerTodo()">
+        VER TODAS MIS TRANSFERENCIAS
+      </button>
+    </div>
+  </div>
+  
+  
+  <div class="container-fluid" *ngIf="mostrarTodo">
+    <div class="row">
+      <div class="col-12">
+        <table id='tablaDeInversiones' class="table table-hover table-sm table-bordered table-striped">
+          <thead>
+            <tr>
+              <th class="text-center">Monto de la inversión</th>
+              <th class="text-center">Fecha de finalizacion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let inv of HistorialInversion">
+              <td class="text-center">$ {{ inv.montoInversion }}</td>
+              <td class="text-center">{{ inv.fechaFin }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

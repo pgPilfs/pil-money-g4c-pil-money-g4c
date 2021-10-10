@@ -12,6 +12,7 @@ export class InversionComponent implements OnInit {
 
   HistorialInversion: Inversion[] = null;
   formInversion: FormGroup;
+  mostrarTodo: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,6 +37,10 @@ export class InversionComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetHistorialInv();
+  }
+
+  touchButtonVerTodo(){
+    this.mostrarTodo =! this.mostrarTodo;
   }
 
 
