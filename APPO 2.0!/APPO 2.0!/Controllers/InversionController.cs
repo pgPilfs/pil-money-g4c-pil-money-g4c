@@ -57,7 +57,7 @@ namespace APPO_2._0_.Controllers
         // POST api/<InversionController>
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] InversionViewModel oModelInversion)
-            {
+        {
             try
             {
                 Inversione inv = new Inversione();
