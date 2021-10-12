@@ -36,7 +36,7 @@
         <div class="row justify-content-center">
             <div class="col-6 p-2 m-2">
                 <label class="form-label h4 px-4">Monto</label>
-                <input formControlName = "monto_inversion" type="text" class="form-control" [class.is-invalid]="montoNoValido" ngSubmit>
+                <input formControlName = "monto_inversion" type="text" class="form-control" [class.is-invalid]="montoNoValido" placeholder="Monto a invertir" ngSubmit>
                 <small *ngIf="montoNoValido" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese un monto
                 </small>
@@ -47,7 +47,7 @@
         <div class="row justify-content-center">
             <div class="col-6 p-2 m-2">
                 <label class="form-label h4 px-4">Fecha de renovación</label>
-                <input formControlName = "fecha_fin" type="text" class="form-control"  [class.is-invalid]="fechaNoValido" ngSubmit>
+                <input formControlName = "fecha_fin" type="text" class="form-control"  [class.is-invalid]="fechaNoValido"  placeholder="AAAA-MM-DD" ngSubmit>
                 <small *ngIf="fechaNoValido" style="color: red"
                         class="text-danger d-inline-flex m-2 px-4 bd-highlight justify-content-center">Ingrese una fecha
                 </small>
@@ -72,9 +72,10 @@
 <div class="login container p-3">
     <div class="row">
       <div class="d-inline-flex p-2 bd-highlight justify-content-center">
-        <p class="h2">HISTORIAL DE INVERSIONES</p>
+        <p class="h2">HISTORIAL DE INVERSIONES</p>        
       </div>
-        <p *ngFor="let inv of HistorialInversion | slice:0:4">Invertiste un monto de $ {{ inv.montoInversion }}</p>
+      <span class="d-inline-flex p-2 bd-highlight justify-content-center"><b>Tus últimas inversiones</b></span>
+      <p *ngFor="let inv of HistorialInversion | slice:0:4">Invertiste un monto de $ {{ inv.montoInversion }}</p>
     </div>
 </div>
 
