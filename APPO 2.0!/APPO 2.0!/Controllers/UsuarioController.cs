@@ -32,7 +32,8 @@ namespace APPO_2._0_.Controllers
         {
             try
             {
-                UsuarioViewModel oModel = new UsuarioViewModel();
+                //UsuarioViewModel oModel = new UsuarioViewModel();
+                Usuario user = new Usuario();
 
                 var listUsers = await _context.Usuarios
                                             .Include(u => u.Cuenta).Where(u => u.Nombre == "Lautaro").
